@@ -1,6 +1,6 @@
 package dto;
 
-public class Letter {
+public class dtoLetter {
 	//필드
 	private int l_number; //쪽지번호
 	private int m_number; //회원번호(보내는)
@@ -9,11 +9,11 @@ public class Letter {
 	private String l_date; //날짜
 	private int c_number; //매물번호
 	//생성자
-	public Letter() {
+	public dtoLetter() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Letter(int l_number, int m_number, String m_id, String l_content, String l_date, int c_number) {
+	public dtoLetter(int l_number, int m_number, String m_id, String l_content, String l_date, int c_number) {
 		super();
 		this.l_number = l_number;
 		this.m_number = m_number;

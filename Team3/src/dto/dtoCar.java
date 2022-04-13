@@ -1,6 +1,6 @@
 package dto;
 
-public class Car {
+public class dtoCar {
 	//필드
 	private int c_number; //매물번호
 	private String c_title; //제목
@@ -17,10 +17,10 @@ public class Car {
 	private int c_mission; //변속기
 	private String c_com; //제조사
 	//생성자
-	public Car() {
+	public dtoCar() {
 		// TODO Auto-generated constructor stub
 	}
-	public Car(int c_number, String c_title, String c_content, String c_date, String c_img, int c_category, int c_price,
+	public dtoCar(int c_number, String c_title, String c_content, String c_date, String c_img, int c_category, int c_price,
 			String c_cnumver, int c_view, int c_condition, int c_km, int c_fuel, int c_mission, String c_com) {
 		super();
 		this.c_number = c_number;

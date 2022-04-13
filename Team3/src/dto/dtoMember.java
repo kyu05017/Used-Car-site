@@ -1,6 +1,6 @@
 package dto;
 
-public class Member {
+public class dtoMember {
 
 	//필드
 	private int m_number; //회원번호
@@ -14,11 +14,11 @@ public class Member {
 	private String m_today;//로그인날짜
 	private int m_gr; /*회원등급*/
 	//생성자
-	public Member() {
+	public dtoMember() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Member(int m_number, String m_id, String m_pw, String m_name, String m_email, String m_date, String m_phone,
+	public dtoMember(int m_number, String m_id, String m_pw, String m_name, String m_email, String m_date, String m_phone,
 			String m_address, String m_today, int m_gr) {
 		super();
 		this.m_number = m_number;

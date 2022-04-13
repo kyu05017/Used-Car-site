@@ -1,6 +1,6 @@
 package dto;
 
-public class Reply {
+public class dtoReply {
 	//필드
 	private int r_number; //댓글번호
 	private int m_number; //회원번호
@@ -8,11 +8,11 @@ public class Reply {
 	private String r_content; //내용
 	private String r_date; //날짜
 	//생성자
-	public Reply() {
+	public dtoReply() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reply(int r_number, int m_number, int b_number, String r_content, String r_date) {
+	public dtoReply(int r_number, int m_number, int b_number, String r_content, String r_date) {
 		super();
 		this.r_number = r_number;
 		this.m_number = m_number;

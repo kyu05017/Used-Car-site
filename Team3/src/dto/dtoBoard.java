@@ -1,6 +1,6 @@
 package dto;
 
-public class Board {
+public class dtoBoard {
 	
 	//필드
 	private int b_number; //게시물번호
@@ -11,11 +11,11 @@ public class Board {
 	private int b_gr; //글등급
 	private int b_view;  //조회수
 	//생성자
-	public Board() {
+	public dtoBoard() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Board(int b_number, String b_title, String b_content, String b_date, int m_number, int b_gr, int b_view) {
+	public dtoBoard(int b_number, String b_title, String b_content, String b_date, int m_number, int b_gr, int b_view) {
 		super();
 		this.b_number = b_number;
 		this.b_title = b_title;
