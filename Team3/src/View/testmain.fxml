@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="261.0" prefWidth="1280.0" style="-fx-background-color: 7fffd4;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="66.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@car%20logo.png" />
+               </image>
+            </ImageView>
+            <TextField layoutX="363.0" layoutY="58.0" prefHeight="49.0" prefWidth="521.0" promptText="검색">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </TextField>
+            <ImageView fitHeight="58.0" fitWidth="58.0" layoutX="895.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@search.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="987.0" layoutY="14.0" text="로그인">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="1052.0" layoutY="14.0" text="회원가입">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="1128.0" layoutY="14.0" text="고객센터">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="349.0" layoutY="182.0" prefHeight="32.0" prefWidth="98.0" text="인기 매물">
+               <font>
+                  <Font name="HCR Dotum" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="1178.0" layoutX="101.0" layoutY="151.0" startX="-100.0" />
+            <Label layoutX="124.0" layoutY="182.0" prefHeight="32.0" prefWidth="98.0" text="판매 후기">
+               <font>
+                  <Font name="HCR Dotum" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="1095.0" layoutY="182.0" prefHeight="32.0" prefWidth="98.0" text="메뉴">
+               <font>
+                  <Font name="HCR Dotum" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="612.0" layoutY="182.0" prefHeight="32.0" prefWidth="98.0" text="신규 매물">
+               <font>
+                  <Font name="HCR Dotum" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="868.0" layoutY="182.0" prefHeight="32.0" prefWidth="98.0" text="자유게시판">
+               <font>
+                  <Font name="HCR Dotum" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="1178.0" layoutX="101.0" layoutY="247.0" startX="-100.0" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <ImageView fitHeight="451.0" fitWidth="966.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@car.PNG" />
+         </image>
+      </ImageView>
+   </center>
+</BorderPane>
