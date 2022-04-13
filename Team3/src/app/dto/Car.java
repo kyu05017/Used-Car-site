@@ -16,6 +16,8 @@ public class Car {
 	int c_fuel;
 	int c_mission;
 	String c_com;
+	String c_year;
+	int m_number;
 	
 	public Car() {
 		super();
