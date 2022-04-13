@@ -16,12 +16,16 @@ public class DTO_Car {
 	private int c_fuel;
 	private int c_mission;
 	private String c_com;
+	private String c_year;
+	private int m_number;
 	
 	public DTO_Car() {}
+	
+	
 
 	public DTO_Car(int c_number, String c_title, String c_content, String c_date, String c_img, int c_category,
 			int c_price, String c_cnumber, int c_view, int c_condition, int c_km, int c_fuel, int c_mission,
-			String c_com) {
+			String c_com, String c_year, int m_number) {
 		this.c_number = c_number;
 		this.c_title = c_title;
 		this.c_content = c_content;
@@ -36,6 +40,24 @@ public class DTO_Car {
 		this.c_fuel = c_fuel;
 		this.c_mission = c_mission;
 		this.c_com = c_com;
+		this.c_year = c_year;
+		this.m_number = m_number;
+	}
+	
+	public String getC_year() {
+		return c_year;
+	}
+
+	public void setC_year(String c_year) {
+		this.c_year = c_year;
+	}
+
+	public int getM_number() {
+		return m_number;
+	}
+
+	public void setM_number(int m_number) {
+		this.m_number = m_number;
 	}
 
 	public int getC_number() {
