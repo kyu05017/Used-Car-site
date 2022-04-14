@@ -10,7 +10,6 @@ public class Dao {
 	protected Connection con;
 	protected PreparedStatement ps;
 	protected ResultSet rs;
-
 	
 	public Dao() {
 		try {
@@ -22,8 +21,5 @@ public class Dao {
 			System.out.println("Main Dao DB 연결 실패 "+ e);
 		}
 	}	
-	
-	
-	
 }
 
