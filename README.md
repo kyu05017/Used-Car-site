@@ -6,7 +6,13 @@
 개요 : 중고차를 등록하고 볼 수 있다.<br/>
 목적 : 중고차목록을 한눈에 볼 수 있어 사용자들에게 편의를 제공한다.<br/>
 
-#테이블 - member<br/>
+#3.개발 일정[일 단위(+시간단위)]
+
+#4.역할
+
+#5.개발 우선순위
+
+#6.테이블 - member<br/>
 m_number　　int (pk)　　　　　　　　　　#회원번호<br/>
 m_id　　　　varchar(20),　　　　　　　#id<br/>
 m_pw　　　　varchar(20) not null,　　#비밀번호<br/>
@@ -18,7 +24,7 @@ m_address　　varchar(100),　　　　　　#주소<br/>
 m_today　　　varchar(20),　　　　 　　#로그인날짜<br/>
 m_gr　　　　　int　　　　　　　　　　　#회원등급<br/>
 
-#테이블 - board<br/>
+#6.테이블 - board<br/>
 b_number　　　int (pk),　　　　　　　　　　　#게시물번호<br/>
 b_title　　　　varchar(50),　　　　　　　　#제목<br/>
 b_content　　　varchar(1000),　　　　　　　#내용<br/>
@@ -27,14 +33,14 @@ m_number　　　int (fk) not null,　　　　　　#회원번호<br/>
 b_gr　　　　　int,　　　　　　　　　　　　#글등급<br/>
 b_view　　　　int　　　　　　　　　　　　#조회수<br/>
 
-#테이블 - reply<br/>
+#6.테이블 - reply<br/>
 r_number　　　int (pk),　　　　　　　　　　　#댓글번호<br/>
 m_number　　　int (fk) not null,　　　　　　#회원번호<br/>
 b_number　　　int (fk) not null,　　　　　　#게시글번호<br/>
 r_content　　　varchar(500),　　　　　　　#내용<br/>
 r_date　　　　datetime default now()　　　#날짜<br/>
 
-#테이블 - letter<br/>
+#6.테이블 - letter<br/>
 l_number　　　int (pk),　　　　　　　　　　　#쪽지번호<br/>
 m_number　　　int (fk) not null,　　　　　　#회원번호(보내는)<br/>
 m_id　　　　　varchar(20) not null,　　　　#회원(딜러)아이디(받는)<br/>
@@ -42,7 +48,7 @@ l_content　　varchar(1000),　　　　　　　#내용<br/>
 l_date　　　　datetime default now(),　　#날짜<br/>
 c_number　　　int　(fk) not null　　　　　　#매물번호<br/>
 
-#테이블 - car<br/>
+#6.테이블 - car<br/>
 c_number　　　　int (pk),　　　　　　　　　　　　#매물번호<br/>
 c_title　　　　　varchar(20),　　　　　　　　　#제목<br/>
 c_content　　　　varchar(1000),　　　　　　　　#내용<br/>
@@ -59,3 +65,7 @@ c_mission　　　　　int,　　　　　　　　　　　　#변속기<br/>
 c_com　　　　　　　varchar(20),　　　　　　　　#제조사<br/>
 c_year　　　　　　varchar(10) int,　　　　　　#연도<br/>
 m_number　　　　　int not null,　　　　　　　　#회원번호<br/>
+
+#7.컨트롤 구조도
+
+#8.뷰[fxml] 프로토타입
