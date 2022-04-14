@@ -5,12 +5,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="control.login.Find_pw" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="txtid" layoutX="487.0" layoutY="190.0" prefHeight="61.0" prefWidth="306.0" promptText="아이디" />
       <TextField fx:id="txtemail" layoutX="487.0" layoutY="265.0" prefHeight="61.0" prefWidth="306.0" promptText="이메일" />
       <Button fx:id="btnfindpw" layoutX="487.0" layoutY="337.0" mnemonicParsing="false" onAction="#findpw" prefHeight="46.0" prefWidth="306.0" text="비밀번호 찾기" />
       <Label fx:id="lblalarm" layoutX="616.0" layoutY="162.0" text="알람구역" />
-      <Button fx:id="btnback" layoutX="728.0" layoutY="139.0" mnemonicParsing="false" onAction="#back" prefHeight="23.0" prefWidth="65.0" text="뒤로가기" />
+      <Button fx:id="btnback" layoutX="728.0" layoutY="139.0" mnemonicParsing="false" onAction="#back" prefHeight="29.0" prefWidth="80.0" text="뒤로가기" />
    </children>
 </AnchorPane>
