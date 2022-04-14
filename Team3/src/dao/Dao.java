@@ -10,15 +10,16 @@ public class Dao {
 	protected Connection con;
 	protected PreparedStatement ps;
 	protected ResultSet rs;
+
 	
 	public Dao() {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");// 1. DB 드라이버 가져오기
-			con = DriverManager.getConnection("jdbc:mysql://주소","admin","비밀번호"); // 2. DB 주소 연결
-			System.out.println("보드 DB연동 성공");
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection("jdbc:mysql://주소","admin","비밀번호");
+			System.out.println("Main Dao DB 연결 완료");
 		} 
 		catch (Exception e) {
-			System.out.println("[SQL 모드 연동 실패 ] "+ e);
+			System.out.println("Main Dao DB 연결 실패 "+ e);
 		}
 	}	
 	
