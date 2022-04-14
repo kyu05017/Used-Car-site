@@ -132,6 +132,7 @@ public class Registration implements Initializable{
     		alert2.setHeaderText("비밀번호를 입력하세요");
     		alert2.setContentText("확인");
     		alert2.showAndWait();
+    		txtpw.requestFocus();
     		return;
 		}
 		if(!passMatcher1.find()){
