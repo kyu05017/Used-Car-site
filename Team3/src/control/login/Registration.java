@@ -287,9 +287,9 @@ public class Registration implements Initializable{
     		return;
     	}
 		
-//		String today = sdf.format(new Date());
+		String since = sdf.format(new Date());
 		
-		DTO_Member member = new DTO_Member(0, id, pw, name, email, null, phone, address, "yyyy-MM-dd", 0);
+		DTO_Member member = new DTO_Member(0, id, pw, name, email,since, phone, address, "yyyy-MM-dd", 0);
 		boolean result =  DAO_Member.mdao.registration(member);
 		if(result) {
 			alert2.setTitle("회원가입");
