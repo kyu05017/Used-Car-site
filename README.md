@@ -12,16 +12,16 @@ m_date 　　datetime default now(), #가입날짜<br/>
 m_phone 　varchar(20),　　　　　　　#전화번호<br/>
 m_address varchar(100),　　　　　　#주소<br/>
 m_today 　varchar(20),　　　　 　　#로그인날짜<br/>
-m_gr 　　　int　　　　　　　　　　　 #회원등급<br/>
+m_gr 　　　int　　　　　　　　　　　#회원등급<br/>
 
 #테이블 - board<br/>
-b_number int pk,　　　　　　　　　#게시물번호<br/>
-b_title varchar(50),　　　　　　　#제목<br/>
-b_content varchar(1000),　　　　　#내용<br/>
-b_date datetime default now(),　　#날짜<br/>
-m_number int fk not null,　　　　#회원번호<br/>
-b_gr int,　　　　　　　　　　　　#글등급<br/>
-b_view int　　　　　　　　　　　　#조회수<br/>
+b_number 　int pk,　　　　　　　　　#게시물번호<br/>
+b_title　 varchar(50),　　　　　　　#제목<br/>
+b_content 　varchar(1000),　　　　　#내용<br/>
+b_date 　　datetime default now(),　　#날짜<br/>
+m_number 　int fk not null,　　　　#회원번호<br/>
+b_gr　　　 int,　　　　　　　　　　　　#글등급<br/>
+b_view 　　int　　　　　　　　　　　　#조회수<br/>
 
 #테이블 - reply<br/>
 r_number int pk,　　　　　　　　#댓글번호<br/>
