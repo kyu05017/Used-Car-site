@@ -13,17 +13,16 @@ import javafx.scene.layout.BorderPane;
 public class Main implements Initializable{
 	
 	public static Main main;
+	public Main(){main = this;}
 	
 	@FXML
     private BorderPane boarderPane;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
 		loadpage("/view/home");
 	}
 	public void loadpage( String page ) {
-		
 		try {
 			Parent parent = FXMLLoader.load( getClass().getResource(page+".fxml"));
 			boarderPane.setCenter(parent);
