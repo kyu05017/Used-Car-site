@@ -29,3 +29,27 @@ m_number int,　　　　　　　　　　#회원번호<br/>
 b_number int,　　　　　　　　　　#게시글번호<br/>
 r_content varchar(500),　　　　　#내용<br/>
 r_date datetime default now()　　#날짜<br/>
+
+#테이블 - letter<br/>
+l_number int pk,　　　　　　　　　#쪽지번호<br/>
+m_number int,　　　　　　　　　　　#회원번호(보내는)<br/>
+m_id varchar(20),　　　　　　　　#회원아이디(받는)<br/>
+l_content varchar(1000),　　　　#내용<br/>
+l_date datetime default now(),　#날짜<br/>
+c_number int　　　　　　　　　　　#매물번호<br/>
+
+#테이블 - car<br/>
+c_number int pk,　　　　　　　　#매물번호<br/>
+c_title varchar(20),　　　　　　#제목<br/>
+c_content varchar(1000),　　　　#내용<br/>
+c_date datetime default now(),　#날짜<br/>
+c_img varchar(1000),　　　　　　#이미지경로<br/>
+c_category int not null,　　　　#카테고리<br/>
+c_price int,　　　　　　　　　　　#가격<br/>
+c_cnumver varchar(10),　　　　　#차량번호<br/>
+c_view int,　　　　　　　　　　　#조회수<br/>
+c_condition int,　　　　　　　　# 사고유무 <br/>
+c_km int,　　　　　　　　　　　　#주행거리<br/>
+c_fuel int,　　　　　　　　　　　#연료타입<br/>
+c_mission int,　　　　　　　　　　#변속기<br/>
+c_com varchar(20)　　　　　　　　#제조사<br/>
