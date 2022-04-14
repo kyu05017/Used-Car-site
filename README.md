@@ -3,7 +3,7 @@
 #주제 중고차매물사이트
 
 #테이블 - Member
-m_number int pk #회원번호
+*m_number int pk #회원번호
 m_id varchar(20), #id
 m_pw varchar(20) not null, # 비밀번호
 m_name varchar(10), #이름
