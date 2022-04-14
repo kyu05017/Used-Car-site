@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 
 import control.Main;
 import dao.DAO_Member;
+import dto.DTO_Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -23,7 +24,6 @@ import javafx.scene.control.Alert.AlertType;
 public class Registration implements Initializable{
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-	String since = sdf.format(new Date());
 	
 	@FXML
     private TextField txtid;
@@ -287,6 +287,17 @@ public class Registration implements Initializable{
     		return;
     	}
 		
+//		String today = sdf.format(new Date());
+		
+		DTO_Member member = new DTO_Member(0, id, pw, name, email, null, phone, address, "yyyy-MM-dd", 0);
+		boolean result =  DAO_Member.mdao.registration(member);
+		if(result) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("회원가입이 완료 되었습니다.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		Main.main.loadpage("/view/login/login");
+		}
     }
 	
 	@Override

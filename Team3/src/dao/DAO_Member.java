@@ -10,11 +10,13 @@ public class DAO_Member extends Dao{
 	
 	public DAO_Member() {}
 	
+	Dao dao = new Dao();
+	
 	public static DAO_Member mdao = new DAO_Member();
 	// 회원가입
 	public boolean registration (DTO_Member member) {
 		try {
-			String sql = "insert into member(m_id,m_pw,m_name,m_email,m_date,m_phone,m_address,m_today,m_gr) values(?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into TEAM3.member(m_id,m_pw,m_name,m_email,m_date,m_phone,m_address,m_today,m_gr) values(?,?,?,?,?,?,?,?,?)";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, member.getM_id());
 			ps.setString(2, member.getM_pw());
@@ -35,7 +37,7 @@ public class DAO_Member extends Dao{
 	// 아이디 중복체크
 	public boolean id_duplicat(String id) {
 		try {
-			String sql = "select * from member where m_id=?";
+			String sql = "select * from TEAM3.member where m_id=?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			rs = ps.executeQuery();
