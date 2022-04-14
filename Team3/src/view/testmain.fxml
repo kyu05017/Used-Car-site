@@ -19,7 +19,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb330" height="66.0" layoutX="-1.0" layoutY="151.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="66.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@car%20logo.png" />
+                  <Image url="@../img/carlogo.png" />
                </image>
             </ImageView>
             <TextField layoutX="413.0" layoutY="59.0" prefHeight="49.0" prefWidth="455.0" promptText="검색">
@@ -29,7 +29,7 @@
             </TextField>
             <ImageView fitHeight="58.0" fitWidth="58.0" layoutX="895.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@search.png" />
+                  <Image url="@../img/searchicon.png" />
                </image>
             </ImageView>
             <Label layoutX="1024.0" layoutY="9.0" text="로그인">
@@ -91,7 +91,7 @@
             </Rectangle>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="157.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@car%20logo.png" />
+                  <Image url="@../img/carlogo.png" />
                </image>
             </ImageView>
             <Label layoutX="478.0" layoutY="83.0" prefHeight="20.0" prefWidth="343.0" text="뭔가 자동차에 대한 내용들.... 하단에 자세히 보기">
@@ -121,7 +121,7 @@
             </Rectangle>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="156.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@car%20logo.png" />
+                  <Image url="@../img/carlogo.png" />
                </image>
             </ImageView>
             <Label layoutX="477.0" layoutY="240.0" prefHeight="20.0" prefWidth="343.0" text="뭔가 자동차에 대한 내용들.... 하단에 자세히 보기">
@@ -151,7 +151,7 @@
             </Rectangle>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="157.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@car%20logo.png" />
+                  <Image url="@../img/carlogo.png" />
                </image>
             </ImageView>
             <Label layoutX="478.0" layoutY="399.0" prefHeight="20.0" prefWidth="343.0" text="뭔가 자동차에 대한 내용들.... 하단에 자세히 보기">
