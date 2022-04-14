@@ -82,12 +82,13 @@ public class Registration implements Initializable{
     		alert2.setHeaderText(" 중복된 아이디 입니다.");
     		alert2.setContentText("확인");
     		alert2.showAndWait();
+    		txtid.requestFocus();
     		id_check = false;
     		return;
     	}
     	else {
     		Alert alert = new Alert(AlertType.CONFIRMATION); // 확인,취소 버튼 타입
-    		alert.setHeaderText(txtid+" 를 사용하시겠습니다?");
+    		alert.setHeaderText(id+" 를 사용하시겠습니다?");
     		// 2. 버튼 확인 [ Optional 클래스 ]
     		Optional<ButtonType> optional = alert.showAndWait();
     		if(optional.get() == ButtonType.OK) { 
@@ -105,6 +106,7 @@ public class Registration implements Initializable{
     }
     @FXML
     void signup(ActionEvent event) {
+    	
     	Alert alert2 = new Alert(AlertType.INFORMATION);
     	
     	System.out.println("회원가입");
@@ -114,19 +116,22 @@ public class Registration implements Initializable{
     	String name = txtname.getText();
     	String email = txtemail.getText();
     	String phone = txtphone.getText();
+    	String address = txtaddress.getText();
     	
     	Pattern passPattern1 = Pattern.compile("^(?=.*[a-zA-Z])(?=.*\\d)(?=.*\\W).{8,20}$");
 		Matcher passMatcher1 = passPattern1.matcher(pw);
 		Pattern passPattern2 = Pattern.compile("(\\w)\\1\\1\\1");
 		Matcher passMatcher2 = passPattern2.matcher(pw);
 		
-//		if(txtid.equals("") || txtpw.equals("") || txtpwconfirm.equals("") || txtname.equals("") || txtemail.equals("") || txtphone.equals("")) {
-//			alert2.setTitle("회원가입");
-//    		alert2.setHeaderText("회원가입이 모두 작성되지 않았습니다.");
-//    		alert2.setContentText("확인");
-//    		alert2.showAndWait();
-//			return;
-//		}
+		if(id_check == false) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("아이디 중복체크를 하세요.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txtid.requestFocus();
+    		return;
+		}
+		
 		if (pw.equals("")) {
 			alert2.setTitle("회원가입");
     		alert2.setHeaderText("비밀번호를 입력하세요");
@@ -140,6 +145,7 @@ public class Registration implements Initializable{
     		alert2.setHeaderText("비밀번호는 영문과 특수문자 숫자를 포함하며 8자 이상이어야 합니다.");
     		alert2.setContentText("확인");
     		alert2.showAndWait();
+    		txtpw.requestFocus();
 			return;
 		}
 		if(passMatcher2.find()){
@@ -147,6 +153,7 @@ public class Registration implements Initializable{
     		alert2.setHeaderText("비밀번호에 동일한 문자를 과도하게 연속해서 사용할 수 없습니다.");
     		alert2.setContentText("확인");
     		alert2.showAndWait();
+    		txtpw.requestFocus();
 			return;
 		}
 		if(pw.contains(id)){
@@ -154,6 +161,7 @@ public class Registration implements Initializable{
     		alert2.setHeaderText("비밀번호에 아이디가 포함되어있습니다.");
     		alert2.setContentText("확인");
     		alert2.showAndWait();
+    		txtpw.requestFocus();
 		    return;
 		}
 		if(pw.contains(" ")){
@@ -161,10 +169,124 @@ public class Registration implements Initializable{
     		alert2.setHeaderText("비밀번호에 공란이 포함되어있습니다.");
     		alert2.setContentText("확인");
     		alert2.showAndWait();
+    		txtpw.requestFocus();
 		    return;
 		}
+		
+		if(pwcheck.equals("")) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("비밀번호를 재입력해주세요.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txtpwconfirm.requestFocus();
+		}
+		if(!pw.equals(pwcheck)) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("비밀번호가 다릅니다.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txtpw.requestFocus();
+		    return;
+		}
+		
+		String regExp_symbol = "(.*[!,@,#,^,&,*,(,)])|([!,@,#,^,&,*,(,)].*)";
+		Pattern pattern_symbol = Pattern.compile(regExp_symbol);
+		Matcher matcher_symbol = pattern_symbol.matcher(name);
+		
+		if(name.equals("")) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("이름을 입력해주세요.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txtname.requestFocus();
+    		return;
+		}
+		if(matcher_symbol.find()){
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("이름에 특수문자를 포함할수 없습니다.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txtname.requestFocus();
+    		return;
+		}
+		if(name.contains(" ")){
+		    alert2.setTitle("회원가입");
+    		alert2.setHeaderText("이름에 공란이 포함되어있습니다.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txtname.requestFocus();
+    		return;
+		}
+		
+		Pattern pattern = Pattern.compile("\\d{3}-\\d{4}-\\d{4}");
+		Matcher matcher = pattern.matcher(phone);
+		
+		if(phone.contains("-")) {
+			if(phone.length() == 13) {}
+			else {
+				alert2.setTitle("회원가입");
+	    		alert2.setHeaderText("올바르지 않은 전화번호 형식입니다.");
+	    		alert2.setContentText("확인");
+	    		alert2.showAndWait();
+	    		txtphone.requestFocus();
+	    		return;
+			}
+		}
+		else {
+			if(phone.length() == 11) {}
+			else {
+				alert2.setTitle("회원가입");
+	    		alert2.setHeaderText("올바르지 않은 전화번호 형식입니다.");
+	    		alert2.setContentText("확인");
+	    		alert2.showAndWait();
+	    		txtphone.requestFocus();
+	    		return;
+			}
+		}
+		if (matcher.matches()) {
+	    } 
+	    else if(!matcher.matches() &&  phone.length() == 11){
+	    	String str1 = phone.substring(0, 3);
+            String str2 = phone.substring(3, 7);
+            String str3 = phone.substring(7, 11);
+            phone = str1+"-"+str2+"-"+str3;
+            txtphone.setText(phone);
+	    }
     	
-    	
+		if(email.equals("")) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("이메일을 입력해주세요.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txtemail.requestFocus();
+    		return;
+		}
+		if(email.indexOf("@") == -1) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("올바르지 않는 이메일 형식입니다.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txtemail.requestFocus();
+    		return;
+    	}
+		
+		if(address.equals("")) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("주소를 입력해주세요.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txtaddress.requestFocus();
+    		return;
+		}
+		if(!address.contains("시") && ( address.contains("동") || address.contains("로"))) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("시와 동을 입력해주세요 ( 도로명은 \'로\'를 포함시켜주세요");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txtaddress.requestFocus();
+    		return;
+    	}
+		
     }
 	
 	@Override
