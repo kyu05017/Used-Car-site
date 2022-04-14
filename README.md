@@ -33,7 +33,7 @@ r_date　　　　datetime default now()　　　#날짜<br/>
 #테이블 - letter<br/>
 l_number　　　int pk,　　　　　　　　　　　#쪽지번호<br/>
 m_number　　　int fk not null,　　　　　　#회원번호(보내는)<br/>
-m_id　　　　　varchar(20) not null,　　　　#회원아이디(받는)<br/>
+m_id　　　　　varchar(20) not null,　　　　#회원(딜러)아이디(받는)<br/>
 l_content　　varchar(1000),　　　　　　　#내용<br/>
 l_date　　　　datetime default now(),　　#날짜<br/>
 c_number　　　int　fk not null　　　　　　#매물번호<br/>
