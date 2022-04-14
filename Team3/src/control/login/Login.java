@@ -69,7 +69,7 @@ public class Login implements Initializable{
 
     @FXML
     void signup(MouseEvent event) {
-
+    	Main.main.loadpage("/view/login/registration");
     }
     
 	@Override

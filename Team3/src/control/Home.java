@@ -12,6 +12,13 @@ import javafx.scene.layout.BorderPane;
 public class Home implements Initializable{
 	
 	@FXML
+    private Label lbl_reg;
+
+    @FXML
+    void reg(MouseEvent event) {
+    	Main.main.loadpage("/view/login/registration");
+    }
+	@FXML
     private Label lbl_login;
 
     @FXML
