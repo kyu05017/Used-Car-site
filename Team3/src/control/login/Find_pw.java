@@ -3,6 +3,7 @@ package control.login;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import control.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -29,7 +30,7 @@ public class Find_pw implements Initializable{
 
     @FXML
     void back(ActionEvent event) {
-
+    	Main.main.loadpage("/view/login/login");
     }
 
     @FXML
