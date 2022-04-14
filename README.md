@@ -15,28 +15,28 @@ m_today　　　varchar(20),　　　　 　　#로그인날짜<br/>
 m_gr　　　　　int　　　　　　　　　　　#회원등급<br/>
 
 #테이블 - board<br/>
-b_number　　　int pk,　　　　　　　　　#게시물번호<br/>
-b_title　　　　varchar(50),　　　　　　　#제목<br/>
-b_content　　　varchar(1000),　　　　　#내용<br/>
-b_date　　　　datetime default now(),　　#날짜<br/>
-m_number　　　int fk not null,　　　　#회원번호<br/>
+b_number　　　int pk,　　　　　　　　　　　#게시물번호<br/>
+b_title　　　　varchar(50),　　　　　　　　#제목<br/>
+b_content　　　varchar(1000),　　　　　　　#내용<br/>
+b_date　　　　datetime default now(),　　　#날짜<br/>
+m_number　　　int fk not null,　　　　　　#회원번호<br/>
 b_gr　　　　　int,　　　　　　　　　　　　#글등급<br/>
 b_view　　　　int　　　　　　　　　　　　#조회수<br/>
 
 #테이블 - reply<br/>
-r_number　　　int pk,　　　　　　　　#댓글번호<br/>
-m_number　　　int fk not null,　　　#회원번호<br/>
-b_number　　　int fk not null,　　　　#게시글번호<br/>
-r_content　　　varchar(500),　　　　　#내용<br/>
-r_date　　　　datetime default now()　　#날짜<br/>
+r_number　　　int pk,　　　　　　　　　　　#댓글번호<br/>
+m_number　　　int fk not null,　　　　　　#회원번호<br/>
+b_number　　　int fk not null,　　　　　　#게시글번호<br/>
+r_content　　　varchar(500),　　　　　　　#내용<br/>
+r_date　　　　datetime default now()　　　#날짜<br/>
 
 #테이블 - letter<br/>
-l_number　　　int pk,　　　　　　　　　#쪽지번호<br/>
-m_number　　　int fk not null,　　　　#회원번호(보내는)<br/>
-m_id　　　　　varchar(20) not null,　　　#회원아이디(받는)<br/>
-l_content　　varchar(1000),　　　　#내용<br/>
-l_date　　　　datetime default now(),　#날짜<br/>
-c_number　　　int　fk not null　　　　#매물번호<br/>
+l_number　　　int pk,　　　　　　　　　　　#쪽지번호<br/>
+m_number　　　int fk not null,　　　　　　#회원번호(보내는)<br/>
+m_id　　　　　varchar(20) not null,　　　　#회원아이디(받는)<br/>
+l_content　　varchar(1000),　　　　　　　#내용<br/>
+l_date　　　　datetime default now(),　　#날짜<br/>
+c_number　　　int　fk not null　　　　　　#매물번호<br/>
 
 #테이블 - car<br/>
 c_number　　　　int pk,　　　　　　　　　　　　#매물번호<br/>
