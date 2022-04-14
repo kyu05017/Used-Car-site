@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="control.login.Login" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <TextField fx:id="txtid" layoutX="150.0" layoutY="229.0" onAction="#accid" prefHeight="50.0" prefWidth="300.0" promptText="아이디" />
       <TextField fx:id="txtpw" layoutX="150.0" layoutY="287.0" onAction="#accpw" prefHeight="50.0" prefWidth="300.0" promptText="비밀번호" />
