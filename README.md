@@ -22,3 +22,10 @@ b_date datetime default now(),　　#날짜<br/>
 m_number int,　　　　　　　　　　#회원번호<br/>
 b_gr int,　　　　　　　　　　　　#글등급<br/>
 b_view int　　　　　　　　　　　　#조회수<br/>
+
+#테이블 - reply<br/>
+r_number int pk,　　　　　　　　#댓글번호<br/>
+m_number int,　　　　　　　　　　#회원번호<br/>
+b_number int,　　　　　　　　　　#게시글번호<br/>
+r_content varchar(500),　　　　　#내용<br/>
+r_date datetime default now()　　#날짜<br/>
