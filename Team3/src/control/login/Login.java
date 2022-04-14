@@ -42,18 +42,9 @@ public class Login implements Initializable{
     void back(ActionEvent event) {
     	Main.main.loadpage("/view/home");
     }
-    @FXML
-    void accid(ActionEvent event) {
-
-    }
 
     @FXML
     void acclogin(ActionEvent event) {
-
-    }
-
-    @FXML
-    void accpw(ActionEvent event) {
 
     }
 
