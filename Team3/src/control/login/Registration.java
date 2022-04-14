@@ -5,6 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import control.Main;
 import dao.DAO_Member;
 import javafx.event.ActionEvent;
@@ -64,10 +67,17 @@ public class Registration implements Initializable{
     
     @FXML
     void id_check(ActionEvent event) {
+    	Alert alert2 = new Alert(AlertType.INFORMATION);
     	String id = txtid.getText();
+    	if(txtid.getText().equals("")) {
+    		alert2.setTitle("회원가입");
+    		alert2.setHeaderText(" 아이디를 입력해 주세요.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		return;
+    	}
     	Boolean result1 = DAO_Member.mdao.id_duplicat(id);
     	if(result1) {
-    		Alert alert2 = new Alert(AlertType.INFORMATION);
     		alert2.setTitle("아이디 중복 체크");
     		alert2.setHeaderText(" 중복된 아이디 입니다.");
     		alert2.setContentText("확인");
@@ -83,17 +93,20 @@ public class Registration implements Initializable{
     		if(optional.get() == ButtonType.OK) { 
     			txtid.setText(id);
     			id_check = true;
+    			txtid.setDisable(true);
     		}
     		else {
     			txtid.setText("");
     			id_check = false;
+    			txtid.setDisable(false);
     			return;
     		}
     	}
-    	
     }
     @FXML
     void signup(ActionEvent event) {
+    	Alert alert2 = new Alert(AlertType.INFORMATION);
+    	
     	System.out.println("회원가입");
     	String id = txtid.getText();
     	String pw = txtpw.getText();
@@ -102,6 +115,53 @@ public class Registration implements Initializable{
     	String email = txtemail.getText();
     	String phone = txtphone.getText();
     	
+    	Pattern passPattern1 = Pattern.compile("^(?=.*[a-zA-Z])(?=.*\\d)(?=.*\\W).{8,20}$");
+		Matcher passMatcher1 = passPattern1.matcher(pw);
+		Pattern passPattern2 = Pattern.compile("(\\w)\\1\\1\\1");
+		Matcher passMatcher2 = passPattern2.matcher(pw);
+		
+//		if(txtid.equals("") || txtpw.equals("") || txtpwconfirm.equals("") || txtname.equals("") || txtemail.equals("") || txtphone.equals("")) {
+//			alert2.setTitle("회원가입");
+//    		alert2.setHeaderText("회원가입이 모두 작성되지 않았습니다.");
+//    		alert2.setContentText("확인");
+//    		alert2.showAndWait();
+//			return;
+//		}
+		if (pw.equals("")) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("비밀번호를 입력하세요");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		return;
+		}
+		if(!passMatcher1.find()){
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("비밀번호는 영문과 특수문자 숫자를 포함하며 8자 이상이어야 합니다.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+			return;
+		}
+		if(passMatcher2.find()){
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("비밀번호에 동일한 문자를 과도하게 연속해서 사용할 수 없습니다.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+			return;
+		}
+		if(pw.contains(id)){
+		    alert2.setTitle("회원가입");
+    		alert2.setHeaderText("비밀번호에 아이디가 포함되어있습니다.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+		    return;
+		}
+		if(pw.contains(" ")){
+		    alert2.setTitle("회원가입");
+    		alert2.setHeaderText("비밀번호에 공란이 포함되어있습니다.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+		    return;
+		}
     	
     	
     }
