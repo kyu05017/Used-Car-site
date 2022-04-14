@@ -22,5 +22,6 @@
       </Label>
       <Button fx:id="btnsignup" layoutX="475.0" layoutY="577.0" mnemonicParsing="false" onAction="#signup" prefHeight="47.0" prefWidth="309.0" text="회원가입" />
       <Button fx:id="bt_back" layoutX="707.0" layoutY="85.0" mnemonicParsing="false" onAction="#back" prefHeight="29.0" prefWidth="90.0" text="뒤로가기" />
+      <Button fx:id="bt_check" layoutX="804.0" layoutY="165.0" mnemonicParsing="false" onAction="#id_check" prefHeight="29.0" prefWidth="90.0" text="중복체크" />
    </children>
 </AnchorPane>
