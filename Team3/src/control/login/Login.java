@@ -59,12 +59,12 @@ public class Login implements Initializable{
 
     @FXML
     void findid(MouseEvent event) {
-
+    	Main.main.loadpage("/view/login/findid");
     }
 
     @FXML
     void findpw(MouseEvent event) {
-
+    	Main.main.loadpage("/view/login/findpw");
     }
 
     @FXML
