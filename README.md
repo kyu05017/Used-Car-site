@@ -12,7 +12,8 @@
 
 #5.개발 우선순위
 
-#6.테이블 - member<br/>
+#6. DB설계
+#테이블 - member<br/>
 m_number　　int (pk)　　　　　　　　　　#회원번호<br/>
 m_id　　　　varchar(20),　　　　　　　#id<br/>
 m_pw　　　　varchar(20) not null,　　#비밀번호<br/>
@@ -24,7 +25,7 @@ m_address　　varchar(100),　　　　　　#주소<br/>
 m_today　　　varchar(20),　　　　 　　#로그인날짜<br/>
 m_gr　　　　　int　　　　　　　　　　　#회원등급<br/>
 
-#6.테이블 - board<br/>
+#테이블 - board<br/>
 b_number　　　int (pk),　　　　　　　　　　　#게시물번호<br/>
 b_title　　　　varchar(50),　　　　　　　　#제목<br/>
 b_content　　　varchar(1000),　　　　　　　#내용<br/>
@@ -33,14 +34,14 @@ m_number　　　int (fk) not null,　　　　　　#회원번호<br/>
 b_gr　　　　　int,　　　　　　　　　　　　#글등급<br/>
 b_view　　　　int　　　　　　　　　　　　#조회수<br/>
 
-#6.테이블 - reply<br/>
+#테이블 - reply<br/>
 r_number　　　int (pk),　　　　　　　　　　　#댓글번호<br/>
 m_number　　　int (fk) not null,　　　　　　#회원번호<br/>
 b_number　　　int (fk) not null,　　　　　　#게시글번호<br/>
 r_content　　　varchar(500),　　　　　　　#내용<br/>
 r_date　　　　datetime default now()　　　#날짜<br/>
 
-#6.테이블 - letter<br/>
+#테이블 - letter<br/>
 l_number　　　int (pk),　　　　　　　　　　　#쪽지번호<br/>
 m_number　　　int (fk) not null,　　　　　　#회원번호(보내는)<br/>
 m_id　　　　　varchar(20) not null,　　　　#회원(딜러)아이디(받는)<br/>
@@ -48,7 +49,7 @@ l_content　　varchar(1000),　　　　　　　#내용<br/>
 l_date　　　　datetime default now(),　　#날짜<br/>
 c_number　　　int　(fk) not null　　　　　　#매물번호<br/>
 
-#6.테이블 - car<br/>
+#테이블 - car<br/>
 c_number　　　　int (pk),　　　　　　　　　　　　#매물번호<br/>
 c_title　　　　　varchar(20),　　　　　　　　　#제목<br/>
 c_content　　　　varchar(1000),　　　　　　　　#내용<br/>
