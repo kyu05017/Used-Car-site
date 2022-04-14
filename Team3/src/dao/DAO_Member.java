@@ -10,7 +10,7 @@ public class DAO_Member extends Dao{
 	
 	public DAO_Member() {}
 	
-	Dao dao = new Dao();
+//	Dao dao = new Dao();
 	
 	public static DAO_Member mdao = new DAO_Member();
 	// 회원가입
@@ -27,6 +27,7 @@ public class DAO_Member extends Dao{
 			ps.setString(7, member.getM_address());
 			ps.setString(8, member.getM_today());
 			ps.setInt(9, member.getM_gr());
+			ps.executeUpdate();
 			return true;
 		}
 		catch (Exception e) {
