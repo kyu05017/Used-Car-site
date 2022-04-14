@@ -24,14 +24,15 @@ public class Main implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		loadpage("/view/home");
-		
 		try {
 			Stage stage = new Stage();
 			Parent parent = FXMLLoader.load(getClass().getResource("/view/alert.fxml"));
 			Scene scene = new Scene(parent);
 			stage.setScene(scene);
 			stage.show();
-		} catch (IOException e) {}
+		} catch (IOException e) {
+			System.out.println("Main 알림창 열기 실패"+ e); 
+		}
 		
 	}
 	public void loadpage( String page ) {
