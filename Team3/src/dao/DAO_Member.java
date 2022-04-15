@@ -16,17 +16,16 @@ public class DAO_Member extends Dao{
 	// 회원가입
 	public boolean registration (DTO_Member member) {
 		try {
-			String sql = "insert into TEAM3.member(m_id,m_pw,m_name,m_email,m_date,m_phone,m_address,m_today,m_gr) values(?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into member(m_id,m_pw,m_name,m_email,m_phone,m_address,m_today,m_gr) values(?,?,?,?,?,?,?,?)";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, member.getM_id());
 			ps.setString(2, member.getM_pw());
 			ps.setString(3, member.getM_name());
 			ps.setString(4, member.getM_email());
-			ps.setString(5, member.getM_date());
-			ps.setString(6, member.getM_phone());
-			ps.setString(7, member.getM_address());
-			ps.setString(8, member.getM_today());
-			ps.setInt(9, member.getM_gr());
+			ps.setString(5, member.getM_phone());
+			ps.setString(6, member.getM_address());
+			ps.setString(7, member.getM_today());
+			ps.setInt(8, member.getM_gr());
 			ps.executeUpdate();
 			return true;
 		}
@@ -38,7 +37,7 @@ public class DAO_Member extends Dao{
 	// 아이디 중복체크
 	public boolean id_duplicat(String id) {
 		try {
-			String sql = "select * from TEAM3.member where m_id=?";
+			String sql = "select * from member where m_id=?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			rs = ps.executeQuery();

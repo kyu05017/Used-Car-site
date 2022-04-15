@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import control.Main;
+import dao.DAO_Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -45,7 +46,14 @@ public class Login implements Initializable{
 
     @FXML
     void acclogin(ActionEvent event) {
-
+    	
+    	String id = txtid.getText();
+    	String pw = txtpw.getText();
+    	
+    	boolean result = DAO_Member.mdao.login(id, pw);
+    	if(result) {
+    		Main.main.loadpage("/view/home");
+    	}
     }
 
     @FXML
