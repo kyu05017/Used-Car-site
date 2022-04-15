@@ -25,6 +25,7 @@ public class Home implements Initializable{
     @FXML
     void act_alert(MouseEvent event) {
     	try {
+
 			Stage stage = new Stage();
 			Parent parent = FXMLLoader.load(getClass().getResource("/view/alert.fxml"));
 			Scene scene = new Scene(parent);

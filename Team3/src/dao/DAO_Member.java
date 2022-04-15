@@ -3,12 +3,14 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import dto.DTO_Member;
 
 public class DAO_Member extends Dao{
 	
 	public DAO_Member() {}
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	
 	public static DAO_Member mdao = new DAO_Member();
 	// 회원가입
@@ -57,6 +59,12 @@ public class DAO_Member extends Dao{
 			ps.setString(2,pw);
 			rs = ps.executeQuery();
 			if(rs.next()) {
+				String today = sdf.format(new Date());
+				String sql2 = "UPDATE member SET m_today=? where m_id=?";
+				ps = con.prepareStatement(sql2);
+				ps.setString(1,today);
+				ps.setString(2,id);
+				ps.executeUpdate(); 
 				return true;
 			}
 		}
@@ -64,6 +72,34 @@ public class DAO_Member extends Dao{
 			System.out.println("DAO_Member 로그인 오류 " + e);
 		}
 		return false;
+	}
+	// 회원정보 임시저장
+	public DTO_Member get_member (String id) {
+		try {
+			String sql = "select * from member where m_id=?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			rs = ps.executeQuery();
+			if(rs.next()) { 
+				DTO_Member member = new DTO_Member(
+				rs.getInt(1),
+				rs.getString(2),
+				null,
+				rs.getString(4),
+				rs.getString(5),
+				rs.getString(6),
+				rs.getString(7),
+				rs.getString(8),
+				rs.getString(9),
+				rs.getInt(10)
+				);
+				return member;
+			}
+		}
+		catch(Exception e ) {
+			System.out.println("DAO_Member 회원정보 호출 " + e);
+		}
+		return null;
 	}
 	// 아이디 찾기
 	public boolean find_id(String name, String emanil) {
@@ -138,16 +174,6 @@ public class DAO_Member extends Dao{
 			System.out.println("DAO_Member 비밀번호 변경 오류 " + e);
 		}
 		return false;
-	}
-	// 회원 정보 저장
-	public DAO_Member get_member () {
-		try {
-			
-		}
-		catch (Exception e) {
-			System.out.println("DAO_Member 회원정보 호출 오류 " + e);
-		}
-		return null;
 	}
 	// 회원 탈퇴 
 	public boolean signout() {
