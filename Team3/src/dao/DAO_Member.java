@@ -10,8 +10,6 @@ public class DAO_Member extends Dao{
 	
 	public DAO_Member() {}
 	
-//	Dao dao = new Dao();
-	
 	public static DAO_Member mdao = new DAO_Member();
 	// 회원가입
 	public boolean registration (DTO_Member member) {
