@@ -95,5 +95,6 @@ c_year　　　　　　varchar(10) int,　　　　　　#연도<br/>
 m_number　　　　　int not null,　　　　　　　　#회원번호<br/>
 
 #7.컨트롤 구조도
+![메소드구성](https://user-images.githubusercontent.com/98489230/163526495-56277fd2-638d-47c1-aaeb-eadb42d42d0c.jpg)
 
 #8.뷰[fxml] 프로토타입
