@@ -14,7 +14,8 @@ public class Dao {
 	public Dao() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://주소","admin","비밀번호");
+			
+//			con = DriverManager.getConnection("jdbc:mysql://주소","admin","비밀번호");
 			System.out.println("Main Dao DB 연결 완료");
 		} 
 		catch (Exception e) {

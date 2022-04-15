@@ -83,7 +83,7 @@ public class DAO_Member extends Dao{
 		return false;
 	}
 	// 비밀번호 찾기
-	public boolean find_pw(String id,String email) {
+	public String find_pw(String id,String email) {
 		try {
 			String sql = "select * from member where m_id=? and m_email=?";
 			ps = con.prepareStatement(sql);
@@ -91,13 +91,13 @@ public class DAO_Member extends Dao{
 			ps.setString(2, email);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-				return true;
+				return rs.getString(3);
 			}
 		}
 		catch (Exception e) {
 			System.out.println("DAO_Member 비밀번호 찾기 오류 " + e);
 		}
-		return false;
+		return null;
 	}
 	// 비밀번호 체크
 	public boolean check_pw(int num, String pw) {
