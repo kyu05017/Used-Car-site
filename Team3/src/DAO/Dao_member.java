@@ -59,43 +59,42 @@ public class Dao_member extends dao {
 	
 	
 	
-	//아이디 찾기
-	public boolean findid(String name, String email) {
-		
+	// 아이디 찾기
+	public String find_id(String name, String email) {
 		try {
-			String sql = "select * from member where m_name=? and m=email=?";
+			String sql = "select * from member where m_name=? and m_email=?";
 			ps = con.prepareStatement(sql);
-			ps.setString(1, name);
-			ps.setString(2, email); //왜 m이 안 붙고 그냥 name?
+			ps.setString(1,name);
+			ps.setString(2,email);
 			rs = ps.executeQuery();
-			
-			if(rs.next()) {return true;}
-					
-		} catch (Exception e) { System.out.println("아이디 찾기 실패");	}
-	
-		return false;
+			if(rs.next()) { return rs.getString(3);
+			}
+		}
+		catch (Exception e) {
+			System.out.println("DAO_Member 아이디 찾기 오류 " + e);
+		}
+		return null;
 	}
 	
 	
 	
 	
 	
-	//비밀번호 찾기
-	
-	public boolean findpw(String id, String email) {
-		
+	// 비밀번호 찾기
+	public String find_pw(String id,String email) {
 		try {
-			String sql = "select * from member where m_id=? and m=email=?";
+			String sql = "select * from member where m_id=? and m_email=?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setString(2, email);
 			rs = ps.executeQuery();
-			
-			if(rs.next()) {return true;}
-					
-		} catch (Exception e) { System.out.println("비밀번호 찾기 실패");	}
-	
-		return false;
+			if(rs.next()) { return rs.getString(3);
+			}
+		}
+		catch (Exception e) {
+			System.out.println("DAO_Member 비밀번호 찾기 오류 " + e);
+		}
+		return null;
 	}
 	
 	
