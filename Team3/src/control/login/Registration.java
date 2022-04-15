@@ -66,20 +66,15 @@ public class Registration implements Initializable{
     @FXML
     void back(ActionEvent event) {
     	Main.main.loadpage("/view/home");
+    	pass = false;
     }
-    
     static boolean id_check = false;
-    
-    public TextField getTxtid() {
-		return txtid;
-	}
-	public void setTxtid(TextField txtid) {
-		this.txtid = txtid;
-	}
+	public static String id;
+	
 	@FXML
     void id_check(ActionEvent event) {
     	Alert alert2 = new Alert(AlertType.INFORMATION);
-    	String id = txtid.getText();
+    	id = txtid.getText();
     	if(txtid.getText().equals("")) {
     		alert2.setTitle("회원가입");
     		alert2.setHeaderText(" 아이디를 입력해 주세요.");
@@ -95,9 +90,14 @@ public class Registration implements Initializable{
     			Scene scene = new Scene(parent);
     			stage.setScene(scene);
     			stage.show();
+    			
     		} catch (IOException e) {
     			System.out.println("Main 알림창 열기 실패"+ e); 
     		}
+//    		alert2.setTitle("회원가입");
+//    		alert2.setHeaderText("중복된 아이디 입니다.");
+//    		alert2.setContentText("확인");
+//    		alert2.showAndWait();
     		return;
     	}
     	else {
@@ -117,6 +117,7 @@ public class Registration implements Initializable{
     			return;
     		}
     	}
+    	txtid.setText(Duplicat.id2);
     }
     @FXML
     void signup(ActionEvent event) {
@@ -124,7 +125,7 @@ public class Registration implements Initializable{
     	Alert alert2 = new Alert(AlertType.INFORMATION);
     	
     	System.out.println("회원가입");
-    	String id = txtid.getText();
+    	id = txtid.getText();
     	String pw = txtpw.getText();
     	String pwcheck = txtpwconfirm.getText();
     	String name = txtname.getText();
@@ -311,11 +312,33 @@ public class Registration implements Initializable{
     		alert2.setContentText("확인");
     		alert2.showAndWait();
     		Main.main.loadpage("/view/login/login");
+    		pass = false;
 		}
     }
-	
+	public void input() {
+		if(Duplicat.id2 != null) {
+			txtid.setText(Duplicat.id2);
+			id_check = true;
+			txtid.setDisable(true);
+		}
+		System.out.println(1);
+    	
+	}
+	static boolean pass = true;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {	
+		Thread thread = new Thread() { // 채팅방 목록 실시간 화면 처리
+			@Override
+			public void run() {
+				while( pass ) { 
+					try {
+						 input();
+						Thread.sleep(1000);
+					}catch( Exception e ) {} 
+				}
+			}
+		}; 
+		thread.start();
 		
 	}
 }
