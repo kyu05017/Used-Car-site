@@ -22,6 +22,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
@@ -34,10 +35,10 @@ public class Registration implements Initializable{
     private TextField txtid;
 
     @FXML
-    private TextField txtpw;
+    private PasswordField  txtpw;
 
     @FXML
-    private TextField txtpwconfirm;
+    private PasswordField  txtpwconfirm;
 
     @FXML
     private TextField txtname;

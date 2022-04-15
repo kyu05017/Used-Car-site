@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
@@ -25,7 +26,7 @@ public class Login implements Initializable{
     private TextField txtid;
 
     @FXML
-    private TextField txtpw;
+    private PasswordField  txtpw;
 
     @FXML
     private Button btnlogin;
