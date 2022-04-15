@@ -1,5 +1,6 @@
 package control.login;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -13,13 +14,17 @@ import dao.DAO_Member;
 import dto.DTO_Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
 
 public class Registration implements Initializable{
 	
@@ -65,7 +70,13 @@ public class Registration implements Initializable{
     
     static boolean id_check = false;
     
-    @FXML
+    public TextField getTxtid() {
+		return txtid;
+	}
+	public void setTxtid(TextField txtid) {
+		this.txtid = txtid;
+	}
+	@FXML
     void id_check(ActionEvent event) {
     	Alert alert2 = new Alert(AlertType.INFORMATION);
     	String id = txtid.getText();
@@ -78,12 +89,15 @@ public class Registration implements Initializable{
     	}
     	Boolean result1 = DAO_Member.mdao.id_duplicat(id);
     	if(result1) {
-    		alert2.setTitle("아이디 중복 체크");
-    		alert2.setHeaderText(" 중복된 아이디 입니다.");
-    		alert2.setContentText("확인");
-    		alert2.showAndWait();
-    		txtid.requestFocus();
-    		id_check = false;
+    		try {
+    			Stage stage = new Stage();
+    			Parent parent = FXMLLoader.load(getClass().getResource("/view/login/duplicat.fxml"));
+    			Scene scene = new Scene(parent);
+    			stage.setScene(scene);
+    			stage.show();
+    		} catch (IOException e) {
+    			System.out.println("Main 알림창 열기 실패"+ e); 
+    		}
     		return;
     	}
     	else {

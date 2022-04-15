@@ -43,8 +43,8 @@ public class Login implements Initializable{
     void back(ActionEvent event) {
     	Main.main.loadpage("/view/home");
     }
-
-    @FXML
+    
+	@FXML
     void acclogin(ActionEvent event) {
     	
     	String id = txtid.getText();
