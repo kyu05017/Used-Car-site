@@ -73,7 +73,7 @@ public class DAO_Member extends Dao{
 		}
 		return false;
 	}
-	// 회원정보 임시저장
+	// 회원정보 임시저장 
 	public DTO_Member get_member (String id) {
 		try {
 			String sql = "select * from member where m_id=?";
