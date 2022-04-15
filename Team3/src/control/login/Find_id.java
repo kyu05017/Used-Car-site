@@ -3,6 +3,7 @@ package control.login;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import control.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,46 +11,34 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class Signup implements Initializable{
-
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-		
-	}
+public class Find_id implements Initializable{
 	
 	@FXML
-    private TextField txtid;
-
-    @FXML
-    private TextField txtpw;
-
-    @FXML
-    private TextField txtpwconfirm;
-
-    @FXML
     private TextField txtname;
 
     @FXML
     private TextField txtemail;
 
     @FXML
-    private TextField txtphone;
+    private Button btnfindid;
 
     @FXML
-    private TextField txtaddress;
+    private Label lblalarm;
 
     @FXML
-    private Label lblconfirm;
+    private Button btnback;
 
     @FXML
-    private Button btnsignup;
+    void back(ActionEvent event) {
+    	Main.main.loadpage("/view/login/login");
+    }
 
     @FXML
-    void signup(ActionEvent event) {
+    void findid(ActionEvent event) {
 
     }
-	
-	
-	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+	}
 }

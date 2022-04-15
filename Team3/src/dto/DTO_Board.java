@@ -1,22 +1,19 @@
 package dto;
 
-public class dtoBoard {
+public class DTO_Board {
 	
-	//필드
-	private int b_number; //게시물번호
-	private String b_title; //제목
-	private String b_content; //내용
-	private String b_date; //날짜
-	private int m_number; //회원번호
-	private int b_gr; //글등급
-	private int b_view;  //조회수
-	//생성자
-	public dtoBoard() {
-		// TODO Auto-generated constructor stub
-	}
+	private int b_number;
+	private String b_title;
+	private String b_content; 
+	private String b_date;
+	private int m_number;
+	private int b_gr;
+	private int b_view;
+	
+	public DTO_Board() {}
 
-	public dtoBoard(int b_number, String b_title, String b_content, String b_date, int m_number, int b_gr, int b_view) {
-		super();
+	public DTO_Board(int b_number, String b_title, String b_content, String b_date, int m_number, int b_gr,
+			int b_view) {
 		this.b_number = b_number;
 		this.b_title = b_title;
 		this.b_content = b_content;
@@ -25,7 +22,7 @@ public class dtoBoard {
 		this.b_gr = b_gr;
 		this.b_view = b_view;
 	}
-	//메소드
+
 	public int getB_number() {
 		return b_number;
 	}
@@ -81,5 +78,6 @@ public class dtoBoard {
 	public void setB_view(int b_view) {
 		this.b_view = b_view;
 	}
+	
 	
 }

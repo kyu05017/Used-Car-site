@@ -1,26 +1,23 @@
 package dto;
 
-public class dtoMember {
+public class DTO_Member { 
+	
+	
+	private int m_number;
+	private String m_id;
+	private String m_pw;
+	private String m_name;
+	private String m_email;
+	private String m_date;
+	private String m_phone;
+	private String m_address;
+	private String m_today;
+	private int m_gr;
+	
+	public DTO_Member() {}
 
-	//필드
-	private int m_number; //회원번호
-	private String m_id; //id
-	private String m_pw; //비밀번호
-	private String m_name; //이름
-	private String m_email; //이메일
-	private String m_date; //가입날짜
-	private String m_phone; //전화번호
-	private String m_address; //주소
-	private String m_today;//로그인날짜
-	private int m_gr; /*회원등급*/
-	//생성자
-	public dtoMember() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public dtoMember(int m_number, String m_id, String m_pw, String m_name, String m_email, String m_date, String m_phone,
-			String m_address, String m_today, int m_gr) {
-		super();
+	public DTO_Member(int m_number, String m_id, String m_pw, String m_name, String m_email, String m_date,
+			String m_phone, String m_address, String m_today, int m_gr) {
 		this.m_number = m_number;
 		this.m_id = m_id;
 		this.m_pw = m_pw;
@@ -32,7 +29,7 @@ public class dtoMember {
 		this.m_today = m_today;
 		this.m_gr = m_gr;
 	}
-	//메소드
+
 	public int getM_number() {
 		return m_number;
 	}
@@ -112,7 +109,6 @@ public class dtoMember {
 	public void setM_gr(int m_gr) {
 		this.m_gr = m_gr;
 	}
-	
 	
 	
 }

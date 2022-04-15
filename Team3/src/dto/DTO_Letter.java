@@ -1,28 +1,25 @@
 package dto;
 
-public class dtoLetter {
-	//필드
-	private int l_number; //쪽지번호
-	private int m_number; //회원번호(보내는)
-	private String m_id; //회원아이디(받는)
-	private String l_content; //내용
-	private String l_date; //날짜
-	private int c_number; //매물번호
-	//생성자
-	public dtoLetter() {
-		// TODO Auto-generated constructor stub
-	}
+public class DTO_Letter {
 
-	public dtoLetter(int l_number, int m_number, String m_id, String l_content, String l_date, int c_number) {
-		super();
+	private int l_number;
+	private int m_number;
+	private String m_id; 
+	private String l_content;
+	private String l_date;
+	private int C_number;
+	
+	public DTO_Letter() {}
+
+	public DTO_Letter(int l_number, int m_number, String m_id, String l_content, String l_date, int c_number) {
 		this.l_number = l_number;
 		this.m_number = m_number;
 		this.m_id = m_id;
 		this.l_content = l_content;
 		this.l_date = l_date;
-		this.c_number = c_number;
+		C_number = c_number;
 	}
-	//메소드
+
 	public int getL_number() {
 		return l_number;
 	}
@@ -64,11 +61,11 @@ public class dtoLetter {
 	}
 
 	public int getC_number() {
-		return c_number;
+		return C_number;
 	}
 
 	public void setC_number(int c_number) {
-		this.c_number = c_number;
+		C_number = c_number;
 	}
 	
 	
