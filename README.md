@@ -53,3 +53,4 @@
 ![메소드구성](https://user-images.githubusercontent.com/98489230/163526495-56277fd2-638d-47c1-aaeb-eadb42d42d0c.jpg)
 
 #8.뷰[fxml] 프로토타입
+![image](https://user-images.githubusercontent.com/98489230/163526898-c56500b2-a824-49e5-9ae5-b82f9e441feb.png)
