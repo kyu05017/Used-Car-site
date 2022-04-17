@@ -95,10 +95,6 @@ public class Registration implements Initializable{
     		} catch (IOException e) {
     			System.out.println("Main 알림창 열기 실패"+ e); 
     		}
-//    		alert2.setTitle("회원가입");
-//    		alert2.setHeaderText("중복된 아이디 입니다.");
-//    		alert2.setContentText("확인");
-//    		alert2.showAndWait();
     		return;
     	}
     	else {
