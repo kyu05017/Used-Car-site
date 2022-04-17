@@ -102,38 +102,37 @@ public class DAO_Member extends Dao{
 		return null;
 	}
 	// 아이디 찾기
-	public boolean find_id(String name, String emanil) {
+	public String find_id(String name, String email) {
 		try {
 			String sql = "select * from member where m_name=? and m_email=?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1,name);
-			ps.setString(2,emanil);
+			ps.setString(2,email);
 			rs = ps.executeQuery();
-			if(rs.next()) {
-				return true;
+			if(rs.next()) { 
+				return rs.getString(3);
 			}
 		}
 		catch (Exception e) {
 			System.out.println("DAO_Member 아이디 찾기 오류 " + e);
 		}
-		return false;
+		return null;
 	}
 	// 비밀번호 찾기
-	public boolean find_pw(String id,String email) {
+	public String find_pw(String id,String email) {
 		try {
 			String sql = "select * from member where m_id=? and m_email=?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setString(2, email);
 			rs = ps.executeQuery();
-			if(rs.next()) {
-				return true;
+			if(rs.next()) { return rs.getString(3);
 			}
 		}
 		catch (Exception e) {
 			System.out.println("DAO_Member 비밀번호 찾기 오류 " + e);
 		}
-		return false;
+		return null;
 	}
 	// 비밀번호 체크
 	public boolean check_pw(int num, String pw) {
@@ -151,7 +150,7 @@ public class DAO_Member extends Dao{
 		}
 		return false;
 	}
-	// 비밀번호 변경
+	// 비밀번호 변경 [ 만들기 필요 ]
 	public boolean change_pw(int num, String pw) {
 		try {
 			String sql = "select * from member where m_pw=?";
@@ -176,9 +175,13 @@ public class DAO_Member extends Dao{
 		return false;
 	}
 	// 회원 탈퇴 
-	public boolean signout() {
+	public boolean signout(int num) {
 		try {
-			
+			String sql = "delete from member where m_num=?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, num);
+			ps.executeUpdate();
+			return true;
 		}
 		catch (Exception e) {
 			System.out.println("DAO_Member 회원탈퇴 호출 오류 " + e);
