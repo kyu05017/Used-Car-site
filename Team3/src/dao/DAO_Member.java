@@ -150,7 +150,7 @@ public class DAO_Member extends Dao{
 		}
 		return false;
 	}
-	// 비밀번호 변경 [ 만들기 필요 ]
+	// 비밀번호 변경 
 	public boolean change_pw(int num, String pw) {
 		try {
 			String sql = "select * from member where m_pw=?";
@@ -158,15 +158,15 @@ public class DAO_Member extends Dao{
 			ps.setString(1, pw);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-				Connection con2;
-				PreparedStatement ps2;
-				ResultSet rs2;
-
 				String sql2 = "UPDATE member SET m_id=? where m_num=?";
-				ps2 = con.prepareStatement(sql);
-				ps2.setString(1, pw);
-				ps2.setInt(2, num);
+				ps = con.prepareStatement(sql2);
+				ps.setString(1, pw);
+				ps.setInt(2, num);
+				ps.executeUpdate();
 				return true;
+			}
+			else {
+				return false;
 			}
 		}
 		catch (Exception e) {

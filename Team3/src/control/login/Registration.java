@@ -62,6 +62,13 @@ public class Registration implements Initializable{
     private Button bt_back;
     
     @FXML
+    private RadioButton otp_normal;
+
+    @FXML
+    private RadioButton otp_diller;
+
+    
+    @FXML
     private Button bt_check;
 
     @FXML

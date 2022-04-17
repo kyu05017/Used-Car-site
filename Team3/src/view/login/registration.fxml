@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -24,5 +25,7 @@
       <Button fx:id="bt_check" layoutX="804.0" layoutY="165.0" mnemonicParsing="false" onAction="#id_check" prefHeight="29.0" prefWidth="90.0" text="중복체크" />
       <PasswordField fx:id="txtpw" layoutX="475.0" layoutY="213.0" prefHeight="50.0" prefWidth="300.0" promptText="비밀번호" />
       <PasswordField fx:id="txtpwconfirm" layoutX="475.0" layoutY="273.0" prefHeight="50.0" prefWidth="300.0" promptText="비밀번호 확인" />
+      <RadioButton fx:id="otp_normal" layoutX="475.0" layoutY="54.0" mnemonicParsing="false" text="일반회원" />
+      <RadioButton fx:id="otp_diller" layoutX="649.0" layoutY="54.0" mnemonicParsing="false" text="딜러" />
    </children>
 </AnchorPane>

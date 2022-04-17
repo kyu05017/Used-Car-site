@@ -63,13 +63,18 @@ public class Home implements Initializable{
     
     @FXML
     void act_logout(MouseEvent event) {
-    	Login.member = null;
-    	Main.main.loadpage("/view/home");
+    	if(Login.member != null) {
+    		Login.member = null;
+    		Main.main.loadpage("/view/home");
+    	}
     }
 
     @FXML
     void info(MouseEvent event) {
-    	
+    	if(Login.member != null) {
+    		// 페이지 이동 구현
+    		
+    	}
     }
     
 	@Override
