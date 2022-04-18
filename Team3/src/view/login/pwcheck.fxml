@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Text?>
@@ -11,7 +11,7 @@
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <Text layoutX="153.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="비밀번호 확인" />
-            <TextField fx:id="txt_pw" layoutX="33.0" layoutY="136.0" onAction="#pwcheck" prefHeight="29.0" prefWidth="231.0" />
+            <PasswordField fx:id="txt_pw" layoutX="90.0" layoutY="136.0" onAction="#pwcheck" />
             <Button fx:id="bt_pw" layoutX="302.0" layoutY="136.0" mnemonicParsing="false" onAction="#use_pw" prefHeight="20.0" prefWidth="76.0" text="확인" />
          </children>
       </AnchorPane>

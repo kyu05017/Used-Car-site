@@ -277,6 +277,16 @@ public class Registration implements Initializable{
             txtphone.setText(phone);
 	    }
     	
+		boolean p_result = DAO_Member.mdao.phone_duplicat(phone);
+		if(p_result) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText(" 이미 등록된 전화번호 입니다.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txtphone.requestFocus();
+    		return;
+		}
+		
 		if(email.equals("")) {
 			alert2.setTitle("회원가입");
     		alert2.setHeaderText("이메일을 입력해주세요.");
@@ -293,7 +303,15 @@ public class Registration implements Initializable{
     		txtemail.requestFocus();
     		return;
     	}
-		
+		boolean e_result = DAO_Member.mdao.email_duplicat(email);
+		if(e_result) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText(" 이미 등록된 이메일 입니다.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txtemail.requestFocus();
+    		return;
+		}
 		if(address.equals("")) {
 			alert2.setTitle("회원가입");
     		alert2.setHeaderText("주소를 입력해주세요.");
