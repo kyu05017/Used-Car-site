@@ -27,6 +27,10 @@ public class Home implements Initializable{
 	
 	static boolean alert_check; 
 	
+	public static Home home;
+
+	public Home(){home = this;}
+	
 	@FXML
 	private ImageView bt_home;
 	  

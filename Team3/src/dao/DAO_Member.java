@@ -1,8 +1,5 @@
 package dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import dto.DTO_Member;
@@ -50,6 +47,38 @@ public class DAO_Member extends Dao{
 		}
 		return false;
 	}
+	// 이메일 중복체크
+	public boolean email_duplicat(String email) {
+		try {
+			String sql = "select * from member where m_email=?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+		}
+		catch (Exception e) {
+			System.out.println("DAO_Member 아이디 중복 체크 오류 " + e);
+		}
+		return false;
+	}
+	// 핸드폰 중복체크
+		public boolean phone_duplicat(String phone) {
+			try {
+				String sql = "select * from member where m_phone=?";
+				ps = con.prepareStatement(sql);
+				ps.setString(1, phone);
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					return true;
+				}
+			}
+			catch (Exception e) {
+				System.out.println("DAO_Member 아이디 중복 체크 오류 " + e);
+			}
+			return false;
+		}
 	// 로그인
 	public boolean login(String id, String pw) {
 		try {
@@ -153,21 +182,28 @@ public class DAO_Member extends Dao{
 	// 비밀번호 변경 
 	public boolean change_pw(int num, String pw) {
 		try {
-			String sql = "select * from member where m_pw=?";
-			ps = con.prepareStatement(sql);
+			String sql2 = "UPDATE member SET m_pw=? where m_num=?";
+			ps = con.prepareStatement(sql2);
 			ps.setString(1, pw);
-			rs = ps.executeQuery();
-			if(rs.next()) {
-				String sql2 = "UPDATE member SET m_id=? where m_num=?";
-				ps = con.prepareStatement(sql2);
-				ps.setString(1, pw);
-				ps.setInt(2, num);
-				ps.executeUpdate();
-				return true;
-			}
-			else {
-				return false;
-			}
+			ps.setInt(2, num);
+			ps.executeUpdate();
+			return true;
+		}
+		catch (Exception e) {
+			System.out.println("DAO_Member 비밀번호 변경 오류 " + e);
+		}
+		return false;
+	}
+	// 이메일 전화번호 변경
+	public boolean change_info(int num, String email, String phone) {
+		try {
+			String sql2 = "UPDATE member SET m_email=?,m_phone=? where m_number=?";
+			ps = con.prepareStatement(sql2);
+			ps.setString(1, email);
+			ps.setString(2, phone);
+			ps.setInt(3, num);
+			ps.executeUpdate();
+			return true;
 		}
 		catch (Exception e) {
 			System.out.println("DAO_Member 비밀번호 변경 오류 " + e);

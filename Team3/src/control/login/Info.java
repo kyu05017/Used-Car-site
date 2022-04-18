@@ -26,7 +26,10 @@ public class Info implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-		
+		lbl_id.setText(Login.member.getM_id());
+		lbl_name.setText(Login.member.getM_name());
+		lbl_email.setText(Login.member.getM_email());
+		lbl_phone.setText(Login.member.getM_phone());
+		lbl_date.setText(Login.member.getM_date());
 	}
 }
