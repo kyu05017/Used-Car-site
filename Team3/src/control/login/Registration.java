@@ -378,8 +378,6 @@ public class Registration implements Initializable{
 			Duplicat.id2 = null;
 			txtid.setDisable(true);
 		}
-		System.out.println(1);
-    	
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {	
