@@ -3,6 +3,7 @@ package control;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import control.login.Login;
@@ -11,7 +12,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -64,9 +68,14 @@ public class Home implements Initializable{
     @FXML
     void act_logout(MouseEvent event) {
     	if(Login.member != null) {
-    		Login.member = null;
-    		Main.main.loadpage("/view/home");
-    	}
+	    	Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setHeaderText("로그아웃 하시겠습니까?");
+			Optional<ButtonType> optional = alert.showAndWait();
+			if(optional.get() == ButtonType.OK) { 
+				Login.member = null;
+	    		Main.main.loadpage("/view/home");
+			}
+		}
     }
 
     @FXML

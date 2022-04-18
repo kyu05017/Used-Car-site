@@ -74,7 +74,9 @@ public class Registration implements Initializable{
     
     @FXML
     private Button bt_check;
-
+    
+    static boolean pass = true;
+    
     @FXML
     void back(ActionEvent event) {
     	Main.main.loadpage("/view/home");
@@ -102,16 +104,14 @@ public class Registration implements Initializable{
     			Scene scene = new Scene(parent);
     			stage.setScene(scene);
     			stage.show();
-    			
     		} catch (IOException e) {
     			System.out.println("Main 알림창 열기 실패"+ e); 
     		}
     		return;
     	}
     	else {
-    		Alert alert = new Alert(AlertType.CONFIRMATION); // 확인,취소 버튼 타입
+    		Alert alert = new Alert(AlertType.CONFIRMATION);
     		alert.setHeaderText(id+" 를 사용하시겠습니다?");
-    		// 2. 버튼 확인 [ Optional 클래스 ]
     		Optional<ButtonType> optional = alert.showAndWait();
     		if(optional.get() == ButtonType.OK) { 
     			txtid.setText(id);
@@ -350,7 +350,6 @@ public class Registration implements Initializable{
 		System.out.println(1);
     	
 	}
-	static boolean pass = true;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {	
 		Thread thread = new Thread() { // 채팅방 목록 실시간 화면 처리
