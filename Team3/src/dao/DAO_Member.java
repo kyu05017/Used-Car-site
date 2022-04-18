@@ -47,6 +47,38 @@ public class DAO_Member extends Dao{
 		}
 		return false;
 	}
+	// 이메일 중복체크
+	public boolean email_duplicat(String email) {
+		try {
+			String sql = "select * from member where m_email=?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+		}
+		catch (Exception e) {
+			System.out.println("DAO_Member 아이디 중복 체크 오류 " + e);
+		}
+		return false;
+	}
+	// 핸드폰 중복체크
+		public boolean phone_duplicat(String phone) {
+			try {
+				String sql = "select * from member where m_phone=?";
+				ps = con.prepareStatement(sql);
+				ps.setString(1, phone);
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					return true;
+				}
+			}
+			catch (Exception e) {
+				System.out.println("DAO_Member 아이디 중복 체크 오류 " + e);
+			}
+			return false;
+		}
 	// 로그인
 	public boolean login(String id, String pw) {
 		try {
