@@ -22,7 +22,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
@@ -34,10 +37,10 @@ public class Registration implements Initializable{
     private TextField txtid;
 
     @FXML
-    private TextField txtpw;
+    private PasswordField  txtpw;
 
     @FXML
-    private TextField txtpwconfirm;
+    private PasswordField  txtpwconfirm;
 
     @FXML
     private TextField txtname;
@@ -61,25 +64,29 @@ public class Registration implements Initializable{
     private Button bt_back;
     
     @FXML
+    private RadioButton otp_normal;
+
+    @FXML
+    private RadioButton otp_diller;
+
+    @FXML
+    private ToggleGroup member_class;
+    
+    @FXML
     private Button bt_check;
 
     @FXML
     void back(ActionEvent event) {
     	Main.main.loadpage("/view/home");
+    	pass = false;
     }
-    
     static boolean id_check = false;
-    
-    public TextField getTxtid() {
-		return txtid;
-	}
-	public void setTxtid(TextField txtid) {
-		this.txtid = txtid;
-	}
+	public static String id;
+	
 	@FXML
     void id_check(ActionEvent event) {
     	Alert alert2 = new Alert(AlertType.INFORMATION);
-    	String id = txtid.getText();
+    	id = txtid.getText();
     	if(txtid.getText().equals("")) {
     		alert2.setTitle("회원가입");
     		alert2.setHeaderText(" 아이디를 입력해 주세요.");
@@ -95,6 +102,7 @@ public class Registration implements Initializable{
     			Scene scene = new Scene(parent);
     			stage.setScene(scene);
     			stage.show();
+    			
     		} catch (IOException e) {
     			System.out.println("Main 알림창 열기 실패"+ e); 
     		}
@@ -117,6 +125,7 @@ public class Registration implements Initializable{
     			return;
     		}
     	}
+    	txtid.setText(Duplicat.id2);
     }
     @FXML
     void signup(ActionEvent event) {
@@ -124,13 +133,14 @@ public class Registration implements Initializable{
     	Alert alert2 = new Alert(AlertType.INFORMATION);
     	
     	System.out.println("회원가입");
-    	String id = txtid.getText();
+    	id = txtid.getText();
     	String pw = txtpw.getText();
     	String pwcheck = txtpwconfirm.getText();
     	String name = txtname.getText();
     	String email = txtemail.getText();
     	String phone = txtphone.getText();
     	String address = txtaddress.getText();
+    	int member_grade = 0;
     	
     	Pattern passPattern1 = Pattern.compile("^(?=.*[a-zA-Z])(?=.*\\d)(?=.*\\W).{8,20}$");
 		Matcher passMatcher1 = passPattern1.matcher(pw);
@@ -303,19 +313,58 @@ public class Registration implements Initializable{
 		
 		String since = sdf.format(new Date());
 		
-		DTO_Member member = new DTO_Member(0, id, pw, name, email,since, phone, address, "yyyy-MM-dd", 0);
+		if(otp_normal.isSelected()) {
+			member_grade = 0;
+    	}
+    	else if(otp_diller.isSelected()){
+    		member_grade = 1;
+    	}
+		
+		DTO_Member member = new DTO_Member(0, id, pw, name, email,since, phone, address, "yyyy-MM-dd",member_grade);
 		boolean result =  DAO_Member.mdao.registration(member);
 		if(result) {
-			alert2.setTitle("회원가입");
-    		alert2.setHeaderText("회원가입이 완료 되었습니다.");
-    		alert2.setContentText("확인");
-    		alert2.showAndWait();
-    		Main.main.loadpage("/view/login/login");
+			if(member_grade == 0) {
+				alert2.setTitle("회원가입");
+	    		alert2.setHeaderText("회원가입이 완료 되었습니다.");
+	    		alert2.setContentText("확인");
+	    		alert2.showAndWait();
+	    		Main.main.loadpage("/view/login/login");
+	    		pass = false;
+			}
+			else if (member_grade == 1) {
+				alert2.setTitle("회원가입");
+	    		alert2.setHeaderText("딜러 회원가입이 완료 되었습니다.");
+	    		alert2.setContentText("확인");
+	    		alert2.showAndWait();
+	    		Main.main.loadpage("/view/login/login");
+	    		pass = false;
+			}
 		}
     }
-	
+	public void input() {
+		if(Duplicat.id2 != null) {
+			txtid.setText(Duplicat.id2);
+			id_check = true;
+			txtid.setDisable(true);
+		}
+		System.out.println(1);
+    	
+	}
+	static boolean pass = true;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {	
+		Thread thread = new Thread() { // 채팅방 목록 실시간 화면 처리
+			@Override
+			public void run() {
+				while( pass ) { 
+					try {
+						 input();
+						Thread.sleep(1000);
+					}catch( Exception e ) {} 
+				}
+			}
+		}; 
+		thread.start();
 		
 	}
 }

@@ -2,24 +2,31 @@ package control.login;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import control.Main;
 import dao.DAO_Member;
+import dto.DTO_Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
 public class Login implements Initializable{
 	
+	public static Login login;
+	public Login() {
+		login = this;
+	}
+	public static DTO_Member member;
+	
 	@FXML
     private TextField txtid;
 
     @FXML
-    private TextField txtpw;
+    private PasswordField  txtpw;
 
     @FXML
     private Button btnlogin;
@@ -52,10 +59,23 @@ public class Login implements Initializable{
     	
     	boolean result = DAO_Member.mdao.login(id, pw);
     	if(result) {
+    		Login.member = DAO_Member.mdao.get_member(id);
     		Main.main.loadpage("/view/home");
     	}
     }
-
+	
+	@FXML
+    void login(ActionEvent event) {
+		String id = txtid.getText();
+    	String pw = txtpw.getText();
+    	
+    	boolean result = DAO_Member.mdao.login(id, pw);
+    	if(result) {
+    		Login.member = DAO_Member.mdao.get_member(id);
+    		Main.main.loadpage("/view/home");
+    	}
+    }
+	
     @FXML
     void findid(MouseEvent event) {
     	Main.main.loadpage("/view/login/findid");
