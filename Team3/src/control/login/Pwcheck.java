@@ -36,10 +36,17 @@ public class Pwcheck implements Initializable{
     		Stage thisForm = (Stage) txt_pw.getScene().getWindow();
     		thisForm.close();
 //    		if(check == 1) {
+//    			boolean result = DAO_Member.mdao.signout(Login.member.getM_number());
+//    			Alert alert2 = new Alert(AlertType.INFORMATION);
+//        		alert2.setTitle("알림창");
+//        		alert2.setHeaderText(" 회원탈퇴되었습니다. ");
+//        		alert2.setContentText("확인");
+//        		alert2.showAndWait();
+//        		Mypage.mypage.loadpage("/view/home");
 //    		}
-//    		else if(check == 2){
+    		else if(check == 2){
     		Mypage.mypage.loadpage("/view/login/change");
-//    		}
+    		}
     	}
     	else {
     		Alert alert2 = new Alert(AlertType.INFORMATION);
