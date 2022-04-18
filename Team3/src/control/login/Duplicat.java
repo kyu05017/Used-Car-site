@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.scene.control.Alert.AlertType;
 
@@ -45,18 +46,10 @@ public class Duplicat implements Initializable{
     		return;
     	}
     	else {
-    		Alert alert = new Alert(AlertType.CONFIRMATION); // 확인,취소 버튼 타입
-    		alert.setHeaderText(id2+" 를 사용하시겠습니다?");
-    		// 2. 버튼 확인 [ Optional 클래스 ]
-    		Optional<ButtonType> optional = alert.showAndWait();
-    		if(optional.get() == ButtonType.OK) { 
-    			
-    			txt_newid.setText(id2);
-    		}
-    		else {
-    			txt_newid.setText("");
-    			return;
-    		}
+    		txt_newid.setText(id2);
+    		Stage thisForm = (Stage) bt_newid.getScene().getWindow();
+    		thisForm.close();
+    	    return;
     	}
     }
 	
