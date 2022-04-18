@@ -27,6 +27,7 @@ public class Change implements Initializable{
     @FXML
     void bt_com(ActionEvent event) {
     	
+    	boolean pass = true;
     	Alert alert2 = new Alert(AlertType.INFORMATION);
     	String email = txt_new_email.getText();
     	String phone = txt_new_phone.getText();
@@ -40,6 +41,7 @@ public class Change implements Initializable{
 	    		alert2.setHeaderText("올바르지 않은 전화번호 형식입니다.");
 	    		alert2.setContentText("확인");
 	    		alert2.showAndWait();
+	    		pass = false;
 	    		return;
 			}
 		}
@@ -50,6 +52,7 @@ public class Change implements Initializable{
 	    		alert2.setHeaderText("올바르지 않은 전화번호 형식입니다.");
 	    		alert2.setContentText("확인");
 	    		alert2.showAndWait();
+	    		pass = false;
 	    		return;
 			}
 		}
@@ -63,15 +66,55 @@ public class Change implements Initializable{
             txt_new_phone.setText(phone);
 	    }
     	
-		boolean result = DAO_Member.mdao.change_info(Login.member.getM_number(), email, phone);
-		if(result) {
-			alert2.setTitle("정보 변경");
-    		alert2.setHeaderText("정보 변경이 완료 되었습니다.");
+		boolean p_result = DAO_Member.mdao.phone_duplicat(phone);
+		if(p_result) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText(" 이미 등록된 전화번호 입니다.");
     		alert2.setContentText("확인");
     		alert2.showAndWait();
-    		Login.member.setM_email(email);
-    		Login.member.setM_phone(phone);
-    		Mypage.mypage.loadpage("/view/login/info");
+    		txt_new_phone.requestFocus();
+    		pass = false;
+    		return;
+		}
+		if(email.equals("")) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("이메일을 입력해주세요.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txt_new_email.requestFocus();
+    		pass = false;
+    		return;
+		}
+		if(email.indexOf("@") == -1) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText("올바르지 않는 이메일 형식입니다.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txt_new_email.requestFocus();
+    		pass = false;
+    		return;
+    	}
+		boolean e_result = DAO_Member.mdao.email_duplicat(email);
+		if(e_result) {
+			alert2.setTitle("회원가입");
+    		alert2.setHeaderText(" 이미 등록된 이메일 입니다.");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txt_new_email.requestFocus();
+    		pass = false;
+    		return;
+		}
+		if(pass) {
+			boolean result = DAO_Member.mdao.change_info(Login.member.getM_number(), email, phone);
+			if(result) {
+				alert2.setTitle("정보 변경");
+	    		alert2.setHeaderText("정보 변경이 완료 되었습니다.");
+	    		alert2.setContentText("확인");
+	    		alert2.showAndWait();
+	    		Login.member.setM_email(email);
+	    		Login.member.setM_phone(phone);
+	    		Mypage.mypage.loadpage("/view/login/info");
+			}
 		}
     }
     @Override
