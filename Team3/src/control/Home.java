@@ -3,6 +3,8 @@ package control;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -15,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
@@ -24,6 +27,9 @@ public class Home implements Initializable{
 	
 	static boolean alert_check; 
 	
+	@FXML
+	private ImageView bt_home;
+	  
 	@FXML
     private Label lbl_reg;
 	
@@ -44,17 +50,31 @@ public class Home implements Initializable{
 	
     @FXML
     void act_alert(MouseEvent event) {
-    	try {
-			Stage stage = new Stage();
-			Parent parent = FXMLLoader.load(getClass().getResource("/view/alert.fxml"));
-			Scene scene = new Scene(parent);
-			stage.setScene(scene);
-			stage.show();
-		} catch (IOException e) {
-			System.out.println("Main 알림창 열기 실패"+ e); 
-		}
+    	if(Login.member != null){
+    		try {
+    			Stage stage = new Stage();
+    			Parent parent = FXMLLoader.load(getClass().getResource("/view/alert.fxml"));
+    			Scene scene = new Scene(parent);
+    			stage.setScene(scene);
+    			stage.show();
+    		} catch (IOException e) {
+    			System.out.println("Main 알림창 열기 실패"+ e); 
+    		}
+    	}
+    	else {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("알림창");
+    		alert2.setHeaderText(" 로그인 후 이용 가능합니다. ");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    	}
+    	
     }
-    
+    @FXML
+    void to_home(MouseEvent event) {
+    	Main.main.loadpage("/view/home");
+    }
+
     @FXML
     void reg(MouseEvent event) {
     	Main.main.loadpage("/view/login/registration");
@@ -81,22 +101,25 @@ public class Home implements Initializable{
     @FXML
     void info(MouseEvent event) {
     	if(Login.member != null) {
-    		// 페이지 이동 구현
-    		
+    		loadpage("/view/login/mypage");
     	}
     }
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		if(Login.member != null) {
-			try {
-				Stage stage = new Stage();
-				Parent parent = FXMLLoader.load(getClass().getResource("/view/alert.fxml"));
-				Scene scene = new Scene(parent);
-				stage.setScene(scene);
-				stage.show();
-			} catch (IOException e) {
-				System.out.println("Main 알림창 열기 실패"+ e); 
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+			String today = sdf.format(new Date());
+			if(!Login.member.getM_today().equals(today)) {
+				try {
+					Stage stage = new Stage();
+					Parent parent = FXMLLoader.load(getClass().getResource("/view/alert.fxml"));
+					Scene scene = new Scene(parent);
+					stage.setScene(scene);
+					stage.show();
+				} catch (IOException e) {
+					System.out.println("Main 알림창 열기 실패"+ e); 
+				}
 			}
 			lbl_logout.setVisible(true);
 			lbl_myinfo.setVisible(true);
@@ -108,6 +131,15 @@ public class Home implements Initializable{
 			lbl_myinfo.setVisible(false);
 			lbl_login.setVisible(true);
 			lbl_reg.setVisible(true);
+		}
+	}
+	public void loadpage( String page ) {
+		try {
+			Parent parent = FXMLLoader.load( getClass().getResource(page+".fxml"));
+			board_main.setCenter(parent);
+		}
+		catch( Exception e ) {
+			System.out.println("Main 컨트롤 페이지 열기 실패"+ e); 
 		}
 	}
 }

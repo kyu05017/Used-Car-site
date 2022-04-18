@@ -8,10 +8,12 @@ import dto.DTO_Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 
 public class Login implements Initializable{
@@ -62,6 +64,13 @@ public class Login implements Initializable{
     		Login.member = DAO_Member.mdao.get_member(id);
     		Main.main.loadpage("/view/home");
     	}
+    	else {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("알림창");
+    		alert2.setHeaderText(" 아이디 또는 비밀번호가 잘못 되었습니다. ");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    	}
     }
 	
 	@FXML
@@ -73,6 +82,13 @@ public class Login implements Initializable{
     	if(result) {
     		Login.member = DAO_Member.mdao.get_member(id);
     		Main.main.loadpage("/view/home");
+    	}
+    	else {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("알림창");
+    		alert2.setHeaderText(" 아이디 또는 비밀번호가 잘못 되었습니다. ");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
     	}
     }
 	

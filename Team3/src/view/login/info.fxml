@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:controller="control.login.Info" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="516.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="내정보" wrappingWidth="48.6513671875" />
+      <Text layoutX="500.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="아이디" />
+      <Text layoutX="500.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이름" />
+      <Text layoutX="500.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이메일" />
+      <Text layoutX="500.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="전화번호" />
+      <Text layoutX="493.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="가입날자" />
+      <Label fx:id="lbl_id" layoutX="715.0" layoutY="159.0" prefHeight="19.0" prefWidth="263.0" text="id" />
+      <Label fx:id="lbl_name" layoutX="715.0" layoutY="199.0" prefHeight="19.0" prefWidth="263.0" text="name" />
+      <Label fx:id="lbl_email" layoutX="715.0" layoutY="237.0" prefHeight="19.0" prefWidth="263.0" text="email" />
+      <Label fx:id="lbl_phone" layoutX="715.0" layoutY="280.0" prefHeight="19.0" prefWidth="263.0" text="phone" />
+      <Label fx:id="lbl_date" layoutX="715.0" layoutY="327.0" prefHeight="19.0" prefWidth="263.0" text="date" />
+   </children>
+</AnchorPane>
