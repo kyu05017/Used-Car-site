@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import control.Home;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +16,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Mypage implements Initializable{
+	
+	public static Mypage mypage;
+
+	public Mypage(){mypage = this;}
 	
 	@FXML
     private BorderPane info_board;
@@ -64,13 +69,12 @@ public class Mypage implements Initializable{
 
     @FXML
     void letter(MouseEvent event) {
-
+    	
     }
 	
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-    	
-    	
+    	loadpage("/view/login/info");
     }
     public void loadpage( String page ) {
 		try {
