@@ -13,7 +13,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb330" height="41.0" layoutX="83.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="186.0" />
       <TextField fx:id="txtname" layoutX="74.0" layoutY="158.0" prefHeight="30.0" prefWidth="207.0" promptText="이름" />
       <TextField fx:id="txtemail" layoutX="74.0" layoutY="206.0" prefHeight="30.0" prefWidth="207.0" promptText="이메일" />
-      <Button fx:id="btnfindid" layoutX="100.0" layoutY="332.0" mnemonicParsing="false" onAction="#findid" prefHeight="54.0" prefWidth="150.0" style="-fx-background-color: ffb330;" text="아이디 찾기" textFill="WHITE">
+      <Button fx:id="btnfindpw" layoutX="100.0" layoutY="332.0" mnemonicParsing="false" onAction="#findpw" prefHeight="54.0" prefWidth="150.0" style="-fx-background-color: ffb330;" text="비밀번호 찾기" textFill="WHITE">
          <font>
             <Font name="HCR Dotum" size="18.0" />
          </font></Button>
