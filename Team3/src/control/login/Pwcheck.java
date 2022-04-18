@@ -15,11 +15,17 @@ import javafx.stage.Stage;
 
 public class Pwcheck implements Initializable{
 	
+//	public static Pwcheck pwcheck;
+//
+//	public Pwcheck(){pwcheck = this;}
+	
 	@FXML
     private PasswordField txt_pw;
 
     @FXML
     private Button bt_pw;
+    
+//  public static int check;
     
     @FXML
     void pwcheck(ActionEvent event) {
@@ -29,7 +35,11 @@ public class Pwcheck implements Initializable{
     	if(result) {
     		Stage thisForm = (Stage) txt_pw.getScene().getWindow();
     		thisForm.close();
+//    		if(check == 1) {
+//    		}
+//    		else if(check == 2){
     		Mypage.mypage.loadpage("/view/login/change");
+//    		}
     	}
     	else {
     		Alert alert2 = new Alert(AlertType.INFORMATION);

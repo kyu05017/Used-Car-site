@@ -42,6 +42,7 @@ public class Mypage implements Initializable{
 			Scene scene = new Scene(parent);
 			stage.setScene(scene);
 			stage.show();
+//			Pwcheck.check = 1;
 		} catch (IOException e) {
 			System.out.println("Main 알림창 열기 실패"+ e); 
 		}
@@ -55,6 +56,7 @@ public class Mypage implements Initializable{
 			Scene scene = new Scene(parent);
 			stage.setScene(scene);
 			stage.show();
+//			Pwcheck.check = 2;
 		} catch (IOException e) {
 			System.out.println("Main 알림창 열기 실패"+ e); 
 		}
