@@ -63,7 +63,19 @@ public class Login implements Initializable{
     		Main.main.loadpage("/view/home");
     	}
     }
-
+	
+	@FXML
+    void login(ActionEvent event) {
+		String id = txtid.getText();
+    	String pw = txtpw.getText();
+    	
+    	boolean result = DAO_Member.mdao.login(id, pw);
+    	if(result) {
+    		Login.member = DAO_Member.mdao.get_member(id);
+    		Main.main.loadpage("/view/home");
+    	}
+    }
+	
     @FXML
     void findid(MouseEvent event) {
     	Main.main.loadpage("/view/login/findid");

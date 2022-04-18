@@ -30,6 +30,6 @@
          </font>
       </Label>
       <Button fx:id="bt_back" layoutX="457.0" layoutY="32.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="95.0" text="뒤로가기" />
-      <PasswordField fx:id="txtpw" layoutX="149.0" layoutY="297.0" prefHeight="50.0" prefWidth="300.0" promptText="비밀번호" />
+      <PasswordField fx:id="txtpw" layoutX="149.0" layoutY="297.0" onAction="#login" prefHeight="50.0" prefWidth="300.0" promptText="비밀번호" />
    </children>
 </AnchorPane>
