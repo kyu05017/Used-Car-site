@@ -341,6 +341,14 @@ public class Registration implements Initializable{
     	else if(otp_diller.isSelected()){
     		member_grade = 1;
     	}
+    	else {
+    		alert2.setTitle("회원가입");
+    		alert2.setHeaderText("회원님의 회원종류를 선택해주세요,");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txtaddress.requestFocus();
+    		return;
+    	}
 		
 		DTO_Member member = new DTO_Member(0, id, pw, name, email,since, phone, address, "yyyy-MM-dd",member_grade);
 		boolean result =  DAO_Member.mdao.registration(member);
