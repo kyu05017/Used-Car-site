@@ -14,10 +14,10 @@
 
 <BorderPane fx:id="board_main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.Home">
    <top>
-      <AnchorPane prefHeight="220.0" prefWidth="1280.0" style="-fx-background-color: ffffff;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="190.0" prefWidth="1282.0" style="-fx-background-color: ffffff;" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb330" height="66.0" layoutX="-1.0" layoutY="151.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="66.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb330" height="66.0" layoutX="1.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
+            <ImageView fx:id="bt_home" fitHeight="150.0" fitWidth="200.0" layoutX="66.0" layoutY="41.0" onMouseClicked="#to_home" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/carlogo.png" />
                </image>
@@ -47,33 +47,43 @@
                   <Font name="Malgun Gothic Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="363.0" layoutY="166.0" prefHeight="32.0" prefWidth="84.0" text="인기 매물" textFill="WHITE">
+            <Label layoutX="363.0" layoutY="140.0" prefHeight="32.0" prefWidth="84.0" text="인기 매물" textFill="WHITE">
                <font>
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="129.0" layoutY="166.0" prefHeight="32.0" prefWidth="98.0" text="판매 후기" textFill="WHITE">
+            <Label layoutX="129.0" layoutY="140.0" prefHeight="32.0" prefWidth="98.0" text="판매 후기" textFill="WHITE">
                <font>
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="1091.0" layoutY="166.0" prefHeight="32.0" prefWidth="98.0" text="메뉴" textFill="WHITE">
+            <Label layoutX="1091.0" layoutY="140.0" prefHeight="32.0" prefWidth="98.0" text="메뉴" textFill="WHITE">
                <font>
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="602.0" layoutY="166.0" prefHeight="32.0" prefWidth="77.0" text="신규 매물" textFill="WHITE">
+            <Label layoutX="602.0" layoutY="140.0" prefHeight="32.0" prefWidth="77.0" text="신규 매물" textFill="WHITE">
                <font>
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="855.0" layoutY="166.0" prefHeight="32.0" prefWidth="98.0" text="자유게시판" textFill="WHITE">
+            <Label layoutX="855.0" layoutY="140.0" prefHeight="32.0" prefWidth="98.0" text="자유게시판" textFill="WHITE">
                <font>
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Line endX="977.0" layoutX="304.0" layoutY="34.0" startX="-303.0" stroke="#ffb330" strokeWidth="2.0" />
+            <Line endX="977.0" layoutX="304.0" layoutY="1.0" startX="-303.0" stroke="#ffb330" strokeWidth="2.0" />
             <Label fx:id="lbl_alert" layoutX="961.0" layoutY="9.0" onMouseClicked="#act_alert" text="알림창">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_logout" layoutX="1019.0" layoutY="9.0" onMouseClicked="#act_logout" text="로그아웃">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_myinfo" layoutX="1099.0" layoutY="9.0" onMouseClicked="#info" text="내정보">
                <font>
                   <Font name="Malgun Gothic Bold" size="14.0" />
                </font>
