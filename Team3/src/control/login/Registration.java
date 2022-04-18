@@ -84,11 +84,13 @@ public class Registration implements Initializable{
     }
     static boolean id_check = false;
 	public static String id;
+	public static String id3 = null;
 	
 	@FXML
     void id_check(ActionEvent event) {
     	Alert alert2 = new Alert(AlertType.INFORMATION);
     	id = txtid.getText();
+    	id3 = id;
     	if(txtid.getText().equals("")) {
     		alert2.setTitle("회원가입");
     		alert2.setHeaderText(" 아이디를 입력해 주세요.");
@@ -113,16 +115,18 @@ public class Registration implements Initializable{
     		Alert alert = new Alert(AlertType.CONFIRMATION);
     		alert.setHeaderText(id+" 를 사용하시겠습니다?");
     		Optional<ButtonType> optional = alert.showAndWait();
-    		if(optional.get() == ButtonType.OK) { 
-    			txtid.setText(id);
+    		if(optional.get() == ButtonType.OK) {
+    			pass = false;
+    			txtid.setText(id3);
     			id_check = true;
     			txtid.setDisable(true);
+    			return;
     		}
     		else {
     			txtid.setText("");
     			id_check = false;
     			txtid.setDisable(false);
-    			return;
+    			
     		}
     	}
     	txtid.setText(Duplicat.id2);
@@ -363,6 +367,7 @@ public class Registration implements Initializable{
 		if(Duplicat.id2 != null) {
 			txtid.setText(Duplicat.id2);
 			id_check = true;
+			Duplicat.id2 = null;
 			txtid.setDisable(true);
 		}
 		System.out.println(1);
