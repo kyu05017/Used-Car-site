@@ -23,7 +23,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
@@ -67,6 +69,8 @@ public class Registration implements Initializable{
     @FXML
     private RadioButton otp_diller;
 
+    @FXML
+    private ToggleGroup member_class;
     
     @FXML
     private Button bt_check;
@@ -136,6 +140,7 @@ public class Registration implements Initializable{
     	String email = txtemail.getText();
     	String phone = txtphone.getText();
     	String address = txtaddress.getText();
+    	int member_grade = 0;
     	
     	Pattern passPattern1 = Pattern.compile("^(?=.*[a-zA-Z])(?=.*\\d)(?=.*\\W).{8,20}$");
 		Matcher passMatcher1 = passPattern1.matcher(pw);
@@ -308,15 +313,32 @@ public class Registration implements Initializable{
 		
 		String since = sdf.format(new Date());
 		
-		DTO_Member member = new DTO_Member(0, id, pw, name, email,since, phone, address, "yyyy-MM-dd", 0);
+		if(otp_normal.isSelected()) {
+			member_grade = 0;
+    	}
+    	else if(otp_diller.isSelected()){
+    		member_grade = 1;
+    	}
+		
+		DTO_Member member = new DTO_Member(0, id, pw, name, email,since, phone, address, "yyyy-MM-dd",member_grade);
 		boolean result =  DAO_Member.mdao.registration(member);
 		if(result) {
-			alert2.setTitle("회원가입");
-    		alert2.setHeaderText("회원가입이 완료 되었습니다.");
-    		alert2.setContentText("확인");
-    		alert2.showAndWait();
-    		Main.main.loadpage("/view/login/login");
-    		pass = false;
+			if(member_grade == 0) {
+				alert2.setTitle("회원가입");
+	    		alert2.setHeaderText("회원가입이 완료 되었습니다.");
+	    		alert2.setContentText("확인");
+	    		alert2.showAndWait();
+	    		Main.main.loadpage("/view/login/login");
+	    		pass = false;
+			}
+			else if (member_grade == 1) {
+				alert2.setTitle("회원가입");
+	    		alert2.setHeaderText("딜러 회원가입이 완료 되었습니다.");
+	    		alert2.setContentText("확인");
+	    		alert2.showAndWait();
+	    		Main.main.loadpage("/view/login/login");
+	    		pass = false;
+			}
 		}
     }
 	public void input() {
