@@ -32,6 +32,12 @@ public class Home implements Initializable{
 	public Home(){home = this;}
 	
 	@FXML
+	private Label add_car;
+	
+	@FXML
+    private Label new_car;
+	
+	@FXML
 	private ImageView bt_home;
 	  
 	@FXML
@@ -80,6 +86,15 @@ public class Home implements Initializable{
     }
 
     @FXML
+    void add(MouseEvent event) {
+
+    }
+    
+    @FXML
+    void new_car(MouseEvent event) {
+
+    }
+    @FXML
     void reg(MouseEvent event) {
     	Main.main.loadpage("/view/login/registration");
     }
@@ -125,6 +140,10 @@ public class Home implements Initializable{
 					System.out.println("Main 알림창 열기 실패"+ e); 
 				}
 			}
+			if(Login.member.getM_gr() == 1) {
+				add_car.setVisible(true);
+				new_car.setVisible(false);
+			}
 			lbl_logout.setVisible(true);
 			lbl_myinfo.setVisible(true);
 			lbl_login.setVisible(false);
@@ -135,7 +154,10 @@ public class Home implements Initializable{
 			lbl_myinfo.setVisible(false);
 			lbl_login.setVisible(true);
 			lbl_reg.setVisible(true);
+			add_car.setVisible(false);
+			new_car.setVisible(true);
 		}
+		
 	}
 	public void loadpage( String page ) {
 		try {

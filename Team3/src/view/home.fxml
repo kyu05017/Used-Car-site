@@ -62,7 +62,7 @@
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="602.0" layoutY="140.0" prefHeight="32.0" prefWidth="77.0" text="신규 매물" textFill="WHITE">
+            <Label fx:id="new_car" layoutX="602.0" layoutY="140.0" onMouseClicked="#new_car" prefHeight="32.0" prefWidth="77.0" text="신규 매물" textFill="WHITE">
                <font>
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>
@@ -86,6 +86,11 @@
             <Label fx:id="lbl_myinfo" layoutX="1099.0" layoutY="9.0" onMouseClicked="#info" text="내정보">
                <font>
                   <Font name="Malgun Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="add_car" layoutX="602.0" layoutY="140.0" onMouseClicked="#add" prefHeight="32.0" prefWidth="77.0" text="매물 등록" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="16.0" />
                </font>
             </Label>
          </children>
