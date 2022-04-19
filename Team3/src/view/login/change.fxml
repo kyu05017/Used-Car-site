@@ -9,23 +9,23 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.login.Change">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="333.0" layoutX="8.0" layoutY="35.0" stroke="#ffb330" strokeType="INSIDE" strokeWidth="5.0" width="334.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb330" height="41.0" layoutX="82.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="186.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="333.0" layoutX="8.0" layoutY="35.0" stroke="MEDIUMAQUAMARINE" strokeType="INSIDE" strokeWidth="5.0" width="334.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="MEDIUMAQUAMARINE" height="41.0" layoutX="82.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="186.0" />
       <Text fill="WHITE" layoutX="141.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="내 정보" wrappingWidth="68.6513671875">
          <font>
             <Font name="HCR Dotum" size="20.0" />
          </font></Text>
-      <Text fill="#c65c07" layoutX="53.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이메일">
+      <Text fill="MEDIUMAQUAMARINE" layoutX="53.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이메일">
          <font>
             <Font name="HCR Dotum" size="15.0" />
          </font></Text>
-      <Text fill="#c65c07" layoutX="53.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="전화번호">
+      <Text fill="MEDIUMAQUAMARINE" layoutX="53.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="전화번호">
          <font>
             <Font name="HCR Dotum" size="15.0" />
          </font></Text>
       <TextField fx:id="txt_new_email" layoutX="129.0" layoutY="157.0" prefHeight="23.0" prefWidth="168.0" promptText="수정할 이메일" />
       <TextField fx:id="txt_new_phone" layoutX="129.0" layoutY="196.0" prefHeight="23.0" prefWidth="168.0" promptText="수정할 전화번호" />
-      <Button fx:id="btcom" layoutX="119.0" layoutY="327.0" mnemonicParsing="false" onAction="#bt_com" prefHeight="54.0" prefWidth="112.0" style="-fx-background-color: ffb330;" text="수정완료" textFill="WHITE">
+      <Button fx:id="btcom" layoutX="119.0" layoutY="327.0" mnemonicParsing="false" onAction="#bt_com" prefHeight="54.0" prefWidth="112.0" style="-fx-background-color: #66cdaa;" text="수정완료" textFill="WHITE">
          <font>
             <Font name="HCR Dotum" size="15.0" />
          </font></Button>

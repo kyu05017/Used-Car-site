@@ -7,19 +7,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.board.board">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.board.board">
    <children>
-      <TableView fx:id="table" layoutX="10.0" layoutY="55.0" prefHeight="465.0" prefWidth="980.0">
+      <TableView fx:id="table" layoutX="10.0" layoutY="55.0" prefHeight="379.0" prefWidth="980.0" style="-fx-border-color: #66cdaa;">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
-      <Label fx:id="board_name" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="972.0" text="공지사항">
+      <Label fx:id="board_name" layoutX="14.0" layoutY="15.0" prefHeight="34.0" prefWidth="538.0" text="공지사항" textFill="MEDIUMAQUAMARINE">
          <font>
-            <Font size="18.0" />
+            <Font name="Malgun Gothic Bold" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="bt_write" layoutX="880.0" layoutY="17.0" mnemonicParsing="false" onMouseClicked="#act_write" prefHeight="29.0" prefWidth="106.0" text="글작성" />
+      <Button fx:id="bt_write" layoutX="880.0" layoutY="17.0" mnemonicParsing="false" onMouseClicked="#act_write" prefHeight="29.0" prefWidth="106.0" style="-fx-background-color: #66cdaa;" text="글 작성" textFill="WHITE">
+         <font>
+            <Font name="Malgun Gothic" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

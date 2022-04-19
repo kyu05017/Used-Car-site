@@ -4,15 +4,22 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.login.Pwcheck">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Text layoutX="153.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="비밀번호 확인" />
-            <PasswordField fx:id="txt_pw" layoutX="90.0" layoutY="136.0" onAction="#pwcheck" />
-            <Button fx:id="bt_pw" layoutX="302.0" layoutY="136.0" mnemonicParsing="false" onAction="#use_pw" prefHeight="20.0" prefWidth="76.0" text="확인" />
+            <Text fill="MEDIUMAQUAMARINE" layoutX="142.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="비밀번호 확인" wrappingWidth="116.796875">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="18.0" />
+               </font></Text>
+            <PasswordField fx:id="txt_pw" layoutX="87.0" layoutY="125.0" onAction="#pwcheck" prefHeight="38.0" prefWidth="157.0" />
+            <Button fx:id="bt_pw" layoutX="251.0" layoutY="125.0" mnemonicParsing="false" onAction="#use_pw" prefHeight="36.0" prefWidth="76.0" style="-fx-background-color: #66cdaa;" text="확인" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="16.0" />
+               </font></Button>
          </children>
       </AnchorPane>
    </center>

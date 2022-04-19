@@ -12,9 +12,9 @@
    <center>
       <AnchorPane prefHeight="400.0" prefWidth="350.0" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="230.0" layoutX="56.0" layoutY="36.0" stroke="#ffb330" strokeType="INSIDE" strokeWidth="5.0" width="294.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb330" height="41.0" layoutX="107.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="186.0" />
-            <Button fx:id="bt_newid" layoutX="162.0" layoutY="237.0" mnemonicParsing="false" onAction="#use_id" prefHeight="49.0" prefWidth="76.0" style="-fx-background-color: ffb330;" text="확인" textFill="WHITE">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="230.0" layoutX="56.0" layoutY="36.0" stroke="MEDIUMAQUAMARINE" strokeType="INSIDE" strokeWidth="5.0" width="294.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="MEDIUMAQUAMARINE" height="41.0" layoutX="107.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="186.0" />
+            <Button fx:id="bt_newid" layoutX="162.0" layoutY="237.0" mnemonicParsing="false" onAction="#use_id" prefHeight="49.0" prefWidth="76.0" style="-fx-background-color: #66cdaa;" text="확인" textFill="WHITE">
                <font>
                   <Font name="HCR Dotum" size="15.0" />
                </font></Button>
