@@ -213,7 +213,7 @@ public class DAO_Member extends Dao{
 	// È¸¿ø Å»Åð 
 	public boolean signout(int num) {
 		try {
-			String sql = "delete from member where m_num=?";
+			String sql = "delete from member where m_number=?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, num);
 			ps.executeUpdate();
