@@ -67,7 +67,7 @@
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="855.0" layoutY="140.0" prefHeight="32.0" prefWidth="98.0" text="자유게시판" textFill="WHITE">
+            <Label fx:id="free_board" layoutX="855.0" layoutY="140.0" onMouseClicked="#act_freeboard" prefHeight="32.0" prefWidth="98.0" text="자유게시판" textFill="WHITE">
                <font>
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>

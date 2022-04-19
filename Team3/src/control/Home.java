@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import control.board.Admin_board;
 import control.login.Login;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -60,6 +61,14 @@ public class Home implements Initializable{
 	
     @FXML
     private Label notice;
+    
+    @FXML
+    private Label free_board;
+    
+    @FXML
+    void act_freeboard(MouseEvent event) {
+    	loadpage("/view/board/main_board");
+    }
     
     @FXML
     void act_notice(MouseEvent event) {

@@ -8,10 +8,10 @@
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffb330;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="notice" layoutX="81.0" layoutY="185.0" onMouseClicked="#info" text="공지사항" />
-            <Label fx:id="QnA" layoutX="81.0" layoutY="229.0" onMouseClicked="#change" text="문의" />
-            <Label fx:id="car_qna" layoutX="81.0" layoutY="264.0" onMouseClicked="#letter" text="딜러 상담" />
-            <Label fx:id="myQna" layoutX="81.0" layoutY="298.0" onMouseClicked="#bt_signout" text="내문의" />
+            <Label fx:id="notice" layoutX="81.0" layoutY="185.0" onMouseClicked="#act_notice" text="공지사항" />
+            <Label fx:id="QnA" layoutX="81.0" layoutY="229.0" onMouseClicked="#act_QnA" text="문의" />
+            <Label fx:id="car_qna" layoutX="81.0" layoutY="264.0" onMouseClicked="#act_car_qna" text="딜러 상담" />
+            <Label fx:id="myQna" layoutX="81.0" layoutY="298.0" onMouseClicked="#act_myQna" text="내문의" />
          </children>
       </AnchorPane>
    </left>
