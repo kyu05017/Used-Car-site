@@ -3,6 +3,7 @@ package control.board;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import control.Home;
 import control.login.Mypage;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
 public class Admin_board implements Initializable{
+	
+	public static Admin_board admin_board;
+
+	public Admin_board(){admin_board = this;}
 	
 	@FXML
     private BorderPane info_board;

@@ -12,6 +12,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
 public class Main_board implements Initializable{
+	
+	public static Main_board main_board;
+
+	public Main_board(){main_board = this;}
+	
 	@FXML
     private BorderPane info_board;
 

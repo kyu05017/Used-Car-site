@@ -23,7 +23,7 @@ public class board implements Initializable{
 
     @FXML
     void act_write(MouseEvent event) {
-
+    	Main_board.main_board.loadpage("/view/board/write");
     }
 
     
