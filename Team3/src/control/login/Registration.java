@@ -146,7 +146,7 @@ public class Registration implements Initializable{
     	String address = txtaddress.getText();
     	int member_grade = 0;
     	
-    	Pattern passPattern1 = Pattern.compile("^(?=.*[a-zA-Z])(?=.*\\d)(?=.*\\W).{8,20}$");
+    	Pattern passPattern1 = Pattern.compile("^(?=.*[a-zA-Z0-9])(?=.*\\d)(?=.*\\W).{8,20}$");
 		Matcher passMatcher1 = passPattern1.matcher(pw);
 		Pattern passPattern2 = Pattern.compile("(\\w)\\1\\1\\1");
 		Matcher passMatcher2 = passPattern2.matcher(pw);
@@ -341,6 +341,14 @@ public class Registration implements Initializable{
     	else if(otp_diller.isSelected()){
     		member_grade = 1;
     	}
+    	else {
+    		alert2.setTitle("회원가입");
+    		alert2.setHeaderText("회원님의 회원종류를 선택해주세요,");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    		txtaddress.requestFocus();
+    		return;
+    	}
 		
 		DTO_Member member = new DTO_Member(0, id, pw, name, email,since, phone, address, "yyyy-MM-dd",member_grade);
 		boolean result =  DAO_Member.mdao.registration(member);
@@ -370,8 +378,6 @@ public class Registration implements Initializable{
 			Duplicat.id2 = null;
 			txtid.setDisable(true);
 		}
-		System.out.println(1);
-    	
 	}
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {	

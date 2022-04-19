@@ -133,18 +133,21 @@ public class DAO_Member extends Dao{
 	// 아이디 찾기
 	public String find_id(String name, String email) {
 		try {
-			String sql = "select * from member where m_name=? and m_email=?";
+			String sql = "select m_id from member where m_name=? and m_email=?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1,name);
 			ps.setString(2,email);
 			rs = ps.executeQuery();
 			if(rs.next()) { 
-				return rs.getString(3);
+				System.out.println(rs.getString(1));
+				return rs.getString(1);
 			}
+			
 		}
 		catch (Exception e) {
 			System.out.println("DAO_Member 아이디 찾기 오류 " + e);
 		}
+		
 		return null;
 	}
 	// 비밀번호 찾기
@@ -213,7 +216,7 @@ public class DAO_Member extends Dao{
 	// 회원 탈퇴 
 	public boolean signout(int num) {
 		try {
-			String sql = "delete from member where m_num=?";
+			String sql = "delete from member where m_number=?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, num);
 			ps.executeUpdate();

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="530.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.board.Write">
+   <children>
+      <Button fx:id="btback" layoutX="849.0" layoutY="132.0" mnemonicParsing="false" onAction="#accback" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: #CD853F;" text="뒤로가기" textFill="DARKGREEN">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextArea fx:id="txtcontents" layoutX="14.0" layoutY="221.0" prefHeight="295.0" prefWidth="966.0" />
+      <Button fx:id="btwrite1" layoutX="849.0" layoutY="177.0" mnemonicParsing="false" onAction="#addwrite" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: #CD853F;" text="작성완료" textFill="DARKGREEN">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txttitle" layoutX="14.0" layoutY="134.0" prefHeight="29.0" prefWidth="773.0" />
+      <Text fill="DARKGREEN" layoutX="14.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="제목" wrappingWidth="72.6513671875" />
+      <Text fill="DARKGREEN" layoutX="14.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="내용" wrappingWidth="72.6513671875" />
+      <Label fx:id="lbl_title" layoutX="14.0" layoutY="33.0" prefHeight="45.0" prefWidth="412.0" text="자유게시판">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
