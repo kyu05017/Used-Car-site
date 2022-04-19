@@ -34,7 +34,7 @@ public class Admin_board implements Initializable{
     @FXML
     private Label myQna;
     
-    public static int A_board_check = 0;
+    public static int board_check = 0;
     
     @FXML
     void act_QnA(MouseEvent event) {
@@ -53,12 +53,12 @@ public class Admin_board implements Initializable{
 
     @FXML
     void act_notice(MouseEvent event) {
-    	A_board_check = 1;
+    	board_check = 1;
     	loadpage("/view/board/board_view");
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {// TODO Auto-generated method stub
-    	A_board_check = 1;
+    	board_check = 1;
     	loadpage("/view/board/board_view");
     }
     public void loadpage( String page ) {
