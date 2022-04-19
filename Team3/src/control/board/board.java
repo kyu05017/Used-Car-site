@@ -45,7 +45,12 @@ public class board implements Initializable{
 
     	if(Admin_board.board_check == 1) {
     		board_name.setText("공지사항");
-    		bt_write.setVisible(false);
+    		if(Login.member.getM_gr() == 3) {
+    			bt_write.setVisible(true);
+    		}
+    		else {
+    			bt_write.setVisible(false);
+    		}
     	}
     	else if(Admin_board.board_check == 2){
     		board_name.setText("자유 게시판");
