@@ -11,7 +11,6 @@
 
 <AnchorPane prefHeight="530.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.board.Write">
    <children>
-<<<<<<<
       <Button fx:id="btback" layoutX="908.0" layoutY="31.0" mnemonicParsing="false" onAction="#accback" prefHeight="34.0" prefWidth="99.0" style="-fx-background-color: #66cdaa;" text="뒤로가기" textFill="WHITE">
 
       <Button fx:id="btback" layoutX="849.0" layoutY="132.0" mnemonicParsing="false" onAction="#accback" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: #CD853F;" text="뒤로가기" textFill="DARKGREEN">
@@ -20,16 +19,14 @@
             <Font name="Malgun Gothic" size="14.0" />
          </font>
       </Button>
-<<<<<<< 
       <TextArea fx:id="txtcontents" layoutX="54.0" layoutY="221.0" prefHeight="352.0" prefWidth="953.0" />
       <TextField fx:id="txttitle" layoutX="57.0" layoutY="152.0" prefHeight="29.0" prefWidth="953.0" />
       <Text fill="MEDIUMAQUAMARINE" layoutX="57.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="제목" wrappingWidth="72.6513671875">
 
       <TextArea fx:id="txtcontents" layoutX="14.0" layoutY="221.0" prefHeight="295.0" prefWidth="966.0" />
-      <Button fx:id="btwrite1" layoutX="849.0" layoutY="177.0" mnemonicParsing="false" onAction="#addwrite" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: #CD853F;" text="작성완료" textFill="DARKGREEN">
+     
 
          <font>
-<<<<<<< 
             <Font name="Malgun Gothic Bold" size="16.0" />
          </font></Text>
 
