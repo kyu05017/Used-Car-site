@@ -2,6 +2,7 @@ package control.car;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -209,13 +210,19 @@ public class Caradd implements Initializable{
     		FileInputStream inputStream = new FileInputStream(file);
     		//파일 출력 스트림
     		File copyfile = new File(c_img);
+    		FileOutputStream outputStream = new FileOutputStream(copyfile);
     		//바이트 배열 선언
-    		
-    		//읽어오기
-    		
+    		byte[] bytes = new byte[1024*1024*1024];
+			//읽어오기
+    		int size;
+    		while ((size = inputStream.read(bytes)) > 0) {
+				outputStream.write(bytes, 0, size);
+			}
     		//스트림 종료
-    		
+    		inputStream.close();
+    		outputStream.close();
     		//파일명DB저장
+    		c_img = copyfile.toURI().toString();
 		} catch (Exception e) {
 			System.out.println("파일 오류 "+ e);
 		}
