@@ -66,6 +66,10 @@ public class Home implements Initializable{
     private Label free_board;
     
     @FXML
+    void act_addcar(MouseEvent event) {
+    	loadpage("/view/car/Caradd");
+    }
+    @FXML
     void act_freeboard(MouseEvent event) {
     	loadpage("/view/board/main_board");
     }
@@ -185,4 +189,5 @@ public class Home implements Initializable{
 			System.out.println("Main 컨트롤 페이지 열기 실패"+ e); 
 		}
 	}
+	
 }

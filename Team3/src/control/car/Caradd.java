@@ -6,6 +6,8 @@ import java.util.ResourceBundle;
 
 import com.mysql.cj.protocol.FullReadInputStream;
 
+import control.Home;
+import control.Main;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -72,9 +74,6 @@ public class Caradd implements Initializable{
     private RadioButton optcarcate8;
 
     @FXML
-    private RadioButton optcarcate9;
-
-    @FXML
     private TextField txtcompany;
 
     @FXML
@@ -128,11 +127,29 @@ public class Caradd implements Initializable{
     @FXML
     void accadd(ActionEvent event) {
     	
+    	//1.컨트롤에 입력된 데이터 가져오기
+    	String c_title = txttitle.getText();
+    	String c_content = txtcontent.getText();
+    	String c_img;
+    	int c_category;
+    	int c_price;
+    	String c_cnumber = txtcnumber.getText();
+    	int c_view; 
+    	int c_condition;
+    	int c_km;
+    	int c_fuel;
+    	int c_mission;
+    	String c_com = txtcompany.getText();
+    	String c_year = txtcaryear.getText();
+    	int m_number;
+    	//2.객체화
+    	
+    	//3.DB처리
     }
 
     @FXML
     void accback(ActionEvent event) {
-    	
+    	Main.main.loadpage("/view/home");
     }
 
     @FXML
@@ -144,8 +161,9 @@ public class Caradd implements Initializable{
     	//새로운 스테이지
     	File file = chooser.showOpenDialog(new Stage());
     	
+    	c_img = file.toURI().toString();
     	//이미지 미리보기
-    	Image image = new Image(img);
+    	Image image = new Image(c_img);
     	img.setImage(image);
     	//선택함 파일 현재 프로젝트 폴더로 복사해오기
     	

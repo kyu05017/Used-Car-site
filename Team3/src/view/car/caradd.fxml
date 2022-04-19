@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.car.Caradd">
    <children>
-      <TextField fx:id="txtcnumber" layoutX="156.0" layoutY="79.0" prefHeight="30.0" prefWidth="200.0" promptText="차량번호" />
+      <TextField fx:id="txtcnumber" layoutX="150.0" layoutY="79.0" prefHeight="30.0" prefWidth="200.0" promptText="차량번호" />
       <Button fx:id="btnimg" layoutX="540.0" layoutY="420.0" mnemonicParsing="false" onAction="#accimgadd" prefHeight="40.0" prefWidth="100.0" text="이미지등록" />
       <Button fx:id="btnadd" layoutX="664.0" layoutY="420.0" mnemonicParsing="false" onAction="#accadd" prefHeight="40.0" prefWidth="100.0" text="제품등록" />
       <Button fx:id="btnback" layoutX="790.0" layoutY="420.0" mnemonicParsing="false" onAction="#accback" prefHeight="40.0" prefWidth="100.0" text="취소" />
@@ -29,47 +29,46 @@
       <Label layoutX="80.0" layoutY="373.0" text="사고여부" />
       <Label layoutX="80.0" layoutY="450.0" text="희망가격" />
       <Label layoutX="80.0" layoutY="288.0" text="주행거리" />
-      <RadioButton fx:id="optcarcate1" layoutX="154.0" layoutY="175.0" mnemonicParsing="false" text="경차">
+      <RadioButton fx:id="optcarcate1" layoutX="150.0" layoutY="175.0" mnemonicParsing="false" text="경차">
          <toggleGroup>
             <ToggleGroup fx:id="category" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="optcarcate2" layoutX="206.0" layoutY="175.0" mnemonicParsing="false" text="소형" toggleGroup="$category" />
-      <RadioButton fx:id="optcarcate3" layoutX="251.0" layoutY="175.0" mnemonicParsing="false" text="준중형" toggleGroup="$category" />
-      <RadioButton fx:id="optcarcate4" layoutX="314.0" layoutY="175.0" mnemonicParsing="false" text="중형" toggleGroup="$category" />
-      <RadioButton fx:id="optcarcate5" layoutX="372.0" layoutY="175.0" mnemonicParsing="false" text="대형" toggleGroup="$category" />
-      <RadioButton fx:id="optcarcate6" layoutX="154.0" layoutY="203.0" mnemonicParsing="false" text="스포츠카" toggleGroup="$category" />
-      <RadioButton fx:id="optcarcate7" layoutX="223.0" layoutY="203.0" mnemonicParsing="false" text="SUV" toggleGroup="$category" />
-      <RadioButton fx:id="optcarcate8" layoutX="274.0" layoutY="203.0" mnemonicParsing="false" text="RV/MPV" toggleGroup="$category" />
-      <RadioButton fx:id="optcarcate9" layoutX="349.0" layoutY="203.0" mnemonicParsing="false" text="상용" toggleGroup="$category" />
+      <RadioButton fx:id="optcarcate2" layoutX="210.0" layoutY="175.0" mnemonicParsing="false" text="소형" toggleGroup="$category" />
+      <RadioButton fx:id="optcarcate3" layoutX="260.0" layoutY="175.0" mnemonicParsing="false" text="준중형" toggleGroup="$category" />
+      <RadioButton fx:id="optcarcate4" layoutX="320.0" layoutY="175.0" mnemonicParsing="false" text="중형" toggleGroup="$category" />
+      <RadioButton fx:id="optcarcate5" layoutX="150.0" layoutY="203.0" mnemonicParsing="false" text="대형" toggleGroup="$category" />
+      <RadioButton fx:id="optcarcate6" layoutX="210.0" layoutY="203.0" mnemonicParsing="false" text="SUV" toggleGroup="$category" />
+      <RadioButton fx:id="optcarcate7" layoutX="260.0" layoutY="203.0" mnemonicParsing="false" text="상용" toggleGroup="$category" />
+      <RadioButton fx:id="optcarcate8" layoutX="320.0" layoutY="203.0" mnemonicParsing="false" text="스포츠카" toggleGroup="$category" />
       <Label layoutX="80.0" layoutY="410.0" text="변속기" />
       <Label layoutX="80.0" layoutY="133.0" text="제조사" />
-      <TextField fx:id="txtcompany" layoutX="156.0" layoutY="126.0" prefHeight="30.0" prefWidth="200.0" promptText="제조사" />
+      <TextField fx:id="txtcompany" layoutX="150.0" layoutY="126.0" prefHeight="30.0" prefWidth="200.0" promptText="제조사" />
       <TextField fx:id="txtcaryear" layoutX="150.0" layoutY="237.0" prefHeight="30.0" prefWidth="200.0" promptText="연식" />
       <TextField fx:id="txtkm" layoutX="150.0" layoutY="281.0" prefHeight="30.0" prefWidth="200.0" promptText="주행거리" />
       <Label layoutX="361.0" layoutY="289.0" text="km" />
-      <RadioButton fx:id="optcondition1" layoutX="153.0" layoutY="373.0" mnemonicParsing="false" text="무사고">
+      <RadioButton fx:id="optcondition1" layoutX="150.0" layoutY="373.0" mnemonicParsing="false" text="무사고">
          <toggleGroup>
             <ToggleGroup fx:id="condition" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="optcondition2" layoutX="240.0" layoutY="373.0" mnemonicParsing="false" text="사고" toggleGroup="$condition" />
-      <RadioButton fx:id="optmission1" layoutX="148.0" layoutY="409.0" mnemonicParsing="false" text="오토 A/T">
+      <RadioButton fx:id="optcondition2" layoutX="260.0" layoutY="373.0" mnemonicParsing="false" text="사고" toggleGroup="$condition" />
+      <RadioButton fx:id="optmission1" layoutX="150.0" layoutY="409.0" mnemonicParsing="false" text="오토 A/T">
          <toggleGroup>
             <ToggleGroup fx:id="mission" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="optmission1" layoutX="245.0" layoutY="409.0" mnemonicParsing="false" text="수동 M/T" toggleGroup="$mission" />
-      <TextField fx:id="txtprice" layoutX="145.0" layoutY="442.0" prefHeight="30.0" prefWidth="200.0" promptText="희망가" />
+      <RadioButton fx:id="optmission1" layoutX="260.0" layoutY="409.0" mnemonicParsing="false" text="수동 M/T" toggleGroup="$mission" />
+      <TextField fx:id="txtprice" layoutX="150.0" layoutY="442.0" prefHeight="30.0" prefWidth="200.0" promptText="희망가" />
       <RadioButton fx:id="optfuel1" layoutX="150.0" layoutY="334.0" mnemonicParsing="false" text="휘발유">
          <toggleGroup>
             <ToggleGroup fx:id="fuel" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="optfuel2" layoutX="214.0" layoutY="334.0" mnemonicParsing="false" text="경유" toggleGroup="$fuel" />
-      <RadioButton fx:id="optfuel3" layoutX="268.0" layoutY="334.0" mnemonicParsing="false" text="LPG" toggleGroup="$fuel" />
-      <RadioButton fx:id="optfuel4" layoutX="321.0" layoutY="334.0" mnemonicParsing="false" text="전기" toggleGroup="$fuel" />
-      <RadioButton fx:id="optfuel5" layoutX="372.0" layoutY="334.0" mnemonicParsing="false" text="하이브리드" toggleGroup="$fuel" />
+      <RadioButton fx:id="optfuel2" layoutX="210.0" layoutY="334.0" mnemonicParsing="false" text="경유" toggleGroup="$fuel" />
+      <RadioButton fx:id="optfuel3" layoutX="260.0" layoutY="334.0" mnemonicParsing="false" text="LPG" toggleGroup="$fuel" />
+      <RadioButton fx:id="optfuel4" layoutX="320.0" layoutY="334.0" mnemonicParsing="false" text="전기" toggleGroup="$fuel" />
+      <RadioButton fx:id="optfuel5" layoutX="380.0" layoutY="334.0" mnemonicParsing="false" text="하이브리드" toggleGroup="$fuel" />
       <TextField fx:id="txttitle" layoutX="539.0" layoutY="74.0" prefHeight="30.0" prefWidth="350.0" promptText="제목" />
       <TextArea fx:id="txtcontent" layoutX="540.0" layoutY="111.0" prefHeight="100.0" prefWidth="350.0" />
    </children>
