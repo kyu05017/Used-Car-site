@@ -59,6 +59,14 @@ public class Home implements Initializable{
     private Label lbl_myinfo;
 	
     @FXML
+    private Label notice;
+    
+    @FXML
+    void act_notice(MouseEvent event) {
+    	loadpage("/view/board/admin_board");
+    }
+    
+    @FXML
     void act_alert(MouseEvent event) {
     	if(Login.member != null){
     		try {
