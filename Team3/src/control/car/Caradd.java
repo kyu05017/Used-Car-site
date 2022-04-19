@@ -1,6 +1,7 @@
 package control.car;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -8,9 +9,14 @@ import com.mysql.cj.protocol.FullReadInputStream;
 
 import control.Home;
 import control.Main;
+import control.login.Login;
+import dao.DAO_Car;
+import dto.DTO_Car;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
@@ -93,6 +99,9 @@ public class Caradd implements Initializable{
 
     @FXML
     private RadioButton optmission1;
+    
+    @FXML
+    private RadioButton optmission2;
 
     @FXML
     private ToggleGroup mission;
@@ -130,28 +139,57 @@ public class Caradd implements Initializable{
     	//1.컨트롤에 입력된 데이터 가져오기
     	String c_title = txttitle.getText();
     	String c_content = txtcontent.getText();
-    	String c_img;
-    	int c_category;
-    	int c_price;
+    	int c_category = 0;
+    		if(optcarcate1.isSelected()) { c_category = 1; }
+    		if(optcarcate2.isSelected()) { c_category = 2; }
+    		if(optcarcate3.isSelected()) { c_category = 3; }
+    		if(optcarcate4.isSelected()) { c_category = 4; }
+    		if(optcarcate5.isSelected()) { c_category = 5; }
+    		if(optcarcate6.isSelected()) { c_category = 6; }
+    		if(optcarcate7.isSelected()) { c_category = 7; }
+    		if(optcarcate8.isSelected()) { c_category = 8; }
+    	int c_price = Integer.parseInt( txtprice.getText());
     	String c_cnumber = txtcnumber.getText();
-    	int c_view; 
-    	int c_condition;
-    	int c_km;
-    	int c_fuel;
-    	int c_mission;
+    	int c_view = 0 ; 
+    	int c_condition = 0;
+    		if (optcondition1.isSelected()) { c_condition = 1; }
+    		if (optcondition2.isSelected()) { c_condition = 2; }
+    	int c_km = Integer.parseInt( txtkm.getText());
+    	int c_fuel = 0;
+    		if (optfuel1.isSelected()) { c_fuel = 1; }
+    		if (optfuel2.isSelected()) { c_fuel = 2; }
+    		if (optfuel3.isSelected()) { c_fuel = 3; }
+    		if (optfuel4.isSelected()) { c_fuel = 4; }
+    		if (optfuel5.isSelected()) { c_fuel = 5; }
+    	int c_mission = 0;
+    		if (optmission1.isSelected()) { c_mission = 1; }
+    		if (optmission2.isSelected()) { c_mission = 2; }
     	String c_com = txtcompany.getText();
     	String c_year = txtcaryear.getText();
-    	int m_number;
-    	//2.객체화
+    	int m_number = Login.member.getM_number();
     	
+    	//2.객체화 
+    	DTO_Car car = new DTO_Car(0, c_title, c_content, null, c_img, c_category, c_price, c_cnumber, c_view, c_condition, c_km, c_fuel, c_mission, c_com, c_year, m_number);
     	//3.DB처리
+    	boolean result = DAO_Car.dao_Car.add(car);
+    	if (result) {
+			Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setHeaderText("등록 완료");
+				alert.showAndWait();
+		}else {
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setHeaderText("등록 실패");
+			alert.showAndWait();
+		}
     }
 
     @FXML
     void accback(ActionEvent event) {
     	Main.main.loadpage("/view/home");
     }
-
+    
+    private String c_img = null;
+    
     @FXML
     void accimgadd(ActionEvent event) {
     	//파일 선택
@@ -163,9 +201,25 @@ public class Caradd implements Initializable{
     	
     	c_img = file.toURI().toString();
     	//이미지 미리보기
-    	Image image = new Image(c_img);
+    	Image image = new Image( c_img );
     	img.setImage(image);
     	//선택함 파일 현재 프로젝트 폴더로 복사해오기
+    	try {
+			//파일 입력 스트림
+    		FileInputStream inputStream = new FileInputStream(file);
+    		//파일 출력 스트림
+    		File copyfile = new File(c_img);
+    		//바이트 배열 선언
+    		
+    		//읽어오기
+    		
+    		//스트림 종료
+    		
+    		//파일명DB저장
+		} catch (Exception e) {
+			System.out.println("파일 오류 "+ e);
+		}
+    	
     	
     }
 	

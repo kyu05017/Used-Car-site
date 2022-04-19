@@ -58,7 +58,7 @@
             <ToggleGroup fx:id="mission" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="optmission1" layoutX="260.0" layoutY="409.0" mnemonicParsing="false" text="수동 M/T" toggleGroup="$mission" />
+      <RadioButton fx:id="optmission2" layoutX="260.0" layoutY="409.0" mnemonicParsing="false" text="수동 M/T" toggleGroup="$mission" />
       <TextField fx:id="txtprice" layoutX="150.0" layoutY="442.0" prefHeight="30.0" prefWidth="200.0" promptText="희망가" />
       <RadioButton fx:id="optfuel1" layoutX="150.0" layoutY="334.0" mnemonicParsing="false" text="휘발유">
          <toggleGroup>
