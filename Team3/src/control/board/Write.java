@@ -40,6 +40,9 @@ public class Write implements Initializable{
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+    	if(Admin_board.board_check == 1){
+    		txttitle.setText("공지 사항");
+    	}
     	if(Admin_board.board_check == 2){
     		txttitle.setText("자유 게시판");
     	}

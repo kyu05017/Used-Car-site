@@ -36,20 +36,19 @@ public class board implements Initializable{
     	else {
     		Main_board.main_board.loadpage("/view/board/write");
     	}
-    	
     }
 
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-
+    	System.out.println(Admin_board.board_check);
+    	bt_write.setVisible(false);
     	if(Admin_board.board_check == 1) {
     		board_name.setText("공지사항");
-    		if(Login.member.getM_gr() == 3) {
-    			bt_write.setVisible(true);
-    		}
-    		else {
-    			bt_write.setVisible(false);
+    		if(Login.member != null) {
+    			if(Login.member.getM_gr() == 3) {
+        			bt_write.setVisible(true);
+        		}
     		}
     	}
     	else if(Admin_board.board_check == 2){
