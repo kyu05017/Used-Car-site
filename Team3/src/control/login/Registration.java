@@ -146,7 +146,7 @@ public class Registration implements Initializable{
     	String address = txtaddress.getText();
     	int member_grade = 0;
     	
-    	Pattern passPattern1 = Pattern.compile("^(?=.*[a-zA-Z])(?=.*\\d)(?=.*\\W).{8,20}$");
+    	Pattern passPattern1 = Pattern.compile("^(?=.*[a-zA-Z0-9])(?=.*\\d)(?=.*\\W).{8,20}$");
 		Matcher passMatcher1 = passPattern1.matcher(pw);
 		Pattern passPattern2 = Pattern.compile("(\\w)\\1\\1\\1");
 		Matcher passMatcher2 = passPattern2.matcher(pw);

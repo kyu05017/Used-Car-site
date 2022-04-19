@@ -6,6 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.login.Info">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="333.0" layoutX="8.0" layoutY="41.0" stroke="MEDIUMAQUAMARINE" strokeType="INSIDE" strokeWidth="5.0" width="334.0" />

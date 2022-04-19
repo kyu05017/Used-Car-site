@@ -31,7 +31,7 @@ public class Main_board implements Initializable{
 
     @FXML
     void act_afterbuy(MouseEvent event) {
-
+    	
     }
 
     @FXML

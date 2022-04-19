@@ -29,33 +29,22 @@ public class Write implements Initializable{
 
     @FXML
     void accback(ActionEvent event) {
-
+    	Main_board.main_board.loadpage("/view/board/board_view");
     }
 
     @FXML
     void addwrite(ActionEvent event) {
-
+    	
     }
 
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-    	// TODO Auto-generated method stub
-    	
+    	if(Admin_board.board_check == 1){
+    		txttitle.setText("공지 사항");
+    	}
+    	if(Admin_board.board_check == 2){
+    		txttitle.setText("자유 게시판");
+    	}
     }
-//    @FXML
-//    void accback(ActionEvent event) {
-//    	Main_board.main_board.loadpage("/view/board/board_view");
-//    }
-//
-//    @FXML
-//    void addwrite(ActionEvent event) {
-//
-//    }
-//    @Override
-//    public void initialize(URL arg0, ResourceBundle arg1) {
-////    	if(Admin_board.board_check == 2){
-////    		txttitle.setText("자유 게시판");
-////    	}
-//    }
 }
