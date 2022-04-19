@@ -15,9 +15,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class Find_pw implements Initializable{
-	
+
 	@FXML
-    private TextField txtid;
+    private TextField txtname;
 
     @FXML
     private TextField txtemail;
@@ -40,7 +40,7 @@ public class Find_pw implements Initializable{
 
 	void findpw(ActionEvent event) {
 
-		String id = txtid.getText();
+		String id = txtname.getText();
 		String email = txtemail.getText();
 		String pw = DAO_Member.mdao.find_pw(id, email);
 		if(pw != null) {

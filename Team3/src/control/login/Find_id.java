@@ -38,7 +38,7 @@ public class Find_id implements Initializable{
 
     @FXML
 	void findid(ActionEvent event) {
-		String name = txtemail.getText();
+		String name = txtname.getText();
 		String email = txtemail.getText();
 		String id = DAO_Member.mdao.find_id(name, email);
 		if(id != null) {

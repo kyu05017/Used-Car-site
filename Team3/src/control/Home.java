@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import control.board.Admin_board;
 import control.login.Login;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +33,12 @@ public class Home implements Initializable{
 	public Home(){home = this;}
 	
 	@FXML
+	private Label add_car;
+	
+	@FXML
+    private Label new_car;
+	
+	@FXML
 	private ImageView bt_home;
 	  
 	@FXML
@@ -52,6 +59,22 @@ public class Home implements Initializable{
     @FXML
     private Label lbl_myinfo;
 	
+    @FXML
+    private Label notice;
+    
+    @FXML
+    private Label free_board;
+    
+    @FXML
+    void act_freeboard(MouseEvent event) {
+    	loadpage("/view/board/main_board");
+    }
+    
+    @FXML
+    void act_notice(MouseEvent event) {
+    	loadpage("/view/board/admin_board");
+    }
+    
     @FXML
     void act_alert(MouseEvent event) {
     	if(Login.member != null){
@@ -79,6 +102,15 @@ public class Home implements Initializable{
     	Main.main.loadpage("/view/home");
     }
 
+    @FXML
+    void add(MouseEvent event) {
+
+    }
+    
+    @FXML
+    void new_car(MouseEvent event) {
+
+    }
     @FXML
     void reg(MouseEvent event) {
     	Main.main.loadpage("/view/login/registration");
@@ -125,6 +157,10 @@ public class Home implements Initializable{
 					System.out.println("Main 알림창 열기 실패"+ e); 
 				}
 			}
+			if(Login.member.getM_gr() == 1) {
+				add_car.setVisible(true);
+				new_car.setVisible(false);
+			}
 			lbl_logout.setVisible(true);
 			lbl_myinfo.setVisible(true);
 			lbl_login.setVisible(false);
@@ -135,7 +171,10 @@ public class Home implements Initializable{
 			lbl_myinfo.setVisible(false);
 			lbl_login.setVisible(true);
 			lbl_reg.setVisible(true);
+			add_car.setVisible(false);
+			new_car.setVisible(true);
 		}
+		
 	}
 	public void loadpage( String page ) {
 		try {
