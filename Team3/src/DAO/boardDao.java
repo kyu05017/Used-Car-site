@@ -10,32 +10,15 @@ import DTO.reply;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class boardDao {
+public class boardDao extends dao {
 	
-	//필드
-	private Connection conn; //1.db연결
-	private PreparedStatement ps; //2.db 안의 sql 조작
-	private ResultSet rs; //3.sql 결과 레코드 불러옴 
-	
-	
+
 	//호출
 	public static boardDao boarddao = new boardDao();
 	
 	
 	//생성자
-	public boardDao() {
-		
-		//예외처리
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver"); //드라이버 이름
-			
-			conn = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/javafx?serverTimezone=UTC",
-					"root", "1234");
-		} catch (Exception e) {	}
-
-	} //생성자end
-	
+	public boardDao() {}	
 	
 	///////////////////////////////////////////
 	//메소드
@@ -48,7 +31,7 @@ public class boardDao {
 		try {			//제목, 내용, 작성자(회원번호)
 			String sql = "insert into board(b_title,b_content,m_number) values(?,?,?)";
 			
-			ps = conn.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 			ps.setString(1, board.getB_title());
 			ps.setString(2, board.getB_content());
 			ps.setInt(3, board.getM_number());
@@ -74,7 +57,7 @@ public class boardDao {
 			String sql = "select * from board order by b_number desc";
 			//정렬
 			
-			ps = conn.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			
 			//결과 반복문
@@ -110,7 +93,7 @@ public class boardDao {
 			String sql = "delete from board where b_num=?";
 			
 			//sql조작
-			ps = conn.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 			ps.setInt(1, b_number);
 			ps.executeQuery();
 			
@@ -134,7 +117,7 @@ public class boardDao {
 			String sql = "update board set b_title=?, b_content=? where b_number=?";
 			
 			//sql조작
-			ps = conn.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 			
 			ps.setString(1, b_title);
 			ps.setString(2, b_content);
@@ -163,7 +146,7 @@ public class boardDao {
 		try {
 			String sql = "insert into reply(r_content,r_date,b_number) values(?,?,?)";
 			
-			ps= conn.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 			ps.setString(1, reply.getR_content());
 			ps.setString(2, reply.getR_date());
 			ps.setInt(3, reply.getB_number());
@@ -190,8 +173,7 @@ public class boardDao {
 		try {															// 오름차순
 			String sql = "select * from reply where b_num=? order by b_number desc";
 			
-			ps = conn.prepareStatement(sql);
-	
+			ps = con.prepareStatement(sql);
 			ps.setInt(1, b_number);
 			rs = ps.executeQuery();
 			
