@@ -22,15 +22,6 @@
             <Font name="Serif Bold" size="12.0" />
          </font>
       </Label>
-<<<<<<< HEAD
-      <Button fx:id="btnsignup" layoutX="475.0" layoutY="577.0" mnemonicParsing="false" onAction="#signup" prefHeight="47.0" prefWidth="309.0" text="회원가입" />
-      <Button fx:id="bt_back" layoutX="707.0" layoutY="85.0" mnemonicParsing="false" onAction="#back" prefHeight="29.0" prefWidth="90.0" text="뒤로가기" />
-      <Button fx:id="bt_check" layoutX="804.0" layoutY="165.0" mnemonicParsing="false" onAction="#id_check" prefHeight="29.0" prefWidth="90.0" text="중복체크" />
-      <PasswordField fx:id="txtpw" layoutX="475.0" layoutY="213.0" prefHeight="50.0" prefWidth="300.0" promptText="비밀번호" />
-      <PasswordField fx:id="txtpwconfirm" layoutX="475.0" layoutY="273.0" prefHeight="50.0" prefWidth="300.0" promptText="비밀번호 확인" />
-
-      <RadioButton fx:id="otp_normal" layoutX="475.0" layoutY="54.0" mnemonicParsing="false" text="일반회원">
-=======
       <Button fx:id="btnsignup" layoutX="95.0" layoutY="600.0" mnemonicParsing="false" onAction="#signup" prefHeight="47.0" prefWidth="309.0" style="-fx-background-color: #66cdaa;" text="회원가입" textFill="WHITE">
          <font>
             <Font name="Malgun Gothic Bold" size="18.0" />
@@ -46,14 +37,8 @@
       <PasswordField fx:id="txtpw" layoutX="95.0" layoutY="236.0" prefHeight="50.0" prefWidth="309.0" promptText="비밀번호" />
       <PasswordField fx:id="txtpwconfirm" layoutX="95.0" layoutY="296.0" prefHeight="50.0" prefWidth="309.0" promptText="비밀번호 확인" />
       <RadioButton fx:id="otp_normal" layoutX="129.0" layoutY="93.0" mnemonicParsing="false" text="일반 회원" textFill="MEDIUMAQUAMARINE">
->>>>>>> refs/remotes/origin/master
          <toggleGroup>
             <ToggleGroup fx:id="member_class" />
-<<<<<<< HEAD
-         </toggleGroup></RadioButton>
-      <RadioButton fx:id="otp_diller" layoutX="649.0" layoutY="54.0" mnemonicParsing="false" text="딜러" toggleGroup="$member_class" />
-
-=======
          </toggleGroup>
          <font>
             <Font name="Malgun Gothic Bold" size="16.0" />
@@ -62,6 +47,5 @@
          <font>
             <Font name="Malgun Gothic Bold" size="16.0" />
          </font></RadioButton>
->>>>>>> refs/remotes/origin/master
    </children>
 </AnchorPane>
