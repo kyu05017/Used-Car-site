@@ -28,7 +28,8 @@ public class Main_board implements Initializable{
 
     @FXML
     private Label after_buy;
-
+    
+    
     @FXML
     void act_afterbuy(MouseEvent event) {
     	
@@ -36,18 +37,18 @@ public class Main_board implements Initializable{
 
     @FXML
     void act_free(MouseEvent event) {
-    	Admin_board.board_check = 2;
+    	board.board_check = 2;
     	loadpage("/view/board/board_view");
     }
 
     @FXML
     void act_notice(MouseEvent event) {
-    	Admin_board.board_check = 1;
+    	board.board_check = 1;
     	loadpage("/view/board/board_view");
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-    	Admin_board.board_check = 2;
+    	board.board_check = 2;
     	loadpage("/view/board/board_view");
     	
     }

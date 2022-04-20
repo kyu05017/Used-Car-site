@@ -37,14 +37,14 @@ public class Write implements Initializable{
     	
     }
 
-
+    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-    	if(Admin_board.board_check == 1){
-    		txttitle.setText("공지 사항");
+    	if(board.board_check == 1) {
+    		lbl_title.setText("공지 사항");
     	}
-    	if(Admin_board.board_check == 2){
-    		txttitle.setText("자유 게시판");
+    	else if(board.board_check == 2){
+    		lbl_title.setText("자유 게시판");
     	}
     }
 }

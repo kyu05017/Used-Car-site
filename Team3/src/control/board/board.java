@@ -24,6 +24,8 @@ public class board implements Initializable{
     @FXML
     private Button bt_write;
 
+    public static int board_check = 0;
+    
     @FXML
     void act_write(MouseEvent event) {
     	if(Login.member == null) {
@@ -34,16 +36,22 @@ public class board implements Initializable{
     		alert2.showAndWait();
     	}
     	else {
-    		Main_board.main_board.loadpage("/view/board/write");
+    		if(board_check == 1) {
+    			Admin_board.admin_board.loadpage("/view/board/write");
+    		}
+    		else if(board_check == 2){
+    			Main_board.main_board.loadpage("/view/board/write");
+    		}
+    		
     	}
     }
 
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-    	System.out.println(Admin_board.board_check);
     	bt_write.setVisible(false);
-    	if(Admin_board.board_check == 1) {
+    	
+    	if(board_check == 1) {
     		board_name.setText("공지사항");
     		if(Login.member != null) {
     			if(Login.member.getM_gr() == 3) {
@@ -51,7 +59,7 @@ public class board implements Initializable{
         		}
     		}
     	}
-    	else if(Admin_board.board_check == 2){
+    	else if(board_check == 2){
     		board_name.setText("자유 게시판");
     		bt_write.setVisible(true);
     	}
