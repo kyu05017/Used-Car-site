@@ -204,20 +204,24 @@ public class Caradd implements Initializable{
     	//이미지 미리보기
     	Image image = new Image( c_img );
     	img.setImage(image);
-    	//선택함 파일 현재 프로젝트 폴더로 복사해오기
+    	//선택한 파일 현재 프로젝트 폴더로 복사해오기
     	try {
 			//파일 입력 스트림
     		FileInputStream inputStream = new FileInputStream(file);
+    		
     		//파일 출력 스트림
-    		File copyfile = new File(c_img);
+    		File copyfile = new File("C:\\" + file.getName());
     		FileOutputStream outputStream = new FileOutputStream(copyfile);
+    		
     		//바이트 배열 선언
     		byte[] bytes = new byte[1024*1024*1024];
+    		
 			//읽어오기
     		int size;
     		while ((size = inputStream.read(bytes)) > 0) {
 				outputStream.write(bytes, 0, size);
 			}
+    		
     		//스트림 종료
     		inputStream.close();
     		outputStream.close();
@@ -226,7 +230,6 @@ public class Caradd implements Initializable{
 		} catch (Exception e) {
 			System.out.println("파일 오류 "+ e);
 		}
-    	
     	
     }
 	
