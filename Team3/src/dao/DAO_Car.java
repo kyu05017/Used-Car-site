@@ -31,4 +31,8 @@ public class DAO_Car extends Dao {
 		return false;
 	}
 	
+	public void delete() {
+		
+	}
+	
 }
