@@ -4,19 +4,24 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import control.login.Login;
+import dao.DAO_Board;
+import dto.DTO_Board;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
 public class board implements Initializable{
 	
 	@FXML
-    private TableView<?> table;
+    private TableView<DTO_Board> table;
 
     @FXML
     private Label board_name;
@@ -62,6 +67,22 @@ public class board implements Initializable{
     	else if(board_check == 2){
     		board_name.setText("자유 게시판");
     		bt_write.setVisible(true);
+    		ObservableList<DTO_Board> boardlist = DAO_Board.bdao.list();
+    		
+    		TableColumn tc = table.getColumns().get(0);
+    		tc.setCellValueFactory(new PropertyValueFactory<>("b_num"));
+    		
+    		tc= table.getColumns().get(1);
+    		tc.setCellValueFactory(new PropertyValueFactory<>("b_title"));
+    		
+    		tc= table.getColumns().get(2);
+    		tc.setCellValueFactory(new PropertyValueFactory<>("b_date"));
+    		
+    		tc= table.getColumns().get(3);
+    		tc.setCellValueFactory(new PropertyValueFactory<>("b_view"));
+    		
+    		table.setItems(boardlist);
+    		
     	}
     	
 
