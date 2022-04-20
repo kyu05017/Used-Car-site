@@ -10,15 +10,15 @@ import DTO.reply;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class boardDao extends dao {
+public class DAO_board extends dao {
 	
 
 	//호출
-	public static boardDao boarddao = new boardDao();
+	public static DAO_board boarddao = new DAO_board();
 	
 	
 	//생성자
-	public boardDao() {}	
+	public DAO_board() {}	
 	
 	///////////////////////////////////////////
 	//메소드
@@ -134,7 +134,7 @@ public class boardDao extends dao {
 	}
 	
 	
-	////////////////
+	////////////////reply
 	
 	
 	
