@@ -76,6 +76,7 @@ public class DAO_Member extends Dao{
 			}
 			catch (Exception e) {
 				System.out.println("DAO_Member 아이디 중복 체크 오류 " + e);
+			
 			}
 			return false;
 		}

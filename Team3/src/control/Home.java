@@ -95,16 +95,14 @@ public class Home implements Initializable{
     		alert2.setContentText("확인");
     		alert2.showAndWait();
     	}
-    	
     }
     @FXML
     void to_home(MouseEvent event) {
     	Main.main.loadpage("/view/home");
     }
-
     @FXML
-    void add(MouseEvent event) {
-
+    void act_addcar(MouseEvent event) {
+    	loadpage("/view/car/Caradd");
     }
     
     @FXML
@@ -157,7 +155,7 @@ public class Home implements Initializable{
 					System.out.println("Main 알림창 열기 실패"+ e); 
 				}
 			}
-			if(Login.member.getM_gr() == 1) {
+			if(Login.member.getM_gr() == 1 || Login.member.getM_gr() == 3) {
 				add_car.setVisible(true);
 				new_car.setVisible(false);
 			}

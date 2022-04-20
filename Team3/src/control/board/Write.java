@@ -27,7 +27,7 @@ public class Write implements Initializable{
 
     @FXML
     private TextField txttitle;
-
+   
     @FXML
     private Label lbl_title;
 
@@ -57,11 +57,19 @@ public class Write implements Initializable{
     	
     }
 
-
+    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+<<<<<<< HEAD
     	if(Admin_board.board_check == 2){
     		txttitle.setText("자유 게시판"); 
+=======
+    	if(board.board_check == 1) {
+    		lbl_title.setText("공지 사항");
+    	}
+    	else if(board.board_check == 2){
+    		lbl_title.setText("자유 게시판");
+>>>>>>> refs/remotes/origin/master
     	}
     }
 }

@@ -6,32 +6,33 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.login.Info">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="333.0" layoutX="8.0" layoutY="41.0" stroke="#ffb330" strokeType="INSIDE" strokeWidth="5.0" width="334.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffb330" height="41.0" layoutX="82.0" layoutY="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="186.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="333.0" layoutX="8.0" layoutY="41.0" stroke="MEDIUMAQUAMARINE" strokeType="INSIDE" strokeWidth="5.0" width="334.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="MEDIUMAQUAMARINE" height="41.0" layoutX="82.0" layoutY="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="186.0" />
       <Text fill="WHITE" layoutX="141.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="내 정보" wrappingWidth="68.6513671875">
          <font>
             <Font name="HCR Dotum" size="20.0" />
          </font>
       </Text>
-      <Text fill="#c65c07" layoutX="64.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="아이디">
+      <Text fill="MEDIUMAQUAMARINE" layoutX="64.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="아이디">
          <font>
             <Font name="HCR Dotum" size="14.0" />
          </font></Text>
-      <Text fill="#c65c07" layoutX="64.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이름">
+      <Text fill="MEDIUMAQUAMARINE" layoutX="64.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이름">
          <font>
             <Font name="HCR Dotum" size="14.0" />
          </font></Text>
-      <Text fill="#c65c07" layoutX="64.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이메일">
+      <Text fill="MEDIUMAQUAMARINE" layoutX="64.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이메일">
          <font>
             <Font name="HCR Dotum" size="14.0" />
          </font></Text>
-      <Text fill="#c65c07" layoutX="64.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="전화번호">
+      <Text fill="MEDIUMAQUAMARINE" layoutX="64.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="전화번호">
          <font>
             <Font name="HCR Dotum" size="14.0" />
          </font></Text>
-      <Text fill="#c65c07" layoutX="64.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="가입날짜">
+      <Text fill="MEDIUMAQUAMARINE" layoutX="64.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="가입날짜">
          <font>
             <Font name="HCR Dotum" size="14.0" />
          </font></Text>

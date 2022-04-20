@@ -7,32 +7,52 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.login.Login">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.login.Login">
    <children>
+<<<<<<< HEAD
       <TextField fx:id="txtid" layoutX="150.0" layoutY="229.0" prefHeight="50.0" prefWidth="300.0" promptText="아이디" />
 
       <PasswordField fx:id="txtpw" layoutX="149.0" layoutY="297.0" onAction="#login" prefHeight="50.0" prefWidth="300.0" promptText="비밀번호" />
 
       <Button fx:id="btnlogin" layoutX="150.0" layoutY="392.0" mnemonicParsing="false" onAction="#acclogin" prefHeight="50.0" prefWidth="300.0" text="로그인">
+=======
+      <TextField fx:id="txtid" layoutX="118.0" layoutY="244.0" prefHeight="50.0" prefWidth="265.0" promptText="아이디" />
+      <PasswordField fx:id="txtpw" layoutX="118.0" layoutY="310.0" onAction="#login" prefHeight="50.0" prefWidth="265.0" promptText="비밀번호" />
+      <Button fx:id="btnlogin" layoutX="119.0" layoutY="406.0" mnemonicParsing="false" onAction="#acclogin" prefHeight="50.0" prefWidth="256.0" style="-fx-background-color: #66cdaa;" text="로그인" textFill="WHITE">
+>>>>>>> refs/remotes/origin/master
          <font>
-            <Font size="16.0" />
+            <Font name="Malgun Gothic Bold" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="140.0" layoutY="119.0" text="EZEN 이젠중고차">
+      <Label fx:id="lblerror" alignment="CENTER" layoutX="122.0" layoutY="370.0" prefHeight="15.0" prefWidth="245.0" text="로그인 오류" textFill="#e40e0e" />
+      <Label fx:id="lblfindid" layoutX="115.0" layoutY="496.0" onMouseClicked="#findid" text="아이디 찾기" textFill="MEDIUMAQUAMARINE">
          <font>
-            <Font size="23.0" />
+            <Font name="Malgun Gothic Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="lblfindpw" layoutX="210.0" layoutY="496.0" onMouseClicked="#findpw" text="비밀번호 찾기" textFill="MEDIUMAQUAMARINE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="lblsignup" layoutX="324.0" layoutY="496.0" onMouseClicked="#signup" text="회원가입" textFill="MEDIUMAQUAMARINE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="14.0" />
+         </font></Label>
+      <Label layoutX="213.0" layoutY="181.0" prefHeight="30.0" prefWidth="64.0" text="로그인" textFill="MEDIUMAQUAMARINE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblerror" alignment="CENTER" layoutX="181.0" layoutY="360.0" prefHeight="15.0" prefWidth="245.0" text="로그인 오류" textFill="#e40e0e" />
-      <Label fx:id="lblfindid" layoutX="154.0" layoutY="482.0" onMouseClicked="#findid" text="아이디 찾기" />
-      <Label fx:id="lblfindpw" layoutX="273.0" layoutY="482.0" onMouseClicked="#findpw" text="비밀번호 찾기" />
-      <Label fx:id="lblsignup" layoutX="398.0" layoutY="482.0" onMouseClicked="#signup" text="회원가입" />
-      <Label layoutX="266.0" layoutY="183.0" text="로그인">
+      <Button fx:id="bt_back" layoutX="367.0" layoutY="50.0" mnemonicParsing="false" onAction="#back" prefHeight="29.0" prefWidth="90.0" style="-fx-background-color: #66cdaa;" text="뒤로가기" textFill="WHITE">
          <font>
-            <Font size="23.0" />
+            <Font name="Malgun Gothic Bold" size="14.0" />
          </font>
+<<<<<<< HEAD
       </Label>
       <Button fx:id="bt_back" layoutX="457.0" layoutY="32.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="95.0" text="뒤로가기" />
       <PasswordField fx:id="txtpw" layoutX="149.0" layoutY="297.0" prefHeight="50.0" prefWidth="300.0" promptText="비밀번호" />
+=======
+      </Button>
+>>>>>>> refs/remotes/origin/master
    </children>
 </AnchorPane>
