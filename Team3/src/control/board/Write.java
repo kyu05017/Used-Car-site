@@ -23,7 +23,7 @@ public class Write implements Initializable{
 
     @FXML
     private TextField txttitle;
-
+   
     @FXML
     private Label lbl_title;
 

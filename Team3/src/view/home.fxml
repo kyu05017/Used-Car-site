@@ -81,7 +81,7 @@
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="add_car" layoutX="602.0" layoutY="166.0" onMouseClicked="#add" prefHeight="32.0" prefWidth="77.0" text="매물 등록" textFill="WHITE">
+            <Label fx:id="add_car" layoutX="602.0" layoutY="166.0" onMouseClicked="#act_addcar" prefHeight="32.0" prefWidth="77.0" text="매물 등록" textFill="WHITE">
                <font>
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>

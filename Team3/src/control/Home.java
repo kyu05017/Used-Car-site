@@ -101,10 +101,9 @@ public class Home implements Initializable{
     void to_home(MouseEvent event) {
     	Main.main.loadpage("/view/home");
     }
-
     @FXML
-    void add(MouseEvent event) {
-
+    void act_addcar(MouseEvent event) {
+    	loadpage("/view/car/Caradd");
     }
     
     @FXML
