@@ -189,6 +189,7 @@ public class Caradd implements Initializable{
     	Main.main.loadpage("/view/home");
     }
     
+    
     private String c_img = null;
     
     @FXML
