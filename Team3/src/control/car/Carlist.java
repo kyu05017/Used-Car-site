@@ -45,11 +45,14 @@ public class Carlist implements Initializable{
 		
 	}
 
+	@FXML
+    private VBox vbox;
+	
     @FXML
     private ImageView carimg;
 
     @FXML
-    private Label carname;
+    private Label carname; 
 	
     void show() {
     	//모든 제품 가져오기
@@ -60,7 +63,7 @@ public class Carlist implements Initializable{
     	 int i = 0;
     	 for (int row = 0; row < carlist.size(); row++) {
 			ImageView imageView = new ImageView( new Image(carlist.get(i).getC_img()));
-
+			
 			//이미지 사이즈
 			imageView.setFitHeight(200);
 			imageView.setFitWidth(150);
@@ -68,17 +71,17 @@ public class Carlist implements Initializable{
 			Button button = new Button(null, imageView);
 			
 			button.setStyle("-fx-background-color:transparent");
-			button.setId(i+"");
+			button.setId("");
 			button.setOnAction(e -> {
-				System.out.println(e.toString());
-				int id = Integer.parseInt( e.toString().split(",")[0].split("=")[2]);
-		 		//클릭한 제품 번호 저장
-		 		select = carlist.get(id);
-	 		//화면전환
-		 		Home.home.loadpage("/view/car/carlist");
+			
+			System.out.println(e.toString());
+			int id = Integer.parseInt( e.toString().split(",")[0].split("=")[2]);
+		 		
+	 		select = carlist.get(id);
+	 		
 		 	});
 		}
-    	
+    	 vbox.getChildren().add(gridPane);
     }
     
 }
