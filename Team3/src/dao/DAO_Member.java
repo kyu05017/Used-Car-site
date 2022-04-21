@@ -244,8 +244,7 @@ public class DAO_Member extends Dao{
 		}
 		return null;
 	}
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> refs/remotes/origin/master
+
+

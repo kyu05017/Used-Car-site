@@ -67,8 +67,6 @@ public class DAO_Reply extends Dao {
 		}
 		return false;
 	}
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> refs/remotes/origin/master
+
