@@ -95,58 +95,9 @@ public class DAO_Board extends Dao {
 			
 			return false;
 		}
-		//5. 댓글 작성
-		
-		public boolean boardreply(reply reply) {
-			
-			try {
-				String sql = "insert into reply(r_content,r_date,b_number) values(?,?,?)";
-				
-				ps = con.prepareStatement(sql);
-				ps.setString(1, reply.getR_content());
-				ps.setString(2, reply.getR_date());
-				ps.setInt(3, reply.getB_number());
-				
-				ps.executeQuery();
-				
-				return true; //성공시		
-
-			} catch (Exception e) {	}
-				
-			return false;
-		}
 		
 		
 		
 		
-		//6. 댓글 호출
-		
-		public ObservableList<reply> replylist (int b_number) {
-			
-			ObservableList<reply> replylist = FXCollections.observableArrayList();
-				
-			
-			try {															// 오름차순
-				String sql = "select * from reply where b_num=? order by b_number desc";
-				
-				ps = con.prepareStatement(sql);
-				ps.setInt(1, b_number);
-				rs = ps.executeQuery();
-				
-				//받아올 것들
-					while(rs.next()) { reply reply = new reply
-							(rs.getInt(1), rs.getInt(2), rs.getInt(3),
-							rs.getString(4), rs.getString(5));
-							replylist.add(reply);
-					}
-				
-				
-				return replylist; //성공시		
-
-			} catch (Exception e) {	}
-				
-			return null; //실패할 경우
-		}
-	
 	
 }
