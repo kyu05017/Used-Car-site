@@ -1,11 +1,13 @@
 package dao;
 
+import java.util.ArrayList;
+
 import dto.DTO_Car;
 
 public class DAO_Car extends Dao {
 	
 	public static DAO_Car dao_Car = new DAO_Car();
-	
+	//차저장하기
 	public boolean add(DTO_Car car) {
 		try {
 			String sql = "insert into car( c_title, c_content,c_img, c_category, c_price, c_cnumber, c_condition, c_km, c_fuel, c_mission, c_com, c_year, m_number) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -26,13 +28,44 @@ public class DAO_Car extends Dao {
 			ps.executeUpdate();
 			return true;
 		} catch (Exception e) {
-			System.out.println("차량 다오 저장 실패");
+			System.out.println("중고차 저장 실패 "+ e);
 		}
 		return false;
 	}
-	
-	public void delete() {
-		
+	// 차 불러오기
+	public ArrayList<DTO_Car> list() {
+		try {
+			ArrayList<DTO_Car> carlist = new ArrayList<>();
+			String sql = "select * from car";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while( rs.next() ) {	
+				System.out.println("중고차 ");
+				DTO_Car car = new DTO_Car(  
+						rs.getInt(1) ,
+						rs.getString(2),
+						rs.getString(3), 
+						rs.getString(4), 
+						rs.getString(5),
+						rs.getInt(6),
+						rs.getInt(7),
+						rs.getString(8),
+						rs.getInt(9),
+						rs.getInt(10),
+						rs.getInt(11),
+						rs.getInt(12),
+						rs.getInt(13),
+						rs.getString(14),
+						rs.getString(15),
+						rs.getInt(16)
+						);
+				carlist.add(car);
+			}	
+			return carlist;
+			
+		} catch (Exception e) {
+			System.out.println("중고차 불러오기 실패 " + e);
+		}
+		return null;
 	}
-	
 }

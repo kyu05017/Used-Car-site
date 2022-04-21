@@ -141,6 +141,7 @@ public class Home implements Initializable{
     
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		loadpage("/view/car/carlist");
 		if(Login.member != null) {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			String today = sdf.format(new Date());
@@ -172,6 +173,7 @@ public class Home implements Initializable{
 			add_car.setVisible(false);
 			new_car.setVisible(true);
 		}
+		
 		
 	}
 	public void loadpage( String page ) {
