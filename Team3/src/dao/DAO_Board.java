@@ -11,7 +11,7 @@ public class DAO_Board extends Dao {
 	//±€¿€º∫
 	public boolean write(DTO_Board dto_Board) {
 		try {
-			String sql = "insert into board(b_title, b_content, m_number)values(?,?,?,?)";
+			String sql = "insert into board(b_title, b_content, m_number, b_gr)values(?,?,?,?)";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, dto_Board.getB_title());
 			ps.setString(2, dto_Board.getB_content());
