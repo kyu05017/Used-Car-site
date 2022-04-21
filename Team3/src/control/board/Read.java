@@ -1,7 +1,6 @@
 package control.board;
 
 import java.net.URL;
-
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -9,7 +8,6 @@ import control.login.Login;
 import dao.DAO_Board;
 import dao.DAO_Member;
 import dao.DAO_Reply;
-import dto.DTO_Board;
 import dto.DTO_Reply;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -262,30 +260,30 @@ public class Read implements Initializable{
 		
 	}
 	public void reply_show() {
-		
-		ObservableList<DTO_Reply> replyList =  DAO_Reply.rdao.list(board.board.getB_number());
-		
-		String writer = null;
-		
-		for(DTO_Reply reply : replyList) {
 			
-			writer = DAO_Member.mdao.get_id(reply.getM_number());
+			ObservableList<DTO_Reply> replyList =  DAO_Reply.rdao.list(board.board.getB_number());
 			
+			String writer = null;
+			
+			for(DTO_Reply reply : replyList) {
+				
+				writer = DAO_Member.mdao.get_id(reply.getM_number());
+				
+			}
+			
+			
+			TableColumn<?, ?> tc = re_talbe.getColumns().get(0);
+			tc.setCellValueFactory(new PropertyValueFactory<>("r_number"));
+			
+			tc= re_talbe.getColumns().get(1);
+			tc.setCellValueFactory(new PropertyValueFactory<>("writer"));
+			
+			tc= re_talbe.getColumns().get(2);
+			tc.setCellValueFactory(new PropertyValueFactory<>("r_content"));
+			
+			tc= re_talbe.getColumns().get(3);
+			tc.setCellValueFactory(new PropertyValueFactory<>("r_date"));
+	
+			re_talbe.setItems(replyList);
 		}
-		
-		
-		TableColumn<?, ?> tc = re_talbe.getColumns().get(0);
-		tc.setCellValueFactory(new PropertyValueFactory<>("r_number"));
-		
-		tc= re_talbe.getColumns().get(1);
-		tc.setCellValueFactory(new PropertyValueFactory<>("writer"));
-		
-		tc= re_talbe.getColumns().get(2);
-		tc.setCellValueFactory(new PropertyValueFactory<>("r_content"));
-		
-		tc= re_talbe.getColumns().get(3);
-		tc.setCellValueFactory(new PropertyValueFactory<>("r_date"));
-
-		re_talbe.setItems(replyList);
-	}
 }

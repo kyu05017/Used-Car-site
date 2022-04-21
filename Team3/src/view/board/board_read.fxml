@@ -50,24 +50,6 @@
         <columns>
           <TableColumn prefWidth="46.0" text="번호" />
           <TableColumn prefWidth="104.0" text="작성자" />
-<<<<<<< HEAD
-            <TableColumn prefWidth="145.0" text="작성일" />
-            <TableColumn prefWidth="743.0" text="내용" />
-        </columns>
-      </TableView>
-      <Button fx:id="bt_redelete" layoutX="878.0" layoutY="434.0" mnemonicParsing="false" onAction="#re_del" prefHeight="34.0" prefWidth="108.0" style="-fx-background-color: #CD853F;" text="댓글삭제" textFill="DARKGREEN">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="btreupdate" layoutX="878.0" layoutY="476.0" mnemonicParsing="false" onAction="#re_update" prefHeight="34.0" prefWidth="108.0" style="-fx-background-color: #CD853F;" text="댓글수정" textFill="DARKGREEN">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-   </children>
-</AnchorPane>
-=======
             <TableColumn prefWidth="555.0" text="내용" />
             <TableColumn prefWidth="149.0" text="작성일" />
         </columns>
@@ -84,4 +66,3 @@
       </Button>
    </children>
 </AnchorPane>
->>>>>>> refs/remotes/origin/master
