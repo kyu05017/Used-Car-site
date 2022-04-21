@@ -46,7 +46,7 @@ public class Carlist implements Initializable{
 	}
 
 	@FXML
-    private VBox vbox;
+    private static VBox vbox;
 	
     @FXML
     private ImageView carimg;
@@ -54,9 +54,10 @@ public class Carlist implements Initializable{
     @FXML
     private Label carname; 
 	
-    void show() {
+    public static void show(String search) {
+    	try {
     	//모든 제품 가져오기
-    	 ArrayList<DTO_Car> carlist = DAO_Car.dao_Car.list();
+    	 ArrayList<DTO_Car> carlist = DAO_Car.dao_Car.list(search);
     	 
     	 GridPane gridPane = new GridPane();
     	 
@@ -81,7 +82,12 @@ public class Carlist implements Initializable{
 	 		
 		 	});
 		}
-    	 vbox.getChildren().add(gridPane);
+    	 
+			vbox.getChildren().add(gridPane);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
 }

@@ -33,17 +33,49 @@ public class DAO_Car extends Dao {
 		return false;
 	}
 	//제품출력
-		public ArrayList<DTO_Car> list() {
+		public ArrayList<DTO_Car> list(String c_category) {
 			ArrayList<DTO_Car> carlist = new ArrayList<>();
 			try {
-				
-				String sql = "select * from car by c_number desc";
-				ps = con.prepareStatement(sql);
-				rs = ps.executeQuery();
-				return carlist;
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-			return null;
+				String sql = null;
+				if(c_category == null) {
+					if(search == null) {
+						sql = "select * from product order by p_num desc";	// SQL 작성
+						ps = con.prepareStatement(sql);// SQL 연결 
+					}
+					else {
+						sql = "select * from product where p_name like '%"+search+"%' order by p_num desc";	// SQL 작성
+						ps = con.prepareStatement(sql);// SQL 연결 
+					}
+				}
+				else  {
+					if(search ==  null) {
+						sql = "select * from product where p_category = ? order by p_num desc";	// SQL 작성
+						ps = con.prepareStatement(sql);// SQL 연결 
+						ps.setString(1, c_category);
+					}
+					else {
+						sql = "select * from product where p_category = ? and p_name like '%"+search+"%' order by p_num desc";	// SQL 작성
+						ps = con.prepareStatement(sql);// SQL 연결 
+						ps.setString(1, c_category);
+					}
+				}
+				rs = ps.executeQuery();					
+				while( rs.next() ) {					
+					DTO_Car car = new DTO_Car(
+							rs.getInt(1) ,
+							rs.getString(2),
+							rs.getString(3), 
+							rs.getString(4), 
+							rs.getString(5),
+							rs.getInt(6),
+							rs.getInt(7),
+							rs.getString(8),
+							rs.getInt(9));
+					carlist.add(car);			// 리스트에 객체 담기 
+				}	
+				return carlist;						// 리스트 반환
+			}catch(Exception e ) { System.out.println( "[SQL 오류]"+e  ); }
+		return null; // 만약에 실패시 NULL 반환
+	}
 		}
 }

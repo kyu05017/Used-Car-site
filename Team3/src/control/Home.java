@@ -9,7 +9,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import control.board.Admin_board;
+import control.car.Carlist;
 import control.login.Login;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,8 +20,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -32,6 +36,18 @@ public class Home implements Initializable{
 
 	public Home(){home = this;}
 	
+	@FXML
+    private TextField txtsearch;
+
+    @FXML
+    private Button btnsearch;
+
+    @FXML
+    void accsearch(ActionEvent event) {
+    	
+    	String search = txtsearch.getText();
+    	Carlist.show(search);
+    }
 	@FXML
 	private Label add_car;
 	
