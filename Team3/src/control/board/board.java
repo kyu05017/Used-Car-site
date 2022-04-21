@@ -72,10 +72,17 @@ public class board implements Initializable{
     	else if(board_check == 2){
     		board_name.setText("자유 게시판");
     		bt_write.setVisible(true);
+<<<<<<< HEAD
     		ObservableList<DTO_Board> boardlist = DAO_Board.bdao.list();
     		
     		TableColumn tc = table.getColumns().get(0);
     		tc.setCellValueFactory(new PropertyValueFactory<>("b_num"));
+=======
+    		ObservableList<DTO_Board> boardlist = DAO_Board.bdao.list(board_check);
+
+    		TableColumn tc = table.getColumns().get(0);
+    		tc.setCellValueFactory(new PropertyValueFactory<>("b_number"));
+>>>>>>> refs/remotes/origin/master
     		
     		tc= table.getColumns().get(1);
     		tc.setCellValueFactory(new PropertyValueFactory<>("b_title"));

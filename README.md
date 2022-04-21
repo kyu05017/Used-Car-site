@@ -21,7 +21,7 @@
 | 1일차 | :ballot_box_with_check: | 주제선정 |
 | 2일차 | :ballot_box_with_check: | DB 필드 구성 선정 |
 | 3일차 | :ballot_box_with_check: | 회원 시스템 |
-| 4일차 |  | 운영자 시스템 / 딜러 시스템 |
+| 4일차 | :ballot_box_with_check: | 운영자 시스템 / 딜러 시스템 |
 | 5일차 |  | 게시판, 공지사항, 상담관련 시스템 |
 | 6일차 |  | 차량 등록 및 상담 시스템 |
 | 7일차 |  | 차량 등록 및 상담 시스템 |
