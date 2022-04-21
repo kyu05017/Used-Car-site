@@ -108,28 +108,29 @@ public class DAO_board extends dao {
 	
 	
 	
-	//4.글수정
+	//4.글수정 **************
 	
-	public boolean update(int b_number, String b_title, String b_content) {
+	public boolean update(int b_number, String b_content) {
+		
 		
 		try {
-			// 보드 테이블 안에서 같은 걸 받아온다.
-			String sql = "update board set b_title=?, b_content=? where b_number=?";
 			
-			//sql조작
+			//1.sql 작성
+			String sql = "update board set b_content=? where b_number=?";
+			
+			//2.sql 조작
 			ps = con.prepareStatement(sql);
+			ps.setString(1, b_content);
+			ps.setInt(2, b_number);
 			
-			ps.setString(1, b_title);
-			ps.setString(2, b_content);
-			ps.setInt(3, b_number);
+			//3. 실행
+			ps.executeUpdate();
 			
+			//4. 결과
+			return true;
 			
-			ps.executeQuery();
-			
-			return true; //성공시		
-
-		} catch (Exception e) {	}
-			
+		} catch (Exception e) {	System.out.println( "DAO_Board 글수정 오류 "+ e); }
+		
 		return false;
 	}
 	
