@@ -110,14 +110,14 @@ public class Read implements Initializable{
     		}
     		else {
     			
-	        	boolean result = DAO_Reply.rdao.re_update();
-	        	
-	        	if(result) {
-	        		Alert alert = new Alert(AlertType.INFORMATION);
-	        		alert.setHeaderText("댓글 작성이 완료 되었습니다.");
-	        		alert.showAndWait();
-	        		txt_recontents.setText("");	
-	        	}
+//	        	boolean result = DAO_Reply.rdao.re_update();
+//	        	
+//	        	if(result) {
+//	        		Alert alert = new Alert(AlertType.INFORMATION);
+//	        		alert.setHeaderText("댓글 작성이 완료 되었습니다.");
+//	        		alert.showAndWait();
+//	        		txt_recontents.setText("");	
+//	        	}
     		}
     	}
     }
