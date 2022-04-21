@@ -37,7 +37,7 @@ public class DAO_Car extends Dao {
 		ArrayList<DTO_Car> carlist = new ArrayList<>();
 		try {
 			
-			String sql = "select * from car by c_number desc";
+			String sql = "select * from car";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			return carlist;
