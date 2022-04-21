@@ -3,10 +3,16 @@ package control.board;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import control.login.Login;
 import dao.DAO_Member;
+import dao.DAO_Reply;
+import dao.Dao;
+import dto.DTO_Reply;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
@@ -84,7 +90,35 @@ public class Read implements Initializable{
 
     @FXML
     void re_write(ActionEvent event) {
-
+    	String reply_contents = txt_recontents.getText();
+    	
+    	if(txt_recontents.getText().equals("")) {
+    		Alert alert = new Alert(AlertType.INFORMATION);
+    		alert.setHeaderText("내용을 입력해주세요.");
+    		alert.showAndWait();
+    	}
+    	else {
+    		if(Login.member == null) {
+    			Alert alert = new Alert(AlertType.INFORMATION);
+        		alert.setHeaderText("로그인후 이용가능 합니다.");
+        		alert.showAndWait();
+        		txt_recontents.setText("");	
+        		return;
+    		}
+    		else {
+    			DTO_Reply reply = new DTO_Reply(0,Login.member.getM_number(),board.board.getB_number(),reply_contents,null);
+        	
+	        	boolean result =DAO_Reply.rdao.re_update(reply);
+	        	
+	        	if(result) {
+	        		Alert alert = new Alert(AlertType.INFORMATION);
+	        		alert.setHeaderText("댓글 작성이 완료 되었습니다.");
+	        		alert.showAndWait();
+	        		txt_recontents.setText("");	
+	        	}
+    		}
+    		
+    	}
     }
 
     @FXML
