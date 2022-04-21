@@ -52,15 +52,15 @@ public class Carlist implements Initializable{
 			// * 그리드 여백
 			gridPane.setPadding( new Insets(10) );
 			// * 그리드내 셀 여백 
-			gridPane.setHgap(20); // 세로여백 
-			gridPane.setVgap(20); // 가로여백
+			gridPane.setHgap(200); // 세로여백 
+			gridPane.setVgap(300); // 가로여백
 
 		int i = 0 ; // 인덱스용 변수
 		for( int row = 0 ; row < carlist.size(); row++ ) { // 행
 				// 1. 이미지
 				ImageView imageView = new ImageView( new Image( carlist.get(i).getC_img()) );
 					// *이미지 사이즈 
-					imageView.setFitWidth(100);		// 이미지 가로길이 
+					imageView.setFitWidth(200);		// 이미지 가로길이 
 					imageView.setFitHeight(100); 	// 이미지 세로길이
 				// 2. 버튼 생성 ( 버튼에 이미지 넣기 )
 				Button button = new Button( null , imageView );
