@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="info_board" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.login.Mypage">
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #66cdaa;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="myinfo" layoutX="35.0" layoutY="187.0" onMouseClicked="#info" text="내 정보" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="14.0" />
+               </font></Label>
+            <Label fx:id="bt_change" layoutX="35.0" layoutY="251.0" onMouseClicked="#change" text="정보 수정" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="14.0" />
+               </font></Label>
+            <Label fx:id="bt_letter" layoutX="35.0" layoutY="309.0" onMouseClicked="#letter" text="딜러 상담" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="14.0" />
+               </font></Label>
+            <Label fx:id="bt_signout" layoutX="35.0" layoutY="370.0" onMouseClicked="#bt_signout" text="회원탈퇴" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="14.0" />
+               </font></Label>
+            <Line endX="100.0" layoutX="100.0" layoutY="104.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
+            <Line endX="-92.0" endY="435.5858154296875" layoutX="100.0" layoutY="104.0" startX="-92.0" startY="-104.0" stroke="WHITE" strokeWidth="2.0" />
+            <Label layoutX="14.0" layoutY="67.0" prefHeight="36.0" prefWidth="164.0" text="my page(수정)" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
