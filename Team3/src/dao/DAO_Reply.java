@@ -58,6 +58,7 @@ public class DAO_Reply extends Dao {
 		}
 		return false;
 	}
+	//¥Ò±€ªË¡¶
 	public boolean re_delete() {
 		try {
 			
