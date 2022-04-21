@@ -59,9 +59,13 @@ public class DAO_Reply extends Dao {
 		return false;
 	}
 	//댓글삭제
-	public boolean re_delete() {
+	public boolean re_delete(int r_number) {
 		try {
-			
+			String sql ="delete from reply where r_number=?";
+			ps=con.prepareStatement(sql);
+			ps.setInt(1, r_number);
+			ps.executeUpdate();
+			return true;
 		}
 		catch(Exception e) {
 			System.out.println("댓글 삭제 오류 " + e);
