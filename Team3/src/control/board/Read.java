@@ -103,8 +103,36 @@ public class Read implements Initializable{
 
     }
 
+    boolean upcheck = true; //수정 스위치 변수
     @FXML
     void update(ActionEvent event) {
+    	
+    	Alert alert = new Alert(AlertType.INFORMATION);
+    	//메시지 알림
+    	
+    	if(upcheck) { //수정 코드
+    		alert.setHeaderText("게시글 수정 후 완료 버튼을 눌러주세요.");
+    		alert.showAndWait();
+    		
+// 텍필 없음	lbl_board_title.set(true);
+    		txt_contents.setEditable(true);
+    		bt_update.setText("수정 완료");
+    		
+    		upcheck = false;
+    		
+    	} else { //수정 완료
+    		
+    		//db에 새로 저장
+    		DAO_Board.bdao.update(control.board.board.board.getB_number(),
+    				txt_contents.getText());
+   		
+    		alert.setHeaderText("수정이 완료되었습니다.");
+    		alert.showAndWait();
+    		
+    		txt_contents.setEditable(false);
+    		bt_update.setText("수정");
+    		upcheck = true;
+    	}
 
     }
 	

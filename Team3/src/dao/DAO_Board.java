@@ -51,24 +51,7 @@ public class DAO_Board extends Dao {
 		}
 		return null;
 	}
-//	//자유게시판 글 수정 메소드
-//	public boolean update(int b_number, String b_title, String b_content) {
-//		try {
-//			String sql = "update board set b_title=? , b_content=? where b_number=?";
-//			
-//			ps=con.prepareStatement(sql);
-//			ps.setString(1, b_title);
-//			ps.setString(2, b_content);
-//			ps.setInt(3, b_number);
-//			ps.executeUpdate();
-//			
-//			return true;
-//		}catch(Exception e) {
-//			System.out.println( "DAO_Board 글수정 오류 "+e  );
-//			return false;
-//		}
-//		
-//	}
+
 	
 	//자유게시판 글 삭제 메소드
 	public boolean delete(int b_number) {
@@ -87,8 +70,83 @@ public class DAO_Board extends Dao {
 		
 	}
 	
+	//4.글수정 **************
 	
-	
+		public boolean update(int b_number, String b_content) {
+			
+			
+			try {
+				
+				//1.sql 작성
+				String sql = "update board set b_content=? where b_number=?";
+				
+				//2.sql 조작
+				ps = con.prepareStatement(sql);
+				ps.setString(1, b_content);
+				ps.setInt(2, b_number);
+				
+				//3. 실행
+				ps.executeUpdate();
+				
+				//4. 결과
+				return true;
+				
+			} catch (Exception e) {	System.out.println( "DAO_Board 글수정 오류 "+ e); }
+			
+			return false;
+		}
+		//5. 댓글 작성
+		
+		public boolean boardreply(reply reply) {
+			
+			try {
+				String sql = "insert into reply(r_content,r_date,b_number) values(?,?,?)";
+				
+				ps = con.prepareStatement(sql);
+				ps.setString(1, reply.getR_content());
+				ps.setString(2, reply.getR_date());
+				ps.setInt(3, reply.getB_number());
+				
+				ps.executeQuery();
+				
+				return true; //성공시		
+
+			} catch (Exception e) {	}
+				
+			return false;
+		}
+		
+		
+		
+		
+		//6. 댓글 호출
+		
+		public ObservableList<reply> replylist (int b_number) {
+			
+			ObservableList<reply> replylist = FXCollections.observableArrayList();
+				
+			
+			try {															// 오름차순
+				String sql = "select * from reply where b_num=? order by b_number desc";
+				
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, b_number);
+				rs = ps.executeQuery();
+				
+				//받아올 것들
+					while(rs.next()) { reply reply = new reply
+							(rs.getInt(1), rs.getInt(2), rs.getInt(3),
+							rs.getString(4), rs.getString(5));
+							replylist.add(reply);
+					}
+				
+				
+				return replylist; //성공시		
+
+			} catch (Exception e) {	}
+				
+			return null; //실패할 경우
+		}
 	
 	
 }
