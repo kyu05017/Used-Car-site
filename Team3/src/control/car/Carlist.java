@@ -37,6 +37,8 @@ import javafx.stage.Stage;
 
 public class Carlist implements Initializable{
 	
+	public static DTO_Car select ;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -58,11 +60,23 @@ public class Carlist implements Initializable{
     	 int i = 0;
     	 for (int row = 0; row < carlist.size(); row++) {
 			ImageView imageView = new ImageView( new Image(carlist.get(i).getC_img()));
-			
 
 			//이미지 사이즈
 			imageView.setFitHeight(200);
 			imageView.setFitWidth(150);
+			
+			Button button = new Button(null, imageView);
+			
+			button.setStyle("-fx-background-color:transparent");
+			button.setId(i+"");
+			button.setOnAction(e -> {
+				System.out.println(e.toString());
+				int id = Integer.parseInt( e.toString().split(",")[0].split("=")[2]);
+		 		//클릭한 제품 번호 저장
+		 		select = carlist.get(id);
+	 		//화면전환
+		 		Home.home.loadpage("/view/car/carlist");
+		 	});
 		}
     	
     }
