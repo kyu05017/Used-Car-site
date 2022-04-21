@@ -1,13 +1,20 @@
 package control.board;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
+import control.login.Login;
+import dao.DAO_Board;
 import dao.DAO_Member;
+import dto.DTO_Board;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -69,7 +76,16 @@ public class Read implements Initializable{
 
     @FXML
     void delete(ActionEvent event) {
-
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setHeaderText("게시글을 삭제하시겠습니까?");
+    	Optional<ButtonType> optional = alert.showAndWait();
+    	
+    	if(optional.get() == ButtonType.OK) {
+    		DAO_Board.bdao.delete(board.board.getB_number());
+    		Main_board.main_board.loadpage("/view/board/board_view");
+    	}
+    			
+    	
     }
 
     @FXML
@@ -111,6 +127,21 @@ public class Read implements Initializable{
 		blb_date.setText("작성일 : "+board.board.getB_date());
 		lbl_view.setText("조회수 : "+board.board.getB_view());
 		txt_contents.setText(board.board.getB_content());
+		
+//		if(writer.equals(DAO_Member.mdao.get_member(writer))) {
+//			bt_delete.setVisible(true);//버튼보이기
+//			bt_update.setVisible(true);
+//		}else{
+//			bt_delete.setVisible(false);//버튼숨기기
+//			bt_update.setVisible(false);
+//		}
+		if(board.board.getM_number()== Login.member.getM_number()) {
+			bt_delete.setVisible(true);//버튼보이기
+			bt_update.setVisible(true);
+		}else{
+			bt_delete.setVisible(false);//버튼숨기기
+			bt_update.setVisible(false);
+		}
 		
 	}
 }
