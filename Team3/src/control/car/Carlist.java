@@ -27,6 +27,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
@@ -48,7 +51,20 @@ public class Carlist implements Initializable{
 	
     void show() {
     	//모든 제품 가져오기
-    	 ArrayList<Car> carlist = DAO_Car.dao_Car
+    	 ArrayList<DTO_Car> carlist = DAO_Car.dao_Car.list();
+    	 
+    	 GridPane gridPane = new GridPane();
+    	 
+    	 int i = 0;
+    	 for (int row = 0; row < carlist.size(); row++) {
+			ImageView imageView = new ImageView( new Image(carlist.get(i).getC_img()));
+			
+
+			//이미지 사이즈
+			imageView.setFitHeight(200);
+			imageView.setFitWidth(150);
+		}
     	
     }
+    
 }
