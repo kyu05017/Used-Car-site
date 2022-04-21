@@ -30,5 +30,17 @@ public class DAO_Car extends Dao {
 		}
 		return false;
 	}
-	
+	//제품출력
+		public void list() {
+			ArrayList<DTO_Car> carlist = new ArrayList<>();
+			try {
+				
+				String sql = "select * from car by c_number desc";
+				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery();
+				
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+		}
 }
