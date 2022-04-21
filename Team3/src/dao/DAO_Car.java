@@ -39,23 +39,23 @@ public class DAO_Car extends Dao {
 				String sql = null;
 				if(c_category == null) {
 					if(search == null) {
-						sql = "select * from product order by p_num desc";	// SQL 작성
-						ps = con.prepareStatement(sql);// SQL 연결 
+						sql = "select * from product car";	
+						ps = con.prepareStatement(sql);
 					}
 					else {
-						sql = "select * from product where p_name like '%"+search+"%' order by p_num desc";	// SQL 작성
-						ps = con.prepareStatement(sql);// SQL 연결 
+						sql = "select * from car where c_name like '%"+search+"%' ";	
+						ps = con.prepareStatement(sql); 
 					}
 				}
 				else  {
 					if(search ==  null) {
-						sql = "select * from product where p_category = ? order by p_num desc";	// SQL 작성
-						ps = con.prepareStatement(sql);// SQL 연결 
+						sql = "select * from car where c_category = ? ";	
+						ps = con.prepareStatement(sql);
 						ps.setString(1, c_category);
 					}
 					else {
-						sql = "select * from product where p_category = ? and p_name like '%"+search+"%' order by p_num desc";	// SQL 작성
-						ps = con.prepareStatement(sql);// SQL 연결 
+						sql = "select * from car where c_category = ? and c_name like '%"+search+"%' ";	
+						ps = con.prepareStatement(sql);
 						ps.setString(1, c_category);
 					}
 				}
@@ -71,7 +71,7 @@ public class DAO_Car extends Dao {
 							rs.getInt(7),
 							rs.getString(8),
 							rs.getInt(9));
-					carlist.add(car);			// 리스트에 객체 담기 
+					carlist.add(car);			
 				}	
 				return carlist;						// 리스트 반환
 			}catch(Exception e ) { System.out.println( "[SQL 오류]"+e  ); }
