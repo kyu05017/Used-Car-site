@@ -4,36 +4,64 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.board.board">
+<AnchorPane prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: #FFE4C4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.board.Read">
    <children>
-      <TableView fx:id="table" layoutX="10.0" layoutY="55.0" prefHeight="379.0" prefWidth="980.0" style="-fx-border-color: #66cdaa;">
-        <columns>
-          <TableColumn prefWidth="75.0" text="글번호" />
-          <TableColumn prefWidth="655.0" text="글제목" />
-            <TableColumn prefWidth="124.0" text="작성날짜" />
-            <TableColumn prefWidth="124.0" text="조회수" />
-        </columns>
-      </TableView>
-      <Label fx:id="board_name" layoutX="14.0" layoutY="15.0" prefHeight="34.0" prefWidth="538.0" text="공지사항" textFill="MEDIUMAQUAMARINE">
+      <Text fx:id="lbl_board_title" fill="DARKGREEN" layoutX="14.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="자유 게시판">
          <font>
-            <Font name="Malgun Gothic Bold" size="20.0" />
+            <Font size="36.0" />
          </font>
-      </Label>
-      <Button fx:id="bt_write" layoutX="880.0" layoutY="17.0" mnemonicParsing="false" onMouseClicked="#act_write" prefHeight="29.0" prefWidth="106.0" style="-fx-background-color: #66cdaa;" text="글 삭제" textFill="WHITE">
+      </Text>
+      <Button fx:id="bt_back" layoutX="856.0" layoutY="23.0" mnemonicParsing="false" onAction="#back" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: #CD853F;" text="목록보기" textFill="DARKGREEN">
          <font>
-            <Font name="Malgun Gothic" size="14.0" />
-         </font></Button>
-      <Button fx:id="bt_write1" layoutX="765.0" layoutY="17.0" mnemonicParsing="false" onMouseClicked="#act_write" prefHeight="29.0" prefWidth="106.0" style="-fx-background-color: #66cdaa;" text="글 수정" textFill="WHITE">
-         <font>
-            <Font name="Malgun Gothic" size="14.0" />
+            <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="bt_write11" layoutX="646.0" layoutY="17.0" mnemonicParsing="false" onMouseClicked="#act_write" prefHeight="29.0" prefWidth="106.0" style="-fx-background-color: #66cdaa;" text="뒤로가기" textFill="WHITE">
+      <TextArea fx:id="txt_contents" layoutX="15.0" layoutY="98.0" prefHeight="209.0" prefWidth="972.0" />
+      <Button fx:id="bt_rewrite1" layoutX="878.0" layoutY="333.0" mnemonicParsing="false" onAction="#re_write" prefHeight="46.0" prefWidth="108.0" style="-fx-background-color: #CD853F;" text="댓글작성">
          <font>
-            <Font name="Malgun Gothic" size="14.0" />
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Text fx:id="lbl_title" fill="DARKGREEN" layoutX="15.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="제목" wrappingWidth="410.0000079870224">
+         <font>
+            <Font size="21.0" />
+         </font></Text>
+      <Button fx:id="bt_delete" layoutX="716.0" layoutY="23.0" mnemonicParsing="false" onAction="#delete" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: #CD853F;" text="삭제" textFill="DARKGREEN">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="bt_update" layoutX="575.0" layoutY="24.0" mnemonicParsing="false" onAction="#update" prefHeight="34.0" prefWidth="131.0" style="-fx-background-color: #CD853F;" text="수정" textFill="DARKGREEN">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label fx:id="lbl_writer" layoutX="526.0" layoutY="79.0" prefHeight="19.0" prefWidth="131.0" text="작성자 : 아이디" textFill="DARKGREEN" />
+      <Label fx:id="blb_date" layoutX="796.0" layoutY="79.0" prefHeight="19.0" prefWidth="191.0" text="작성일 : 2002-11-11" textFill="DARKGREEN" />
+      <Label fx:id="lbl_view" layoutX="666.0" layoutY="79.0" prefHeight="19.0" prefWidth="123.0" text="조회수 : 123445678" textFill="DARKGREEN" />
+      <TextArea fx:id="txt_recontents" layoutX="15.0" layoutY="333.0" prefHeight="46.0" prefWidth="855.0" />
+      <Text fill="DARKGREEN" layoutX="15.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="댓글" wrappingWidth="72.6513671875" />
+      <TableView fx:id="re_talbe" layoutX="15.0" layoutY="385.0" prefHeight="131.0" prefWidth="855.0">
+        <columns>
+          <TableColumn prefWidth="46.0" text="번호" />
+          <TableColumn prefWidth="104.0" text="작성자" />
+            <TableColumn prefWidth="145.0" text="작성일" />
+            <TableColumn prefWidth="743.0" text="내용" />
+        </columns>
+      </TableView>
+      <Button fx:id="bt_redelete" layoutX="878.0" layoutY="434.0" mnemonicParsing="false" onAction="#re_del" prefHeight="34.0" prefWidth="108.0" style="-fx-background-color: #CD853F;" text="댓글삭제" textFill="DARKGREEN">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btreupdate" layoutX="878.0" layoutY="476.0" mnemonicParsing="false" onAction="#re_update" prefHeight="34.0" prefWidth="108.0" style="-fx-background-color: #CD853F;" text="댓글수정" textFill="DARKGREEN">
+         <font>
+            <Font size="18.0" />
          </font>
       </Button>
    </children>

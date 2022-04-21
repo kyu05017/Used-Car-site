@@ -51,4 +51,25 @@ public class DAO_Board extends Dao {
 		}
 		return null;
 	}
+	//자유게시판 글 수정 메소드
+	public boolean update(int b_number, String b_title, String b_content) {
+		try {
+			String sql = "update board set b_title=? , b_content=? where b_number=?";
+			
+			ps=con.prepareStatement(sql);
+			ps.setString(1, b_title);
+			ps.setString(2, b_content);
+			ps.setInt(3, b_number);
+			ps.executeUpdate();
+			
+			return true;
+		}catch(Exception e) {
+			System.out.println( "DAO_Board 글수정 오류 "+e  );
+			return false;
+		}
+		
+	}
+	
+	
+	
 }

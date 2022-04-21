@@ -159,7 +159,6 @@ public class DAO_Member extends Dao{
 			ps.setString(1, id);
 			ps.setString(2, email);
 			rs = ps.executeQuery();
-
 			if(rs.next()) { return rs.getString(3);
 			}
 		}
@@ -228,5 +227,21 @@ public class DAO_Member extends Dao{
 			System.out.println("DAO_Member 회원탈퇴 호출 오류 " + e);
 		}
 		return false;
+	}
+	//아이디 가져오기
+	public String get_id(int num) {
+		try {
+			String sql = "select m_id from member where m_number=?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, num);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);
+			}
+		}
+		catch (Exception e) {
+			System.out.println("DAO_Member 아이디 가져오기 오류 " + e);
+		}
+		return null;
 	}
 }

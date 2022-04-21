@@ -4,6 +4,7 @@ import java.net.URL;
 
 import java.util.ResourceBundle;
 
+import control.Home;
 import control.login.Login;
 
 import dao.DAO_Board;
@@ -89,9 +90,14 @@ public class board implements Initializable{
 		table.setItems(boardlist);
 		
 		table.setOnMouseClicked( e -> { 
-			board = table.getSelectionModel().getSelectedItem();//클릭된 board 객체 호출
-			System.out.println(board.getB_title());
-			Main_board.main_board.loadpage("/view/board/board_read");
+			board = table.getSelectionModel().getSelectedItem();
+			if(board_check == 1) {
+				Admin_board.admin_board.loadpage("/view/board/board_read");
+			}
+			else if(board_check == 2) {
+				Main_board.main_board.loadpage("/view/board/board_read");
+			}
+			
 		} );
 
     }
