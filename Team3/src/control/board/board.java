@@ -56,6 +56,7 @@ public class board implements Initializable{
     	}
     }
 
+    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
     	bt_write.setVisible(false);
@@ -74,7 +75,8 @@ public class board implements Initializable{
     	}
     	ObservableList<DTO_Board> boardlist = DAO_Board.bdao.list(board_check);
 
-		TableColumn<?, ?> tc = table.getColumns().get(0);
+		TableColumn<?, ?> 
+		tc = table.getColumns().get(0);
 		tc.setCellValueFactory(new PropertyValueFactory<>("b_number"));
 		
 		tc= table.getColumns().get(1);
