@@ -22,7 +22,7 @@
                   <Image url="@../img/carlogo.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txt_search" layoutX="409.0" layoutY="69.0" prefHeight="38.0" prefWidth="336.0" promptText="모델명을 입력해주세요">
+            <TextField fx:id="txt_search" layoutX="409.0" layoutY="69.0" onAction="#act_search2" prefHeight="38.0" prefWidth="336.0" promptText="모델명을 입력해주세요">
                <font>
                   <Font name="HCR Dotum" size="14.0" />
                </font>

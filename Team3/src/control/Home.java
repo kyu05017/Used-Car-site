@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import control.board.Admin_board;
 import control.car.Carlist;
 import control.login.Login;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -81,10 +82,18 @@ public class Home implements Initializable{
     void act_search(MouseEvent event) {
     	String search = txt_search.getText();
     	Carlist.carlist.show(search);
+    	loadpage("/view/car/carlist");
     }
-    
+
+    @FXML
+    void act_search2(ActionEvent event) {
+    	String search = txt_search.getText();
+    	Carlist.carlist.show(search);
+    	loadpage("/view/car/carlist");
+    }
     @FXML
     void act_popular(MouseEvent event) {
+    	loadpage("/view/car/carlist");
     	Carlist.carlist.show("pop5491pop");
     }
     @FXML
@@ -129,6 +138,7 @@ public class Home implements Initializable{
     
     @FXML
     void new_car(MouseEvent event) {
+    	loadpage("/view/car/carlist");
     	Carlist.carlist.show("new5491new");
     }
     @FXML
