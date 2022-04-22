@@ -19,8 +19,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -70,8 +72,20 @@ public class Home implements Initializable{
     private Label popular;
     
     @FXML
+    private TextField txt_search;
+    
+    @FXML
+    private Button searching;
+    
+    @FXML
+    void act_search(MouseEvent event) {
+    	String search = txt_search.getText();
+    	Carlist.carlist.show(search);
+    }
+    
+    @FXML
     void act_popular(MouseEvent event) {
-    	Carlist.carlist.show("pop");
+    	Carlist.carlist.show("pop5491pop");
     }
     @FXML
     void act_freeboard(MouseEvent event) {
@@ -115,7 +129,7 @@ public class Home implements Initializable{
     
     @FXML
     void new_car(MouseEvent event) {
-    	Carlist.carlist.show("new");
+    	Carlist.carlist.show("new5491new");
     }
     @FXML
     void reg(MouseEvent event) {
