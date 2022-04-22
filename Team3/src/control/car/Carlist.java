@@ -4,6 +4,8 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import control.Home;
 import dao.DAO_Car;
 import dto.DTO_Car;
 import javafx.fxml.Initializable;
@@ -22,20 +24,24 @@ public class Carlist implements Initializable{
 	
 	public static DTO_Car select ;
 	
+	public static Carlist carlist;
+
+	public Carlist(){carlist = this;}
+	
 	@FXML
     private ScrollPane scrollpane;
 
     @FXML
     private VBox vbox;
-    
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		show();
+		show(null);
 	}
 	
-    void show() {
+    public void show(String search) {
     	
-    	ArrayList<DTO_Car> carlist = DAO_Car.dao_Car.list();
+    	ArrayList<DTO_Car> carlist = DAO_Car.dao_Car.list(search);
     	
     	if( vbox.getChildren().isEmpty() == false) { //isEmpty()  비어있을 경우를 확인 [ vbox내 비어있느지 확인 ]
     		// vbox 내 객체가 비어있지 않으면
@@ -52,7 +58,7 @@ public class Carlist implements Initializable{
 			gridPane.setPadding( new Insets(10) );
 
 			gridPane.setHgap(200); 
-			gridPane.setVgap(300); 
+			gridPane.setVgap(20); 
 
 		int i = 0 ;
 		for( int row = 0 ; row < carlist.size(); row++ ) { // 행
@@ -63,7 +69,7 @@ public class Carlist implements Initializable{
 					imageView.setFitHeight(100); 
 					DecimalFormat df = new DecimalFormat("#,##0원");
 					String new_price = df.format(carlist.get(i).getC_price());
-				Button button = new Button("차량명 : "+ carlist.get(i).getC_title() + "                                                                      가격 : "+ new_price + " | 주행거리 : " + carlist.get(i).getC_km() + "km |  연식 : "+ carlist.get(i).getC_year(), imageView );
+				Button button = new Button("차량명 : "+ carlist.get(i).getC_title() + "                                                                                        가격 : "+ new_price + " | 주행거리 : " + carlist.get(i).getC_km() + "km |  연식 : "+ carlist.get(i).getC_year()+"년", imageView );
 					
 					button.setStyle("-fx-background-color:transparent");
 

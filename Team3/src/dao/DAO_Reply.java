@@ -1,5 +1,6 @@
 package dao;
 
+import dto.DTO_Member;
 import dto.DTO_Reply;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,7 +27,7 @@ public class DAO_Reply extends Dao {
 		return false;
 	}
 	//댓글 호오출
-	public ObservableList<DTO_Reply> list(int b_number){
+	public ObservableList<DTO_Reply> list(int b_number, DTO_Member member){
 		ObservableList<DTO_Reply> replyList = FXCollections.observableArrayList();
 		try {
 			String sql = "select * from reply where b_number= ? order by r_number";
@@ -41,6 +42,11 @@ public class DAO_Reply extends Dao {
 						rs.getString(4),
 						rs.getString(5)
 						);
+				//rs.getInt(2)가 member.getM_number와 같으면 그 number의 아이디 가져오기
+				
+				//반복문
+					//멤버리스트에서 찾기
+				
 				replyList.add(reply);
 			}		
 			return replyList;
@@ -49,6 +55,7 @@ public class DAO_Reply extends Dao {
 		}
 		return null;
 	}
+	
 	public boolean re_update(int r_number,String r_content) {
 		try {
 			

@@ -5,10 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import com.mysql.cj.protocol.FullReadInputStream;
-
-import control.Home;
 import control.Main;
 import control.login.Login;
 import dao.DAO_Car;
@@ -176,7 +172,7 @@ public class Caradd implements Initializable{
     	if (result) {
 			Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setHeaderText("등록 완료");
-				alert.showAndWait();	
+				alert.showAndWait();
 				Main.main.loadpage("/view/home");
 		}else {
 			Alert alert = new Alert(AlertType.INFORMATION);
@@ -194,39 +190,35 @@ public class Caradd implements Initializable{
     
     @FXML
     void accimgadd(ActionEvent event) {
-    	//파일 선택
+
     	FileChooser chooser = new FileChooser();
     	
     	chooser.getExtensionFilters().add(new ExtensionFilter("이미지파일:image file", "*png", "*jpg", "*gif"));
-    	//새로운 스테이지
+
     	File file = chooser.showOpenDialog(new Stage());
     	
     	c_img = file.toURI().toString();
-    	//이미지 미리보기
+
     	Image image = new Image( c_img );
     	img.setImage(image);
-    	//선택한 파일 현재 프로젝트 폴더로 복사해오기
+
     	try {
-			//파일 입력 스트림
+
     		FileInputStream inputStream = new FileInputStream(file);
-    		
-    		//파일 출력 스트림
+
     		File copyfile = new File("C:\\" + file.getName());
     		FileOutputStream outputStream = new FileOutputStream(copyfile);
     		
-    		//바이트 배열 선언
     		byte[] bytes = new byte[1024*1024*1024];
-    		
-			//읽어오기
+
     		int size;
     		while ((size = inputStream.read(bytes)) > 0) {
 				outputStream.write(bytes, 0, size);
 			}
-    		
-    		//스트림 종료
+
     		inputStream.close();
     		outputStream.close();
-    		//파일명DB저장
+
     		c_img = copyfile.toURI().toString();
 		} catch (Exception e) {
 			System.out.println("파일 오류 "+ e);

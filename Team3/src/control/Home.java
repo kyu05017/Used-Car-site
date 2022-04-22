@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import control.board.Admin_board;
+import control.car.Carlist;
 import control.login.Login;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -66,6 +67,13 @@ public class Home implements Initializable{
     private Label free_board;
     
     @FXML
+    private Label popular;
+    
+    @FXML
+    void act_popular(MouseEvent event) {
+    	Carlist.carlist.show("pop");
+    }
+    @FXML
     void act_freeboard(MouseEvent event) {
     	loadpage("/view/board/main_board");
     }
@@ -107,7 +115,7 @@ public class Home implements Initializable{
     
     @FXML
     void new_car(MouseEvent event) {
-
+    	Carlist.carlist.show("new");
     }
     @FXML
     void reg(MouseEvent event) {
@@ -173,6 +181,7 @@ public class Home implements Initializable{
 			add_car.setVisible(false);
 			new_car.setVisible(true);
 		}
+		
 		
 	}
 	public void loadpage( String page ) {
