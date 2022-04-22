@@ -8,6 +8,8 @@ import control.login.Login;
 import dao.DAO_Board;
 import dao.DAO_Member;
 import dao.DAO_Reply;
+import dao.Dao;
+import dto.DTO_Board;
 import dto.DTO_Reply;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,13 +17,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
 public class Read implements Initializable{
@@ -96,15 +98,7 @@ public class Read implements Initializable{
 
     @FXML
     void re_del(ActionEvent event) {
-    	Alert alert = new Alert(AlertType.CONFIRMATION);
-    	alert.setHeaderText("댓글을 삭제하시겠습니까?");
-    	Optional<ButtonType> optional = alert.showAndWait();
     	
-    	if(optional.get() == ButtonType.OK) {
-    		DAO_Reply.rdao.re_delete(reply.getR_number());
-//    		DAO_Board.bdao.delete(board.board.getB_number());
-    		Main_board.main_board.loadpage("/view/board/board_read");
-    	}
     }
 
     @FXML
@@ -172,9 +166,6 @@ public class Read implements Initializable{
     		}
     	}
     }
-
-    
-    
     boolean upcheck = true; //수정 스위치 변수
     @FXML
     void update(ActionEvent event) {
@@ -186,7 +177,7 @@ public class Read implements Initializable{
     		alert.setHeaderText("게시글 수정 후 완료 버튼을 눌러주세요.");
     		alert.showAndWait();
     		
-// 텍필 없음	lbl_board_title.set(true);
+    		// 텍필 없음	lbl_board_title.set(true);
     		txt_contents.setEditable(true);
     		bt_update.setText("수정 완료");
     		
@@ -200,10 +191,16 @@ public class Read implements Initializable{
    		
     		alert.setHeaderText("수정이 완료되었습니다.");
     		alert.showAndWait();
-    		
+    		if(board.board_check == 1) {
+        		Admin_board.admin_board.loadpage("/view/board/board_view");
+    		}
+    		else if(board.board_check == 2){
+    			Main_board.main_board.loadpage("/view/board/board_view");
+    		}
     		txt_contents.setEditable(false);
     		bt_update.setText("수정");
     		upcheck = true;
+    		
     	}
 
     }
@@ -211,7 +208,6 @@ public class Read implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		reply_show();
-
 		if(board.board_check == 1) {
 			lbl_board_title.setText("공지사항");
 		}
@@ -219,7 +215,6 @@ public class Read implements Initializable{
 			lbl_board_title.setText("자유게시판");
 		}
 		String writer = DAO_Member.mdao.get_id(board.board.getM_number());
-		System.out.println(writer);
 		if(writer == null) {
 			writer = "탈퇴한 회원";
 		}
@@ -250,52 +245,45 @@ public class Read implements Initializable{
 				System.out.println("[존재하지 않는 댓글] 사유 " + e);
 			}
 		});
-		
-		
-//		if(writer.equals(DAO_Member.mdao.get_member(writer))) {
-//			bt_delete.setVisible(true);//버튼보이기
-//			bt_update.setVisible(true);
-//		}else{
-//			bt_delete.setVisible(false);//버튼숨기기
-//			bt_update.setVisible(false);
-//		}
-		if(board.board.getM_number()== Login.member.getM_number()) {
-			bt_delete.setVisible(true);//버튼보이기
-			bt_update.setVisible(true);
-		}else{
+		if(Login.member == null) {
 			bt_delete.setVisible(false);//버튼숨기기
 			bt_update.setVisible(false);
 		}
-		
+		else {
+			if(board.board.getM_number()== Login.member.getM_number()) {
+				bt_delete.setVisible(true);//버튼보이기
+				bt_update.setVisible(true);
+			}else{
+				bt_delete.setVisible(false);//버튼숨기기
+				bt_update.setVisible(false);
+			}
+		}
 	}
 	public void reply_show() {
-		try {
-			ObservableList<DTO_Reply> replyList =  DAO_Reply.rdao.list(board.board.getB_number());
+		
+		ObservableList<DTO_Reply> replyList =  DAO_Reply.rdao.list(board.board.getB_number());
+		
+		String writer = null;
+		
+		for(DTO_Reply reply : replyList) {
 			
-			String writer = null;
+			writer = DAO_Member.mdao.get_id(reply.getM_number());
 			
-			for(DTO_Reply reply : replyList) {
-				
-				writer = DAO_Member.mdao.get_id(reply.getM_number());
-				
-			}
-			
-			
-			TableColumn<?, ?> tc = re_talbe.getColumns().get(0);
-			tc.setCellValueFactory(new PropertyValueFactory<>("r_number"));
-			
-			tc= re_talbe.getColumns().get(1);
-			tc.setCellValueFactory(new PropertyValueFactory<>("writer"));
-			
-			tc= re_talbe.getColumns().get(2);
-			tc.setCellValueFactory(new PropertyValueFactory<>("r_content"));
-			
-			tc= re_talbe.getColumns().get(3);
-			tc.setCellValueFactory(new PropertyValueFactory<>("r_date"));
-	
-			re_talbe.setItems(replyList);
-		}catch(Exception e) {
-			System.out.println("control.board.Read reply_show오류" + e);
 		}
+		
+		
+		TableColumn<?, ?> tc = re_talbe.getColumns().get(0);
+		tc.setCellValueFactory(new PropertyValueFactory<>("r_number"));
+		
+		tc= re_talbe.getColumns().get(1);
+		tc.setCellValueFactory(new PropertyValueFactory<>("b_number"));
+		
+		tc= re_talbe.getColumns().get(2);
+		tc.setCellValueFactory(new PropertyValueFactory<>("r_content"));
+		
+		tc= re_talbe.getColumns().get(3);
+		tc.setCellValueFactory(new PropertyValueFactory<>("r_date"));
+
+		re_talbe.setItems(replyList);
 	}
 }

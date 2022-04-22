@@ -29,7 +29,7 @@ public class DAO_Board extends Dao {
 	public ObservableList<DTO_Board> list(int b_number){
 		ObservableList<DTO_Board> boardlist = FXCollections.observableArrayList();
 		try {
-			String sql = "select * from board where b_gr= ? order by b_number";
+			String sql = "select * from board where b_gr= ? order by b_number desc";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, b_number);
 			rs=ps.executeQuery();
@@ -51,8 +51,6 @@ public class DAO_Board extends Dao {
 		}
 		return null;
 	}
-
-	
 	//자유게시판 글 삭제 메소드
 	public boolean delete(int b_number) {
 		try {
@@ -72,32 +70,27 @@ public class DAO_Board extends Dao {
 	
 	//4.글수정 **************
 	
-		public boolean update(int b_number, String b_content) {
+	public boolean update(int b_number, String b_content) {
+		
+		
+		try {
 			
+			//1.sql 작성
+			String sql = "update board set b_content=? where b_number=?";
 			
-			try {
-				
-				//1.sql 작성
-				String sql = "update board set b_content=? where b_number=?";
-				
-				//2.sql 조작
-				ps = con.prepareStatement(sql);
-				ps.setString(1, b_content);
-				ps.setInt(2, b_number);
-				
-				//3. 실행
-				ps.executeUpdate();
-				
-				//4. 결과
-				return true;
-				
-			} catch (Exception e) {	System.out.println( "DAO_Board 글수정 오류 "+ e); }
+			//2.sql 조작
+			ps = con.prepareStatement(sql);
+			ps.setString(1, b_content);
+			ps.setInt(2, b_number);
 			
-			return false;
-		}
+			//3. 실행
+			ps.executeUpdate();
+			
+			//4. 결과
+			return true;
+			
+		} catch (Exception e) {	System.out.println( "DAO_Board 글수정 오류 "+ e); }
 		
-		
-		
-		
-	
+		return false;
+	}
 }
