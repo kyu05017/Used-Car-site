@@ -82,14 +82,12 @@ public class Home implements Initializable{
     void act_search(MouseEvent event) {
     	String search = txt_search.getText();
     	Carlist.carlist.show(search);
-    	loadpage("/view/car/carlist");
     }
 
     @FXML
     void act_search2(ActionEvent event) {
     	String search = txt_search.getText();
     	Carlist.carlist.show(search);
-    	loadpage("/view/car/carlist");
     }
     @FXML
     void act_popular(MouseEvent event) {
