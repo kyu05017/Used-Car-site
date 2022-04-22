@@ -97,7 +97,15 @@ public class Read implements Initializable{
 
     @FXML
     void re_del(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setHeaderText("댓글을 삭제하시겠습니까?");
+    	Optional<ButtonType> optional = alert.showAndWait();
     	
+    	if(optional.get() == ButtonType.OK) {
+    		DAO_Reply.rdao.re_delete(reply.getR_number());
+//    		DAO_Board.bdao.delete(board.board.getB_number());
+    		Main_board.main_board.loadpage("/view/board/board_read");
+    	}
     }
 
     @FXML
