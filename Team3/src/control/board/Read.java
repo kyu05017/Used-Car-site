@@ -109,7 +109,8 @@ public class Read implements Initializable{
 
     @FXML
     void re_update(ActionEvent event) {
-    	
+		reply_show();
+
     	String reply_contents = txt_recontents.getText();
     	
     	if(txt_recontents.getText().equals("")) {
@@ -127,14 +128,14 @@ public class Read implements Initializable{
     		}
     		else {
     			
-//	        	boolean result = DAO_Reply.rdao.re_update();
-//	        	
-//	        	if(result) {
-//	        		Alert alert = new Alert(AlertType.INFORMATION);
-//	        		alert.setHeaderText("댓글 작성이 완료 되었습니다.");
-//	        		alert.showAndWait();
-//	        		txt_recontents.setText("");	
-//	        	}
+	        	boolean result = DAO_Reply.rdao.re_update(reply.getR_number(),reply_contents);
+	        	
+	        	if(result) {
+	        		Alert alert = new Alert(AlertType.INFORMATION);
+	        		alert.setHeaderText("댓글 작성이 완료 되었습니다.");
+	        		alert.showAndWait();
+	        		txt_recontents.setText("");	
+	        	}
     		}
     	}
     }
@@ -268,7 +269,7 @@ public class Read implements Initializable{
 		
 	}
 	public void reply_show() {
-			
+		try {
 			ObservableList<DTO_Reply> replyList =  DAO_Reply.rdao.list(board.board.getB_number());
 			
 			String writer = null;
@@ -293,5 +294,8 @@ public class Read implements Initializable{
 			tc.setCellValueFactory(new PropertyValueFactory<>("r_date"));
 	
 			re_talbe.setItems(replyList);
+		}catch(Exception e) {
+			System.out.println("control.board.Read reply_show오류" + e);
 		}
+	}
 }

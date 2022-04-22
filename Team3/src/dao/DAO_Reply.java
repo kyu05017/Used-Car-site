@@ -49,9 +49,17 @@ public class DAO_Reply extends Dao {
 		}
 		return null;
 	}
+	//댓글수정
 	public boolean re_update(int r_number,String r_content) {
 		try {
+			String sql = "update reply set r_content=? where r_number=?";
 			
+			ps=con.prepareStatement(sql);
+			ps.setString(1, r_content);
+			ps.setInt(2, r_number);
+			ps.executeUpdate();
+			
+			return true;
 		}
 		catch(Exception e) {
 			System.out.println("댓글 수정 오류 " + e);
