@@ -1,91 +1,85 @@
 package control.car;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-
-import com.mysql.cj.protocol.FullReadInputStream;
-
-import control.Home;
-import control.Main;
-import control.login.Login;
 import dao.DAO_Car;
 import dto.DTO_Car;
 import javafx.fxml.Initializable;
-import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
-import javafx.stage.Stage;
+
 
 public class Carlist implements Initializable{
 	
 	public static DTO_Car select ;
 	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		
-	}
-	
 	@FXML
-    private static VBox vbox;
-	
-    @FXML
-    private ImageView carimg;
+    private ScrollPane scrollpane;
 
     @FXML
-    private Label carname; 
+    private VBox vbox;
+    
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		show();
+	}
 	
-    public static void show(String search) {
-    	try {
-    	//모든 제품 가져오기
-    	 ArrayList<DTO_Car> carlist = DAO_Car.dao_Car.list( String c_title , String search);
-    	 
-    	 GridPane gridPane = new GridPane();
-    	 
-    	 int i = 0;
-    	 for (int row = 0; row < carlist.size(); row++) {
-			ImageView imageView = new ImageView( new Image(carlist.get(i).getC_img()));
-			
-			//이미지 사이즈
-			imageView.setFitHeight(200);
-			imageView.setFitWidth(150);
-			
-			Button button = new Button(null, imageView);
-			
-			button.setStyle("-fx-background-color:transparent");
-			button.setId("");
-			button.setOnAction(e -> {
-			
-			System.out.println(e.toString());
-			int id = Integer.parseInt( e.toString().split(",")[0].split("=")[2]);
-		 		
-	 		select = carlist.get(id);
-	 		
-		 	});
+    void show() {
+    	
+    	ArrayList<DTO_Car> carlist = DAO_Car.dao_Car.list();
+    	
+    	if( vbox.getChildren().isEmpty() == false) { //isEmpty()  비어있을 경우를 확인 [ vbox내 비어있느지 확인 ]
+    		// vbox 내 객체가 비어있지 않으면
+    		vbox.getChildren().remove(0); // vbox
+    	}
+    	// 1. 모든 제품 가져오기
+		
+		
+		for(DTO_Car car : carlist) {
+			System.out.println("중고차 불러오기");
+			System.out.println(car.getC_title());
 		}
-    	 
-			vbox.getChildren().add(gridPane);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		GridPane gridPane = new GridPane();
+			gridPane.setPadding( new Insets(10) );
+
+			gridPane.setHgap(200); 
+			gridPane.setVgap(300); 
+
+		int i = 0 ;
+		for( int row = 0 ; row < carlist.size(); row++ ) { // 행
+
+				ImageView imageView = new ImageView( new Image( carlist.get(i).getC_img()) );
+
+					imageView.setFitWidth(200);
+					imageView.setFitHeight(100); 
+					DecimalFormat df = new DecimalFormat("#,##0원");
+					String new_price = df.format(carlist.get(i).getC_price());
+				Button button = new Button("차량명 : "+ carlist.get(i).getC_title() + "                                                                      가격 : "+ new_price + " | 주행거리 : " + carlist.get(i).getC_km() + "km |  연식 : "+ carlist.get(i).getC_year(), imageView );
+					
+					button.setStyle("-fx-background-color:transparent");
+
+					button.setId( i+"");
+					
+					button.setOnAction( e -> { 
+
+						int id = Integer.parseInt(e.toString().split(",")[0].split("=")[2] );
+				
+						select = carlist.get(id);
+					} );	
+				gridPane.add( button  , 0, row); 
+				i++;
 		}
+		vbox.getChildren().add(gridPane);
+    		
     }
     
 }

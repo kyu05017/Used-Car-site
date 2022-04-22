@@ -9,9 +9,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import control.board.Admin_board;
-import control.car.Carlist;
 import control.login.Login;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,10 +18,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -36,18 +32,6 @@ public class Home implements Initializable{
 
 	public Home(){home = this;}
 	
-	@FXML
-    private TextField txtsearch;
-
-    @FXML
-    private Button btnsearch;
-
-    @FXML
-    void accsearch(ActionEvent event) {
-    	
-    	String search = txtsearch.getText();
-    	Carlist.show(search);
-    }
 	@FXML
 	private Label add_car;
 	
@@ -82,10 +66,6 @@ public class Home implements Initializable{
     private Label free_board;
     
     @FXML
-    void act_addcar(MouseEvent event) {
-    	loadpage("/view/car/Caradd");
-    }
-    @FXML
     void act_freeboard(MouseEvent event) {
     	loadpage("/view/board/main_board");
     }
@@ -115,16 +95,14 @@ public class Home implements Initializable{
     		alert2.setContentText("확인");
     		alert2.showAndWait();
     	}
-    	
     }
     @FXML
     void to_home(MouseEvent event) {
     	Main.main.loadpage("/view/home");
     }
-
     @FXML
-    void add(MouseEvent event) {
-
+    void act_addcar(MouseEvent event) {
+    	loadpage("/view/car/Caradd");
     }
     
     @FXML
@@ -164,7 +142,6 @@ public class Home implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		loadpage("/view/car/carlist");
-		
 		if(Login.member != null) {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			String today = sdf.format(new Date());
@@ -179,7 +156,7 @@ public class Home implements Initializable{
 					System.out.println("Main 알림창 열기 실패"+ e); 
 				}
 			}
-			if(Login.member.getM_gr() == 1) {
+			if(Login.member.getM_gr() == 1 || Login.member.getM_gr() == 3) {
 				add_car.setVisible(true);
 				new_car.setVisible(false);
 			}
@@ -196,6 +173,8 @@ public class Home implements Initializable{
 			add_car.setVisible(false);
 			new_car.setVisible(true);
 		}
+		
+		
 	}
 	public void loadpage( String page ) {
 		try {
@@ -203,8 +182,7 @@ public class Home implements Initializable{
 			board_main.setCenter(parent);
 		}
 		catch( Exception e ) {
-			System.out.println("Main 컨트롤 페이지 열기 실패 "+ e); 
+			System.out.println("Main 컨트롤 페이지 열기 실패"+ e); 
 		}
 	}
-	
 }

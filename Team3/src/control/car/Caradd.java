@@ -176,7 +176,8 @@ public class Caradd implements Initializable{
     	if (result) {
 			Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setHeaderText("등록 완료");
-				alert.showAndWait();
+				alert.showAndWait();	
+				Main.main.loadpage("/view/home");
 		}else {
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setHeaderText("등록 실패");
