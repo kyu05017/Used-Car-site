@@ -34,17 +34,15 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
-
 public class Carlist implements Initializable{
 	
 	public static DTO_Car select ;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
 		
 	}
-
+	
 	@FXML
     private static VBox vbox;
 	
@@ -57,7 +55,7 @@ public class Carlist implements Initializable{
     public static void show(String search) {
     	try {
     	//모든 제품 가져오기
-    	 ArrayList<DTO_Car> carlist = DAO_Car.dao_Car.list(search);
+    	 ArrayList<DTO_Car> carlist = DAO_Car.dao_Car.list( String c_title , String search);
     	 
     	 GridPane gridPane = new GridPane();
     	 
