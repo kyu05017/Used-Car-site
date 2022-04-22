@@ -56,7 +56,6 @@ public class board implements Initializable{
     	}
     }
 
-    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
     	bt_write.setVisible(false);
