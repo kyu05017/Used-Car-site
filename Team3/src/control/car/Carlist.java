@@ -4,6 +4,8 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import control.Home;
 import dao.DAO_Car;
 import dto.DTO_Car;
 import javafx.fxml.Initializable;
@@ -22,20 +24,24 @@ public class Carlist implements Initializable{
 	
 	public static DTO_Car select ;
 	
+	public static Carlist carlist;
+
+	public Carlist(){carlist = this;}
+	
 	@FXML
     private ScrollPane scrollpane;
 
     @FXML
     private VBox vbox;
-    
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		show();
+		show(null);
 	}
 	
-    void show() {
+    public void show(String search) {
     	
-    	ArrayList<DTO_Car> carlist = DAO_Car.dao_Car.list();
+    	ArrayList<DTO_Car> carlist = DAO_Car.dao_Car.list(search);
     	
     	if( vbox.getChildren().isEmpty() == false) { //isEmpty()  비어있을 경우를 확인 [ vbox내 비어있느지 확인 ]
     		// vbox 내 객체가 비어있지 않으면

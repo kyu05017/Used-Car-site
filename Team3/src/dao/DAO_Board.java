@@ -11,7 +11,7 @@ public class DAO_Board extends Dao {
 	//글작성
 	public boolean write(DTO_Board dto_Board) {
 		try {
-			String sql = "insert into board(b_title, b_content, m_number)values(?,?,?,?)";
+			String sql = "insert into board(b_title, b_content, m_number, b_gr)values(?,?,?,?)";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, dto_Board.getB_title());
 			ps.setString(2, dto_Board.getB_content());
@@ -29,7 +29,7 @@ public class DAO_Board extends Dao {
 	public ObservableList<DTO_Board> list(int b_number){
 		ObservableList<DTO_Board> boardlist = FXCollections.observableArrayList();
 		try {
-			String sql = "select * from board where b_gr= ? order by b_number";
+			String sql = "select * from board where b_gr= ? order by b_number desc";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, b_number);
 			rs=ps.executeQuery();
@@ -50,5 +50,47 @@ public class DAO_Board extends Dao {
 			System.out.println( "DAO_Board 글호출 오류 "+e  );
 		}
 		return null;
+	}
+	//자유게시판 글 삭제 메소드
+	public boolean delete(int b_number) {
+		try {
+			String sql = "delete from board where b_number=?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, b_number);
+			ps.executeUpdate();
+			
+			return true;
+			
+		}catch(Exception e) {
+			System.out.println( "DAO_Board 글삭제 오류 "+e  );
+			return false;
+		}
+		
+	}
+	
+	//4.글수정 **************
+	
+	public boolean update(int b_number, String b_content) {
+		
+		
+		try {
+			
+			//1.sql 작성
+			String sql = "update board set b_content=? where b_number=?";
+			
+			//2.sql 조작
+			ps = con.prepareStatement(sql);
+			ps.setString(1, b_content);
+			ps.setInt(2, b_number);
+			
+			//3. 실행
+			ps.executeUpdate();
+			
+			//4. 결과
+			return true;
+			
+		} catch (Exception e) {	System.out.println( "DAO_Board 글수정 오류 "+ e); }
+		
+		return false;
 	}
 }
