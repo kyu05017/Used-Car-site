@@ -218,7 +218,7 @@ public class Read implements Initializable{
 		tc.setCellValueFactory(new PropertyValueFactory<>("r_number"));
 		
 		tc= re_talbe.getColumns().get(1);
-		tc.setCellValueFactory(new PropertyValueFactory<>("writer"));
+		tc.setCellValueFactory(new PropertyValueFactory<>("b_number"));
 		
 		tc= re_talbe.getColumns().get(2);
 		tc.setCellValueFactory(new PropertyValueFactory<>("r_content"));

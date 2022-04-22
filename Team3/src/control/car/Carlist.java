@@ -52,7 +52,7 @@ public class Carlist implements Initializable{
 			gridPane.setPadding( new Insets(10) );
 
 			gridPane.setHgap(200); 
-			gridPane.setVgap(300); 
+			gridPane.setVgap(20); 
 
 		int i = 0 ;
 		for( int row = 0 ; row < carlist.size(); row++ ) { // 행
@@ -63,7 +63,7 @@ public class Carlist implements Initializable{
 					imageView.setFitHeight(100); 
 					DecimalFormat df = new DecimalFormat("#,##0원");
 					String new_price = df.format(carlist.get(i).getC_price());
-				Button button = new Button("차량명 : "+ carlist.get(i).getC_title() + "                                                                      가격 : "+ new_price + " | 주행거리 : " + carlist.get(i).getC_km() + "km |  연식 : "+ carlist.get(i).getC_year(), imageView );
+				Button button = new Button("차량명 : "+ carlist.get(i).getC_title() + "                                                                                        가격 : "+ new_price + " | 주행거리 : " + carlist.get(i).getC_km() + "km |  연식 : "+ carlist.get(i).getC_year()+"년", imageView );
 					
 					button.setStyle("-fx-background-color:transparent");
 
