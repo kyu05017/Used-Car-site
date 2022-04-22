@@ -75,7 +75,8 @@ public class board implements Initializable{
     	}
     	ObservableList<DTO_Board> boardlist = DAO_Board.bdao.list(board_check);
 
-		TableColumn<?, ?> tc = table.getColumns().get(0);
+		TableColumn<?, ?> 
+		tc = table.getColumns().get(0);
 		tc.setCellValueFactory(new PropertyValueFactory<>("b_number"));
 		
 		tc= table.getColumns().get(1);
@@ -91,6 +92,7 @@ public class board implements Initializable{
 		
 		table.setOnMouseClicked( e -> { 
 			board = table.getSelectionModel().getSelectedItem();
+			DAO_Board.bdao.view(board.getB_number(), board.getB_view());
 			if(board_check == 1) {
 				Admin_board.admin_board.loadpage("/view/board/board_read");
 			}

@@ -173,6 +173,7 @@ public class Caradd implements Initializable{
 			Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setHeaderText("등록 완료");
 				alert.showAndWait();
+				Main.main.loadpage("/view/home");
 		}else {
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setHeaderText("등록 실패");
@@ -192,7 +193,7 @@ public class Caradd implements Initializable{
 
     	FileChooser chooser = new FileChooser();
     	
-    	chooser.getExtensionFilters().add(new ExtensionFilter("이미지파일:image file", "*png", "*jpg", "*gif"));
+    	chooser.getExtensionFilters().add(new ExtensionFilter("이미지파일:image file", "*png", "*jpg", "*gif","*jpeg"));
 
     	File file = chooser.showOpenDialog(new Stage());
     	
@@ -205,7 +206,7 @@ public class Caradd implements Initializable{
 
     		FileInputStream inputStream = new FileInputStream(file);
 
-    		File copyfile = new File("C:\\" + file.getName());
+    		File copyfile = new File("img" + file.getName());
     		FileOutputStream outputStream = new FileOutputStream(copyfile);
     		
     		byte[] bytes = new byte[1024*1024*1024];

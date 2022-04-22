@@ -1,6 +1,7 @@
 package control.board;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import control.login.Login;
@@ -18,6 +19,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -82,6 +84,15 @@ public class Read implements Initializable{
 
     @FXML
     void delete(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setHeaderText("게시글을 삭제하시겠습니까?");
+    	Optional<ButtonType> optional = alert.showAndWait();
+    	
+    	if(optional.get() == ButtonType.OK) {
+    		DAO_Board.bdao.delete(board.board.getB_number());
+    		Main_board.main_board.loadpage("/view/board/board_view");
+    	}
+    			
     	
     }
 
@@ -92,7 +103,8 @@ public class Read implements Initializable{
 
     @FXML
     void re_update(ActionEvent event) {
-    	
+		reply_show();
+
     	String reply_contents = txt_recontents.getText();
     	
     	if(txt_recontents.getText().equals("")) {
@@ -110,14 +122,14 @@ public class Read implements Initializable{
     		}
     		else {
     			
-//	        	boolean result = DAO_Reply.rdao.re_update();
-//	        	
-//	        	if(result) {
-//	        		Alert alert = new Alert(AlertType.INFORMATION);
-//	        		alert.setHeaderText("댓글 작성이 완료 되었습니다.");
-//	        		alert.showAndWait();
-//	        		txt_recontents.setText("");	
-//	        	}
+	        	boolean result = DAO_Reply.rdao.re_update(reply.getR_number(),reply_contents);
+	        	
+	        	if(result) {
+	        		Alert alert = new Alert(AlertType.INFORMATION);
+	        		alert.setHeaderText("댓글 작성이 완료 되었습니다.");
+	        		alert.showAndWait();
+	        		txt_recontents.setText("");	
+	        	}
     		}
     	}
     }
@@ -154,9 +166,42 @@ public class Read implements Initializable{
     		}
     	}
     }
-
+    boolean upcheck = true; //수정 스위치 변수
     @FXML
     void update(ActionEvent event) {
+    	
+    	Alert alert = new Alert(AlertType.INFORMATION);
+    	//메시지 알림
+    	
+    	if(upcheck) { //수정 코드
+    		alert.setHeaderText("게시글 수정 후 완료 버튼을 눌러주세요.");
+    		alert.showAndWait();
+    		
+    		// 텍필 없음	lbl_board_title.set(true);
+    		txt_contents.setEditable(true);
+    		bt_update.setText("수정 완료");
+    		
+    		upcheck = false;
+    		
+    	} else { //수정 완료
+    		
+    		//db에 새로 저장
+    		DAO_Board.bdao.update(control.board.board.board.getB_number(),
+    				txt_contents.getText());
+   		
+    		alert.setHeaderText("수정이 완료되었습니다.");
+    		alert.showAndWait();
+    		if(board.board_check == 1) {
+        		Admin_board.admin_board.loadpage("/view/board/board_view");
+    		}
+    		else if(board.board_check == 2){
+    			Main_board.main_board.loadpage("/view/board/board_view");
+    		}
+    		txt_contents.setEditable(false);
+    		bt_update.setText("수정");
+    		upcheck = true;
+    		
+    	}
 
     }
 	
@@ -200,6 +245,19 @@ public class Read implements Initializable{
 				System.out.println("[존재하지 않는 댓글] 사유 " + e);
 			}
 		});
+		if(Login.member == null) {
+			bt_delete.setVisible(false);//버튼숨기기
+			bt_update.setVisible(false);
+		}
+		else {
+			if(board.board.getM_number()== Login.member.getM_number()) {
+				bt_delete.setVisible(true);//버튼보이기
+				bt_update.setVisible(true);
+			}else{
+				bt_delete.setVisible(false);//버튼숨기기
+				bt_update.setVisible(false);
+			}
+		}
 	}
 	public void reply_show() {
 		
@@ -218,7 +276,7 @@ public class Read implements Initializable{
 		tc.setCellValueFactory(new PropertyValueFactory<>("r_number"));
 		
 		tc= re_talbe.getColumns().get(1);
-		tc.setCellValueFactory(new PropertyValueFactory<>("writer"));
+		tc.setCellValueFactory(new PropertyValueFactory<>("b_number"));
 		
 		tc= re_talbe.getColumns().get(2);
 		tc.setCellValueFactory(new PropertyValueFactory<>("r_content"));

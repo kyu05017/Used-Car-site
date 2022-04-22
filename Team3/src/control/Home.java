@@ -9,7 +9,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import control.board.Admin_board;
+import control.car.Carlist;
 import control.login.Login;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,8 +20,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -66,6 +70,31 @@ public class Home implements Initializable{
     private Label free_board;
     
     @FXML
+    private Label popular;
+    
+    @FXML
+    private TextField txt_search;
+    
+    @FXML
+    private Button searching;
+    
+    @FXML
+    void act_search(MouseEvent event) {
+    	String search = txt_search.getText();
+    	Carlist.carlist.show(search);
+    }
+
+    @FXML
+    void act_search2(ActionEvent event) {
+    	String search = txt_search.getText();
+    	Carlist.carlist.show(search);
+    }
+    @FXML
+    void act_popular(MouseEvent event) {
+    	loadpage("/view/car/carlist");
+    	Carlist.carlist.show("pop5491pop");
+    }
+    @FXML
     void act_freeboard(MouseEvent event) {
     	loadpage("/view/board/main_board");
     }
@@ -107,7 +136,8 @@ public class Home implements Initializable{
     
     @FXML
     void new_car(MouseEvent event) {
-
+    	loadpage("/view/car/carlist");
+    	Carlist.carlist.show("new5491new");
     }
     @FXML
     void reg(MouseEvent event) {

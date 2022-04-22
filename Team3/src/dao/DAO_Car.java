@@ -33,10 +33,23 @@ public class DAO_Car extends Dao {
 		return false;
 	}
 	// 차 불러오기
-	public ArrayList<DTO_Car> list() {
+	public ArrayList<DTO_Car> list(String search) {
 		try {
 			ArrayList<DTO_Car> carlist = new ArrayList<>();
-			String sql = "select * from car";
+			String sql = null;
+			
+			if(search == null){
+				sql = "select * from car";
+			}
+			else if(search.equals("pop5491pop")) {
+				sql = "SELECT * FROM car order by c_view desc";
+			}
+			else if(search.equals("new5491new")) {
+				sql = "SELECT * FROM TEAM3.car order by c_date desc";
+			}
+			else {
+				sql = "select * from car where c_title like '%"+search+"%' order by c_number desc";
+			}
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while( rs.next() ) {	

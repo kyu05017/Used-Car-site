@@ -1,5 +1,6 @@
 package dto;
 
+
 public class DTO_Reply {
 	
 	private int r_number;
