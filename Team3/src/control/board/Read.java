@@ -8,8 +8,7 @@ import control.login.Login;
 import dao.DAO_Board;
 import dao.DAO_Member;
 import dao.DAO_Reply;
-import dao.Dao;
-import dto.DTO_Board;
+
 import dto.DTO_Reply;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
