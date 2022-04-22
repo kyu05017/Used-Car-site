@@ -174,7 +174,6 @@ public class Home implements Initializable{
 			new_car.setVisible(true);
 		}
 		
-		
 	}
 	public void loadpage( String page ) {
 		try {
