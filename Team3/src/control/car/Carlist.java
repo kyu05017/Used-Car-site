@@ -70,6 +70,7 @@ public class Carlist implements Initializable{
 				
 				int id = Integer.parseInt(e.toString().split(",")[0].split("=")[2] );
 				select = carlist.get(id);
+				DAO_Car.dao_Car.view(select.getC_number(), select.getC_view());
 				Home.home.loadpage("/view/car/carview");
 			} );	
 			gridPane.add( button  , 0, row); 

@@ -2,6 +2,8 @@ package dao;
 
 import java.util.ArrayList;
 
+import control.board.board;
+import control.car.Carlist;
 import dto.DTO_Car;
 
 public class DAO_Car extends Dao {
@@ -80,5 +82,22 @@ public class DAO_Car extends Dao {
 			System.out.println("중고차 불러오기 실패 " + e);
 		}
 		return null;
+	}
+	public boolean view(int c_number,int c_view) {
+		try {
+			String sql = "update car set c_view=? where c_number=?";
+			ps = con.prepareStatement(sql);
+			int new_view = c_view + 1;
+			Carlist.select.setC_view(new_view);
+			ps.setInt(1, new_view);
+			ps.setInt(2, c_number);
+			ps.executeUpdate();
+			return true;
+			
+		}
+		catch (Exception e) {	
+			System.out.println( "DAO_Board 글수정 오류 "+ e); 
+		}
+		return false;
 	}
 }

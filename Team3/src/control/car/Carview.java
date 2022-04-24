@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import control.Home;
+import control.login.Login;
 import dto.DTO_Car;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -114,6 +115,47 @@ public class Carview implements Initializable {
 		else if(act == 2) {
 			optcondition2.setSelected(true);
 		}	
+		
+		txttitle.setDisable(true);
+		txtcnumber.setDisable(true);
+		txtcompany.setDisable(true);
+		optcarcate1.setDisable(true);
+		optcarcate2.setDisable(true);
+		optcarcate3.setDisable(true);
+		optcarcate4.setDisable(true);
+		optcarcate5.setDisable(true);
+		optcarcate6.setDisable(true);
+		optcarcate7.setDisable(true);
+		optcarcate8.setDisable(true);
+		txtcaryear.setDisable(true);
+		txtkm.setDisable(true);
+		optfuel1.setSelected(true);
+		optfuel2.setSelected(true);
+		optfuel3.setSelected(true);
+		optfuel4.setSelected(true);
+		optfuel5.setSelected(true);
+		optmission1.setSelected(true);
+		optmission2.setSelected(true);
+		optcondition1.setSelected(true);
+		optcondition2.setSelected(true);
+		txtprice.setDisable(true);
+		txtcontent.setDisable(true);
+		
+		btnupdate.setVisible(false);
+		btndelete.setVisible(false);
+		
+		int a = 0;
+		if(Login.member != null) {
+			a = Login.member.getM_number();
+		}
+		int b = car.getM_number();
+
+		if(a == b){
+			btnupdate.setVisible(true);
+			btndelete.setVisible(true);
+		}
+
+		
 		
 	} 
 	
@@ -238,6 +280,7 @@ public class Carview implements Initializable {
     	Optional<ButtonType> optional = alert.showAndWait();
     	
     	if(optional.get() == ButtonType.OK) { //만일 ok를 누르면
+    		
     	}
     	
     }
