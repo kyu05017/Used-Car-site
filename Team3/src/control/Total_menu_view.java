@@ -5,7 +5,10 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import control.board.Admin_board;
+import control.board.Main_board;
 import control.board.board;
+import control.login.Mypage;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -52,9 +55,8 @@ public class Total_menu_view implements Initializable {
     @FXML
     void act_free(MouseEvent event) {
     	board.board_check = 2;
-    	Main.main.loadpage("/view/home");
     	if(board.board_check==2) {
-    		Main.main.loadpage("/view/board/main_board");
+    		Home.home.loadpage("/view/board/main_board");
     	}
     	
     }
@@ -62,9 +64,8 @@ public class Total_menu_view implements Initializable {
     @FXML
     void act_notice(MouseEvent event) {
     	board.board_check = 1;
-    	Main.main.loadpage("/view/home");
     	if(board.board_check==1) {
-    		Main.main.loadpage("/view/board/main_board");
+    		Home.home.loadpage("/view/board/admin_board");
     	}
     }
     

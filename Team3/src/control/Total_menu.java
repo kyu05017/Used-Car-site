@@ -1,3 +1,4 @@
+
 package control;
 
 import java.net.URL;
@@ -20,12 +21,12 @@ public class Total_menu implements Initializable{
 	}
 	
 	 public void loadpage( String page ) {
-			try {
-				Parent parent = FXMLLoader.load( getClass().getResource(page+".fxml"));
-				total_board.setCenter(parent);
-			}
-			catch( Exception e ) {
-				System.out.println("Total_menu 컨트롤 페이지 열기 실패"+ e); 
-			}
+		try {
+			Parent parent = FXMLLoader.load( getClass().getResource(page+".fxml"));
+			total_board.setCenter(parent);
 		}
+		catch( Exception e ) {
+			System.out.println("Total_menu 컨트롤 페이지 열기 실패 "+ e); 
+		}
+	}
 }
