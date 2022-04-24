@@ -1,6 +1,8 @@
 package dao;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
 
 import control.board.board;
 import control.car.Carlist;
@@ -115,4 +117,23 @@ public class DAO_Car extends Dao {
 		}
 		
 	}
+	//통계 날짜별 등록한 매물의 총 개수
+	public Map<String, Integer> datetotal( String 테이블명 , String 날짜필드명 ){
+		Map<String, Integer> map  = new TreeMap<>();
+		
+		String sql = "select substring_index( "+날짜필드명+" , ' ' , 1 )  , count(*)"
+					+ " from "+테이블명
+					+ " group by substring_index( "+날짜필드명+" , ' ' , 1 )";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while( rs.next() ) {
+				map.put( rs.getString(1) , rs.getInt(2) );
+				// 결과의 해당 레코드의 첫번째필드[날짜]   , 두번째 필드[가입자수] 
+			}
+			return map;
+		}catch( Exception e ) {} return null;
+	}
+	
+	
 }

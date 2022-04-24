@@ -41,6 +41,15 @@ public class Total_menu_view implements Initializable {
     private Label add_car;
     
     @FXML
+    private Label record;
+    
+    @FXML
+    void act_record(MouseEvent event) {
+    	Main.main.loadpage("/view/record");
+    }
+
+    
+    @FXML
     void act_addcar(MouseEvent event) {
     	Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setTitle("¾Ë¸²Ã¢");
