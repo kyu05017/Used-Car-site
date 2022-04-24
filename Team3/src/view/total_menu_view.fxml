@@ -27,12 +27,15 @@
       <Line endX="28.0" layoutX="536.0" layoutY="80.0" startX="-100.0" stroke="MEDIUMAQUAMARINE" />
       <Line endX="28.0" layoutX="838.0" layoutY="81.0" startX="-100.0" stroke="MEDIUMAQUAMARINE" />
       <Line endX="28.0" layoutX="832.0" layoutY="81.0" startX="-100.0" stroke="MEDIUMAQUAMARINE" />
-      <Label layoutX="147.0" layoutY="101.0" text="Label" />
-      <Label layoutX="449.0" layoutY="101.0" text="공지사항" textFill="MEDIUMAQUAMARINE" />
+      <Label layoutX="449.0" layoutY="104.0" text="공지사항" textFill="MEDIUMAQUAMARINE" />
       <Label layoutX="449.0" layoutY="139.0" text="자유게시판" textFill="MEDIUMAQUAMARINE" />
-      <Label layoutX="748.0" layoutY="101.0" text="아이디찾기" textFill="MEDIUMAQUAMARINE" />
-      <Label layoutX="748.0" layoutY="139.0" text="비밀번호찾기" textFill="MEDIUMAQUAMARINE" />
-      <Label layoutX="748.0" layoutY="175.0" text="회원탈퇴" textFill="MEDIUMAQUAMARINE" />
-      <Label layoutX="748.0" layoutY="210.0" text="회원정보수정" textFill="MEDIUMAQUAMARINE" />
+      <Label fx:id="lblfindid" layoutX="746.0" layoutY="104.0" onMouseClicked="#findid" text="아이디찾기" textFill="MEDIUMAQUAMARINE" />
+      <Label fx:id="lblfindpw" layoutX="748.0" layoutY="139.0" onMouseClicked="#findpw" text="비밀번호찾기" textFill="MEDIUMAQUAMARINE" />
+      <Label fx:id="bt_signout" layoutX="748.0" layoutY="175.0" onMouseClicked="#bt_signout" text="회원탈퇴" textFill="MEDIUMAQUAMARINE" />
+      <Label fx:id="bt_change" layoutX="748.0" layoutY="210.0" onMouseClicked="#change" text="회원정보수정" textFill="MEDIUMAQUAMARINE" />
+      <Label layoutX="154.0" layoutY="210.0" text="통계" textFill="MEDIUMAQUAMARINE" />
+      <Label layoutX="154.0" layoutY="105.0" text="매물목록" textFill="MEDIUMAQUAMARINE" />
+      <Label layoutX="154.0" layoutY="139.0" text="매물등록" textFill="MEDIUMAQUAMARINE" />
+      <Label layoutX="154.0" layoutY="175.0" text="매물구매" textFill="MEDIUMAQUAMARINE" />
    </children>
 </AnchorPane>
