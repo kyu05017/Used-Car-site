@@ -70,7 +70,7 @@ public class Carlist implements Initializable{
 				
 				int id = Integer.parseInt(e.toString().split(",")[0].split("=")[2] );
 				select = carlist.get(id);
-				
+				Home.home.loadpage("/view/car/carview");
 			} );	
 			gridPane.add( button  , 0, row); 
 			i++;

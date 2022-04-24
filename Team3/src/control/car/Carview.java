@@ -5,8 +5,7 @@ import java.text.DecimalFormat;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import control.Main;
-import dao.DAO_Car;
+import control.Home;
 import dto.DTO_Car;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,18 +14,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.ImageView;
+
 
 
 public class Carview implements Initializable {
@@ -44,35 +38,84 @@ public class Carview implements Initializable {
 		txtcontent.setText(car.getC_content()); //등록한 내용 가져오기
 		
 		//입력값 불러오기
-//		txtprice.setText(car.getC_price()); int값 가져오기
-//		txtkm.set(car.getC_km());
+		DecimalFormat df = new DecimalFormat("#,##0원");
+		String new_price = df.format(car.getC_price());
+		
+		DecimalFormat df2 = new DecimalFormat("#,##0KM");
+		String new_km = df2.format(car.getC_km());
+		
+		txtprice.setText(new_price);
+		txtkm.setText(new_km);
 
 		txtcnumber.setText(car.getC_cnumber());
 		txtcompany.setText(car.getC_com());
 		txtcaryear.setText(car.getC_year());
 		
+		int CC = car.getC_category();
 		
-		
-		//라디오 버튼 눌린 상태로 만들기	
-		if(optcarcate1.isSelected()) { //첫번째 번튼 선택 시 해당 값 호출
+		if(CC == 1) {
 			optcarcate1.setSelected(true);
-			} else if(optcarcate2.isSelected()) { //두번째 버튼 선택 시 해당 값 호출
-				optcarcate2.setSelected(true);
-			} else if(optcarcate3.isSelected()) { 
-				optcarcate3.setSelected(true);
-			} else if(optcarcate4.isSelected()) { 
-				optcarcate4.setSelected(true);
-			} else if(optcarcate5.isSelected()) { 
-				optcarcate5.setSelected(true);
-			} else if(optcarcate6.isSelected()) { 
-				optcarcate6.setSelected(true);
-			} else if(optcarcate7.isSelected()) { 
-				optcarcate7.setSelected(true);
-			} else { optcarcate8.setSelected(true);}
-		//이 코드가 맞는지 확인필요
-		//토글그룹안에넣기
+		}
+		else if(CC == 2) {
+			optcarcate2.setSelected(true);
+		}
+		else if(CC == 3) {
+			optcarcate3.setSelected(true);
+		}
+		else if(CC == 4) {
+			optcarcate4.setSelected(true);
+		}
+		else if(CC == 5) {
+			optcarcate5.setSelected(true);
+		}
+		else if(CC == 6) {
+			optcarcate6.setSelected(true);
+		}
+		else if(CC == 7) {
+			optcarcate7.setSelected(true);
+		}		
+		else if(CC == 8) {
+			optcarcate8.setSelected(true);
+		}	
 		
-	} //initialize end
+		
+		int fuel = car.getC_fuel();
+		
+		if(fuel == 1) {
+			optfuel1.setSelected(true);
+		}
+		else if(fuel == 2) {
+			optfuel2.setSelected(true);
+		}
+		else if(fuel == 3) {
+			optfuel3.setSelected(true);
+		}
+		else if(fuel == 4) {
+			optfuel4.setSelected(true);
+		}
+		else if(fuel == 5) {
+			optfuel5.setSelected(true);
+		}
+		
+		int mission = car.getC_mission();
+
+		if(mission == 1) {
+			optmission1.setSelected(true);
+		}
+		else if(mission == 2) {
+			optmission2.setSelected(true);
+		}	
+		
+		int act = car.getC_condition();
+		
+		if(act == 1) {
+			optcondition1.setSelected(true);
+		}
+		else if(act == 2) {
+			optcondition2.setSelected(true);
+		}	
+		
+	} 
 	
 
     @FXML
@@ -184,7 +227,7 @@ public class Carview implements Initializable {
 
     @FXML
     void accback(ActionEvent event) {
-    	Main.main.loadpage("/view/car/carlist");
+    	Home.home.loadpage("/view/car/carlist");
     }
  
     

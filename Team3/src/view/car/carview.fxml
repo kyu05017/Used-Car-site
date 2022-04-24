@@ -9,7 +9,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.car.Carview">
    <children>
       <Button fx:id="btnback" layoutX="829.0" layoutY="37.0" mnemonicParsing="false" onAction="#accback" prefHeight="30.0" prefWidth="89.0" text="뒤로가기" />
@@ -17,7 +16,7 @@
       <Button fx:id="btndelete" layoutX="112.0" layoutY="37.0" mnemonicParsing="false" onAction="#accdelete" prefHeight="30.0" prefWidth="57.0" text="삭제" />
       <TextField fx:id="txttitle" layoutX="195.0" layoutY="37.0" prefHeight="30.0" prefWidth="623.0" promptText="제목" />
       <TextField fx:id="txtcnumber" layoutX="133.0" layoutY="94.0" prefHeight="30.0" prefWidth="200.0" promptText="차량번호" />
-      <ImageView fx:id="img" fitHeight="219.0" fitWidth="476.0" layoutX="481.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img" fitHeight="219.0" fitWidth="476.0" layoutX="489.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="63.0" layoutY="96.0" text="차량번호" />
       <Label layoutX="63.0" layoutY="204.0" text="차종" />
       <Label layoutX="63.0" layoutY="259.0" text="연식" />
