@@ -1,5 +1,6 @@
 package control.car;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.Optional;
@@ -11,7 +12,10 @@ import dao.DAO_Car;
 import dto.DTO_Car;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -20,6 +24,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
@@ -265,7 +270,24 @@ public class Carview implements Initializable {
 
 	@FXML
 	void accsend(ActionEvent event) { //문의
-
+		if(Login.member != null){
+    		try {
+    			Stage stage = new Stage();
+    			Parent parent = FXMLLoader.load(getClass().getResource("/view/letter/lettersend.fxml"));
+    			Scene scene = new Scene(parent);
+    			stage.setScene(scene);
+    			stage.show();
+    		} catch (IOException e) {
+    			System.out.println("Main 문의창 열기 "+ e); 
+    		}
+    	}
+    	else {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("알림창");
+    		alert2.setHeaderText(" 로그인 후 이용 가능합니다. ");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    	}
 	}
 
 
