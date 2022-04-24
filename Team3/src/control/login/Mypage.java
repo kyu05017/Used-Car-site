@@ -33,7 +33,23 @@ public class Mypage implements Initializable{
 
     @FXML
     private Label bt_signout;
-
+    
+    @FXML
+    private Label bt_chpw;
+    
+    @FXML
+    void change_pw(MouseEvent event) {
+    	try {
+			Stage stage = new Stage();
+			Parent parent = FXMLLoader.load(getClass().getResource("/view/login/pwcheck.fxml"));
+			Scene scene = new Scene(parent);
+			stage.setScene(scene);
+			stage.show();
+			Pwcheck.check = 3;
+		} catch (IOException e) {
+			System.out.println("Main 알림창 열기 실패"+ e); 
+		}
+    }
     @FXML
     void bt_signout(MouseEvent event) {
     	try {
