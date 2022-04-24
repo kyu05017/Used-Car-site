@@ -67,7 +67,7 @@
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="total_menu" layoutX="1091.0" layoutY="166.0" onMouseClicked="#act_totalmenu" prefHeight="32.0" prefWidth="98.0" text="메뉴" textFill="WHITE">
+            <Label layoutX="1091.0" layoutY="166.0" prefHeight="32.0" prefWidth="98.0" text="메뉴" textFill="WHITE">
                <font>
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>

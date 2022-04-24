@@ -70,6 +70,14 @@ public class Home implements Initializable{
     private Label popular;
     
     @FXML
+    private Label total_menu;
+    
+    @FXML
+    void act_totalmenu(MouseEvent event) {
+
+    }
+    
+    @FXML
     void act_popular(MouseEvent event) {
     	Carlist.carlist.show("pop");
     }
