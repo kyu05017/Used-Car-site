@@ -69,7 +69,7 @@ public class Mypage implements Initializable{
 
     @FXML
     void letter(MouseEvent event) {
-    	
+    	loadpage("/view/login/letter1");
     }
 	
     @Override
