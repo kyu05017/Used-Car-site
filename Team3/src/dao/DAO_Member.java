@@ -186,7 +186,7 @@ public class DAO_Member extends Dao{
 	// 비밀번호 변경 
 	public boolean change_pw(int num, String pw) {
 		try {
-			String sql2 = "UPDATE member SET m_pw=? where m_num=?";
+			String sql2 = "UPDATE member SET m_pw=? where m_number=?";
 			ps = con.prepareStatement(sql2);
 			ps.setString(1, pw);
 			ps.setInt(2, num);
@@ -244,7 +244,4 @@ public class DAO_Member extends Dao{
 		}
 		return null;
 	}
-
 }
-
-

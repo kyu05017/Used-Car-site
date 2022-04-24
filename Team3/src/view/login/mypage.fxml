@@ -18,7 +18,7 @@
                <font>
                   <Font name="Malgun Gothic Bold" size="14.0" />
                </font></Label>
-            <Label fx:id="bt_letter" layoutX="35.0" layoutY="309.0" onMouseClicked="#letter" text="딜러 상담" textFill="WHITE">
+            <Label fx:id="bt_letter" layoutX="33.0" layoutY="328.0" onMouseClicked="#letter" text="딜러 상담" textFill="WHITE">
                <font>
                   <Font name="Malgun Gothic Bold" size="14.0" />
                </font></Label>
@@ -31,6 +31,11 @@
             <Label layoutX="14.0" layoutY="67.0" prefHeight="36.0" prefWidth="164.0" text="my page(수정)" textFill="WHITE">
                <font>
                   <Font name="Malgun Gothic Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="bt_chpw" layoutX="33.0" layoutY="292.0" onMouseClicked="#change_pw" text="비밀번호 변경" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="14.0" />
                </font>
             </Label>
          </children>

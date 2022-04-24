@@ -18,11 +18,9 @@ import javafx.stage.Stage;
 
 public class Pwcheck implements Initializable{
 	
-
 	public static Pwcheck pwcheck;
 
 	public Pwcheck(){pwcheck = this;}
-
 	
 	@FXML
     private PasswordField txt_pw;
@@ -30,7 +28,6 @@ public class Pwcheck implements Initializable{
     @FXML
     private Button bt_pw;
     
-
     public static int check;
     
     @FXML
@@ -66,6 +63,9 @@ public class Pwcheck implements Initializable{
     		}
     		else if(check == 2){
     			Mypage.mypage.loadpage("/view/login/change");
+    		}
+    		else if(check == 3){
+    			Mypage.mypage.loadpage("/view/login/pw_change");
     		}
     	
     	}

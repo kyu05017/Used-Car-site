@@ -1,0 +1,252 @@
+package control.car;
+
+import java.net.URL;
+import java.text.DecimalFormat;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
+import control.Home;
+import dto.DTO_Car;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+
+
+
+public class Carview implements Initializable {
+	
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+
+		//선택된 객체 호출
+		DTO_Car car = Carlist.select;
+		
+		//각 컨트롤에 값 넣기
+		img.setImage(new Image(car.getC_img())); //자동차 이미지 가져와서 넣기
+		txttitle.setText(car.getC_title()); //등록한 제목 가져오기
+		txtcontent.setText(car.getC_content()); //등록한 내용 가져오기
+		
+		//입력값 불러오기
+		DecimalFormat df = new DecimalFormat("#,##0원");
+		String new_price = df.format(car.getC_price());
+		
+		DecimalFormat df2 = new DecimalFormat("#,##0KM");
+		String new_km = df2.format(car.getC_km());
+		
+		txtprice.setText(new_price);
+		txtkm.setText(new_km);
+
+		txtcnumber.setText(car.getC_cnumber());
+		txtcompany.setText(car.getC_com());
+		txtcaryear.setText(car.getC_year());
+		
+		int CC = car.getC_category();
+		
+		if(CC == 1) {
+			optcarcate1.setSelected(true);
+		}
+		else if(CC == 2) {
+			optcarcate2.setSelected(true);
+		}
+		else if(CC == 3) {
+			optcarcate3.setSelected(true);
+		}
+		else if(CC == 4) {
+			optcarcate4.setSelected(true);
+		}
+		else if(CC == 5) {
+			optcarcate5.setSelected(true);
+		}
+		else if(CC == 6) {
+			optcarcate6.setSelected(true);
+		}
+		else if(CC == 7) {
+			optcarcate7.setSelected(true);
+		}		
+		else if(CC == 8) {
+			optcarcate8.setSelected(true);
+		}	
+		
+		
+		int fuel = car.getC_fuel();
+		
+		if(fuel == 1) {
+			optfuel1.setSelected(true);
+		}
+		else if(fuel == 2) {
+			optfuel2.setSelected(true);
+		}
+		else if(fuel == 3) {
+			optfuel3.setSelected(true);
+		}
+		else if(fuel == 4) {
+			optfuel4.setSelected(true);
+		}
+		else if(fuel == 5) {
+			optfuel5.setSelected(true);
+		}
+		
+		int mission = car.getC_mission();
+
+		if(mission == 1) {
+			optmission1.setSelected(true);
+		}
+		else if(mission == 2) {
+			optmission2.setSelected(true);
+		}	
+		
+		int act = car.getC_condition();
+		
+		if(act == 1) {
+			optcondition1.setSelected(true);
+		}
+		else if(act == 2) {
+			optcondition2.setSelected(true);
+		}	
+		
+	} 
+	
+
+    @FXML
+    private TextField txtcnumber;
+
+    @FXML
+    private Button btnback;
+
+    @FXML
+    private ImageView img;
+
+    @FXML
+    private RadioButton optcarcate1;
+
+    @FXML
+    private ToggleGroup category;
+
+    @FXML
+    private RadioButton optcarcate2;
+
+    @FXML
+    private RadioButton optcarcate3;
+
+    @FXML
+    private RadioButton optcarcate4;
+
+    @FXML
+    private RadioButton optcarcate5;
+
+    @FXML
+    private RadioButton optcarcate6;
+
+    @FXML
+    private RadioButton optcarcate7;
+
+    @FXML
+    private RadioButton optcarcate8;
+
+    @FXML
+    private TextField txtcompany;
+
+    @FXML
+    private TextField txtcaryear;
+
+    @FXML
+    private TextField txtkm;
+
+    @FXML
+    private RadioButton optcondition1;
+
+    @FXML
+    private ToggleGroup condition;
+
+    @FXML
+    private RadioButton optcondition2;
+
+    @FXML
+    private RadioButton optmission1;
+
+    @FXML
+    private ToggleGroup mission;
+
+    @FXML
+    private RadioButton optmission2;
+
+    @FXML
+    private TextField txtprice;
+
+    @FXML
+    private RadioButton optfuel1;
+
+    @FXML
+    private ToggleGroup fuel;
+
+    @FXML
+    private RadioButton optfuel2;
+
+    @FXML
+    private RadioButton optfuel3;
+
+    @FXML
+    private RadioButton optfuel4;
+
+    @FXML
+    private RadioButton optfuel5;
+
+    @FXML
+    private TextField txttitle;
+
+    @FXML
+    private TextArea txtcontent;
+
+    @FXML
+    private Button btnupdate;
+
+    @FXML
+    private Button btndelete;
+
+	    
+	@FXML
+	private Button btnsend;
+
+
+	@FXML
+	void accsend(ActionEvent event) { //문의
+
+	}
+
+
+    @FXML
+    void accback(ActionEvent event) {
+    	Home.home.loadpage("/view/car/carlist");
+    }
+ 
+    
+    @FXML
+    void accdelete(ActionEvent event) { //삭제
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    		alert.setHeaderText("제품을 삭제하시겠습니까?");
+    	Optional<ButtonType> optional = alert.showAndWait();
+    	
+    	if(optional.get() == ButtonType.OK) { //만일 ok를 누르면
+    	}
+    	
+    }
+
+
+    @FXML
+    void accupdate(ActionEvent event) { //수정
+
+    }
+
+
+}

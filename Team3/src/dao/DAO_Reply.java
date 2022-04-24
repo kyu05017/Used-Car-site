@@ -1,6 +1,7 @@
 package dao;
 
 import dto.DTO_Reply;
+import dto.Reply;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -26,26 +27,27 @@ public class DAO_Reply extends Dao {
 		return false;
 	}
 	//댓글 호오출
-	public ObservableList<DTO_Reply> list(int b_number){
-		ObservableList<DTO_Reply> replyList = FXCollections.observableArrayList();
+	public ObservableList<Reply> list(int b_number){
+		ObservableList<Reply> replyList = FXCollections.observableArrayList();
 		try {
-			String sql = "select * from reply where b_number= ? order by r_number";
+			String sql = "SELECT a.*,b.m_id FROM TEAM3.reply a left join TEAM3.member b on a.m_number = b.m_number where b_number = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, b_number);
 			rs=ps.executeQuery();
 			while(rs.next()) {
-				DTO_Reply reply = new DTO_Reply(
+				Reply reply = new Reply(
 						rs.getInt(1),
 						rs.getInt(2),
 						rs.getInt(3),
 						rs.getString(4),
-						rs.getString(5)
+						rs.getString(5),
+						rs.getString(6)
 						);
 				replyList.add(reply);
 			}		
 			return replyList;
 		}catch(Exception e) {
-			System.out.println( "DAO_Board 글호출 오류 "+e  );
+			System.out.println( "댓글 호출 오류 "+e  );
 		}
 		return null;
 	}
@@ -80,6 +82,4 @@ public class DAO_Reply extends Dao {
 		}
 		return false;
 	}
-
 }
-

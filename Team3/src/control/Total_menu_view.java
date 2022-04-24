@@ -91,7 +91,7 @@ public class Total_menu_view implements Initializable {
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
- 
+    	
     	
     }
     
