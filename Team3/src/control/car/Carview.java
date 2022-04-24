@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import control.Home;
 import control.login.Login;
+import dao.DAO_Car;
 import dto.DTO_Car;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -26,12 +27,13 @@ import javafx.scene.control.ToggleGroup;
 
 public class Carview implements Initializable {
 	
+	//선택된 객체 호출
+	DTO_Car car = Carlist.select;
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		//선택된 객체 호출
-		DTO_Car car = Carlist.select;
+		
 		
 		//각 컨트롤에 값 넣기
 		img.setImage(new Image(car.getC_img())); //자동차 이미지 가져와서 넣기
@@ -275,12 +277,20 @@ public class Carview implements Initializable {
     
     @FXML
     void accdelete(ActionEvent event) { //삭제
+    	
     	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	Alert alert2 = new Alert(AlertType.INFORMATION);
     		alert.setHeaderText("제품을 삭제하시겠습니까?");
     	Optional<ButtonType> optional = alert.showAndWait();
     	
     	if(optional.get() == ButtonType.OK) { //만일 ok를 누르면
-    		
+    		boolean result =  DAO_Car.dao_Car.delete(car.getC_number());
+    		if(result == true) {
+    			alert2.setTitle("알림창");
+        		alert2.setHeaderText(" 삭제가 완료 되었습니다.");
+        		alert2.setContentText("확인");
+        		alert2.showAndWait();
+    		}
     	}
     	
     }

@@ -108,7 +108,7 @@ public class DAO_Board extends Dao {
 			
 		}
 		catch (Exception e) {	
-			System.out.println( "DAO_Board 글수정 오류 "+ e); 
+			System.out.println( "DAO_Board 조회수 오류 "+ e); 
 		}
 		return false;
 	}

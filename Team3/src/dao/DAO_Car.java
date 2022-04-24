@@ -96,8 +96,23 @@ public class DAO_Car extends Dao {
 			
 		}
 		catch (Exception e) {	
-			System.out.println( "DAO_Board 글수정 오류 "+ e); 
+			System.out.println( "조회수 수정 오류 "+ e); 
 		}
 		return false;
+	}
+	public boolean delete(int c_number) {
+		try {
+			String sql = "delete from car where c_number=?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, c_number);
+			ps.executeUpdate();
+			
+			return true;
+			
+		}catch(Exception e) {
+			System.out.println( "차량 게시물 삭제 오류 "+e  );
+			return false;
+		}
+		
 	}
 }
