@@ -27,15 +27,12 @@ public class letter1 implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-    	if(m_gr == 1) {
-    		txtletter.setText("보낸 쪽지");
-    	}
-    	else if(m_gr == 2){
-    		txtletter.setText("받은 쪽지");
-    	}
-    	ObservableList<DTO_Letter> letters = DAO_Letter.dao_Letter.letters(0);
 
-		TableColumn<?, ?> 
+		int m_number = Login.member.getM_number();
+		
+    	ObservableList<DTO_Letter> letters = DAO_Letter.dao_Letter.letters(m_number);
+    	
+		TableColumn tc = letter1board.getColumns().get(0);
 		tc = letter1board.getColumns().get(0);
 		tc.setCellValueFactory(new PropertyValueFactory<>("m_id"));
 		
