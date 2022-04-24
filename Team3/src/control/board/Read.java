@@ -97,9 +97,18 @@ public class Read implements Initializable{
 
     @FXML
     void re_del(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setHeaderText("댓글을 삭제하시겠습니까?");
+    	Optional<ButtonType> optional = alert.showAndWait();
     	
+    	if(optional.get() == ButtonType.OK) {
+    		DAO_Reply.rdao.re_delete(reply.getR_number());
+    		reply_show();
+    		bt_delete.setVisible(false);//버튼숨기기
+			bt_update.setVisible(false);
+			bt_rewrite1.setVisible(true);
+    	}
     }
-
     @FXML
     void re_update(ActionEvent event) {
 		reply_show();
@@ -161,6 +170,7 @@ public class Read implements Initializable{
 	        		alert.setHeaderText("댓글 작성이 완료 되었습니다.");
 	        		alert.showAndWait();
 	        		txt_recontents.setText("");	
+	        		reply_show();
 	        	}
     		}
     	}

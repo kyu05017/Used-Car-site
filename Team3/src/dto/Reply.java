@@ -64,13 +64,9 @@ public class Reply {
 		this.r_date = r_date;
 	}
 
-
-
 	public String getM_id() {
 		return m_id;
 	}
-
-
 
 	public void setM_id(String m_id) {
 		this.m_id = m_id;
