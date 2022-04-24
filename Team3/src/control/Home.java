@@ -74,7 +74,7 @@ public class Home implements Initializable{
     
     @FXML
     void act_totalmenu(MouseEvent event) {
-
+    	loadpage("/view/total_menu");
     }
     
     @FXML
