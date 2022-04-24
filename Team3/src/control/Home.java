@@ -109,12 +109,12 @@ public class Home implements Initializable{
     	if(Login.member != null){
     		try {
     			Stage stage = new Stage();
-    			Parent parent = FXMLLoader.load(getClass().getResource("/view/alert.fxml"));
+    			Parent parent = FXMLLoader.load(getClass().getResource("/view/letter/lettersend.fxml"));
     			Scene scene = new Scene(parent);
     			stage.setScene(scene);
     			stage.show();
     		} catch (IOException e) {
-    			System.out.println("Main 알림창 열기 실패"+ e); 
+    			System.out.println("Main 문의창 열기 "+ e); 
     		}
     	}
     	else {
