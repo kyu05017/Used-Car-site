@@ -1,24 +1,26 @@
 package control;
 
-import java.io.IOException;
-import java.util.Optional;
 
-import control.board.Main_board;
+import java.net.URL;
+import java.util.Optional;
+import java.util.ResourceBundle;
+
 import control.board.board;
-import control.login.Pwcheck;
-import dao.DAO_Board;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
-public class Total_menu_view {
+public class Total_menu_view implements Initializable {
+	
+	@FXML
+	private Label notice;
+
+	@FXML
+	private Label free;
 
 	@FXML
     private Label lblfindid;
@@ -31,6 +33,25 @@ public class Total_menu_view {
 
     @FXML
     private Label bt_change;
+    
+    @FXML
+    void act_free(MouseEvent event) {
+    	board.board_check = 2;
+    	Main.main.loadpage("/view/home");
+    	if(board.board_check==2) {
+    		Main.main.loadpage("/view/board/main_board");
+    	}
+    	
+    }
+
+    @FXML
+    void act_notice(MouseEvent event) {
+    	board.board_check = 1;
+    	Main.main.loadpage("/view/home");
+    	if(board.board_check==1) {
+    		Main.main.loadpage("/view/board/main_board");
+    	}
+    }
     
     @FXML
     void bt_signout(MouseEvent event) {
@@ -66,6 +87,12 @@ public class Total_menu_view {
     @FXML
     void findpw(MouseEvent event) {
     	Main.main.loadpage("/view/login/findpw");
+    }
+    
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+ 
+    	
     }
     
 }

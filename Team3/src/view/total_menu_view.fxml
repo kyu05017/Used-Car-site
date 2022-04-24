@@ -27,8 +27,8 @@
       <Line endX="28.0" layoutX="536.0" layoutY="80.0" startX="-100.0" stroke="MEDIUMAQUAMARINE" />
       <Line endX="28.0" layoutX="838.0" layoutY="81.0" startX="-100.0" stroke="MEDIUMAQUAMARINE" />
       <Line endX="28.0" layoutX="832.0" layoutY="81.0" startX="-100.0" stroke="MEDIUMAQUAMARINE" />
-      <Label layoutX="449.0" layoutY="104.0" text="공지사항" textFill="MEDIUMAQUAMARINE" />
-      <Label layoutX="449.0" layoutY="139.0" text="자유게시판" textFill="MEDIUMAQUAMARINE" />
+      <Label fx:id="notice" layoutX="449.0" layoutY="104.0" onMouseClicked="#act_notice" text="공지사항" textFill="MEDIUMAQUAMARINE" />
+      <Label fx:id="free" layoutX="449.0" layoutY="139.0" onMouseClicked="#act_free" text="자유게시판" textFill="MEDIUMAQUAMARINE" />
       <Label fx:id="lblfindid" layoutX="746.0" layoutY="104.0" onMouseClicked="#findid" text="아이디찾기" textFill="MEDIUMAQUAMARINE" />
       <Label fx:id="lblfindpw" layoutX="748.0" layoutY="139.0" onMouseClicked="#findpw" text="비밀번호찾기" textFill="MEDIUMAQUAMARINE" />
       <Label fx:id="bt_signout" layoutX="748.0" layoutY="175.0" onMouseClicked="#bt_signout" text="회원탈퇴" textFill="MEDIUMAQUAMARINE" />
