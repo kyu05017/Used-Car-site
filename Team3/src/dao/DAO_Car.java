@@ -2,6 +2,8 @@ package dao;
 
 import java.util.ArrayList;
 
+import control.board.board;
+import control.car.Carlist;
 import dto.DTO_Car;
 
 public class DAO_Car extends Dao {
@@ -41,11 +43,14 @@ public class DAO_Car extends Dao {
 			if(search == null){
 				sql = "select * from car";
 			}
-			else if(search.equals("pop")) {
+			else if(search.equals("pop5491pop")) {
 				sql = "SELECT * FROM car order by c_view desc";
 			}
-			else if(search.equals("new")) {
+			else if(search.equals("new5491new")) {
 				sql = "SELECT * FROM TEAM3.car order by c_date desc";
+			}
+			else {
+				sql = "select * from car where c_title like '%"+search+"%' order by c_number desc";
 			}
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -77,5 +82,37 @@ public class DAO_Car extends Dao {
 			System.out.println("중고차 불러오기 실패 " + e);
 		}
 		return null;
+	}
+	public boolean view(int c_number,int c_view) {
+		try {
+			String sql = "update car set c_view=? where c_number=?";
+			ps = con.prepareStatement(sql);
+			int new_view = c_view + 1;
+			Carlist.select.setC_view(new_view);
+			ps.setInt(1, new_view);
+			ps.setInt(2, c_number);
+			ps.executeUpdate();
+			return true;
+			
+		}
+		catch (Exception e) {	
+			System.out.println( "조회수 수정 오류 "+ e); 
+		}
+		return false;
+	}
+	public boolean delete(int c_number) {
+		try {
+			String sql = "delete from car where c_number=?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, c_number);
+			ps.executeUpdate();
+			
+			return true;
+			
+		}catch(Exception e) {
+			System.out.println( "차량 게시물 삭제 오류 "+e  );
+			return false;
+		}
+		
 	}
 }

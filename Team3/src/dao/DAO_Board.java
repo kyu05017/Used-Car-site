@@ -1,5 +1,6 @@
 package dao;
 
+import control.board.board;
 import dto.DTO_Board;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -91,6 +92,24 @@ public class DAO_Board extends Dao {
 			
 		} catch (Exception e) {	System.out.println( "DAO_Board 글수정 오류 "+ e); }
 		
+		return false;
+	}
+	public boolean view(int b_number,int b_view) {
+		try {
+			String sql = "update board set b_view=? where b_number=?";
+			ps = con.prepareStatement(sql);
+			int new_view = b_view + 1;
+			board.board.setB_view(new_view);
+			ps.setInt(1, new_view);
+			ps.setInt(2, b_number);
+			ps.executeUpdate();
+
+			return true;
+			
+		}
+		catch (Exception e) {	
+			System.out.println( "DAO_Board 조회수 오류 "+ e); 
+		}
 		return false;
 	}
 }

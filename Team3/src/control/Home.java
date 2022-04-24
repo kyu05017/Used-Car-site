@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import control.board.Admin_board;
 import control.car.Carlist;
 import control.login.Login;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,8 +20,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -70,16 +73,26 @@ public class Home implements Initializable{
     private Label popular;
     
     @FXML
-    private Label total_menu;
+    private TextField txt_search;
     
     @FXML
-    void act_totalmenu(MouseEvent event) {
-    	loadpage("/view/total_menu");
-    }
+    private Button searching;
     
+    @FXML
+    void act_search(MouseEvent event) {
+    	String search = txt_search.getText();
+    	Carlist.carlist.show(search);
+    }
+
+    @FXML
+    void act_search2(ActionEvent event) {
+    	String search = txt_search.getText();
+    	Carlist.carlist.show(search);
+    }
     @FXML
     void act_popular(MouseEvent event) {
-    	Carlist.carlist.show("pop");
+    	loadpage("/view/car/carlist");
+    	Carlist.carlist.show("pop5491pop");
     }
     @FXML
     void act_freeboard(MouseEvent event) {
@@ -96,12 +109,12 @@ public class Home implements Initializable{
     	if(Login.member != null){
     		try {
     			Stage stage = new Stage();
-    			Parent parent = FXMLLoader.load(getClass().getResource("/view/alert.fxml"));
+    			Parent parent = FXMLLoader.load(getClass().getResource("/view/letter/lettersend.fxml"));
     			Scene scene = new Scene(parent);
     			stage.setScene(scene);
     			stage.show();
     		} catch (IOException e) {
-    			System.out.println("Main 알림창 열기 실패"+ e); 
+    			System.out.println("Main 문의창 열기 "+ e); 
     		}
     	}
     	else {
@@ -123,7 +136,8 @@ public class Home implements Initializable{
     
     @FXML
     void new_car(MouseEvent event) {
-    	Carlist.carlist.show("new");
+    	loadpage("/view/car/carlist");
+    	Carlist.carlist.show("new5491new");
     }
     @FXML
     void reg(MouseEvent event) {
