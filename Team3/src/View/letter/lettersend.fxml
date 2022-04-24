@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.letter.Lettersend">
+   <children>
+      <TextArea fx:id="textsend" layoutX="35.0" layoutY="125.0" prefHeight="407.0" prefWidth="327.0" promptText="내용을 입력해주세요" />
+      <Label fx:id="content" layoutX="35.0" layoutY="88.0" prefHeight="28.0" prefWidth="108.0" text="내용">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="letter" layoutX="182.0" layoutY="42.0" prefHeight="28.0" prefWidth="33.0" text="쪽지">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnsend" layoutX="291.0" layoutY="549.0" mnemonicParsing="false" onAction="#accsend" prefHeight="46.0" prefWidth="71.0" text="보내기" />
+      <Button fx:id="btnback" layoutX="215.0" layoutY="549.0" mnemonicParsing="false" onAction="#accback" prefHeight="46.0" prefWidth="71.0" text="취소" />
+   </children>
+</AnchorPane>
