@@ -44,6 +44,9 @@ public class Home implements Initializable{
     private Label new_car;
 	
 	@FXML
+    private Label total_menu;
+	
+	@FXML
 	private ImageView bt_home;
 	  
 	@FXML
@@ -163,7 +166,10 @@ public class Home implements Initializable{
     		loadpage("/view/login/mypage");
     	}
     }
-    
+    @FXML
+    void act_totalmenu(MouseEvent event) {
+    	loadpage("/view/total_menu");
+    }
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		loadpage("/view/car/carlist");
