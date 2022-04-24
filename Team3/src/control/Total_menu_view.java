@@ -35,6 +35,21 @@ public class Total_menu_view implements Initializable {
     private Label bt_change;
     
     @FXML
+    private Label add_car;
+    
+    @FXML
+    void act_addcar(MouseEvent event) {
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("알림창");
+		alert.setHeaderText(" 로그인먼저하세요 ");
+		Optional<ButtonType> optional = alert.showAndWait();
+		
+		if(optional.get() == ButtonType.OK) {
+			Main.main.loadpage("/view/login/login");
+    	}
+    }
+    
+    @FXML
     void act_free(MouseEvent event) {
     	board.board_check = 2;
     	Main.main.loadpage("/view/home");
