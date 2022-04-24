@@ -1,7 +1,7 @@
 package dto;
 
 public class DTO_Letter {
-
+	
 	private int l_number;
 	private int m_number;
 	private String m_id; 
@@ -19,6 +19,7 @@ public class DTO_Letter {
 		this.l_date = l_date;
 		C_number = c_number;
 	}
+
 
 	public int getL_number() {
 		return l_number;
@@ -67,6 +68,4 @@ public class DTO_Letter {
 	public void setC_number(int c_number) {
 		C_number = c_number;
 	}
-	
-	
 }

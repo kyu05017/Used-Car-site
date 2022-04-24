@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import control.board.Admin_board;
 import control.car.Carlist;
 import control.login.Login;
+import control.login.Mypage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -106,16 +107,9 @@ public class Home implements Initializable{
     
     @FXML
     void act_alert(MouseEvent event) {
-    	if(Login.member != null){
-    		try {
-    			Stage stage = new Stage();
-    			Parent parent = FXMLLoader.load(getClass().getResource("/view/letter/lettersend.fxml"));
-    			Scene scene = new Scene(parent);
-    			stage.setScene(scene);
-    			stage.show();
-    		} catch (IOException e) {
-    			System.out.println("Main 문의창 열기 "+ e); 
-    		}
+    	if(Login.member != null) {
+    		Mypage.check = 2;
+    		loadpage("/view/login/mypage");
     	}
     	else {
     		Alert alert2 = new Alert(AlertType.INFORMATION);
@@ -165,6 +159,7 @@ public class Home implements Initializable{
     @FXML
     void info(MouseEvent event) {
     	if(Login.member != null) {
+    		Mypage.check = 1;
     		loadpage("/view/login/mypage");
     	}
     }
