@@ -10,6 +10,7 @@ import dao.DAO_Member;
 import dao.DAO_Reply;
 
 import dto.DTO_Reply;
+import dto.Reply;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -61,7 +62,7 @@ public class Read implements Initializable{
     private TextArea txt_recontents;
 
     @FXML
-    private TableView<DTO_Reply> re_talbe;
+    private TableView<Reply> re_talbe;
 
     @FXML
     private Button bt_redelete;
@@ -69,7 +70,7 @@ public class Read implements Initializable{
     @FXML
     private Button btreupdate;
 
-    public static DTO_Reply reply;
+    public static Reply reply;
     
     @FXML
     void back(ActionEvent event) {
@@ -268,11 +269,11 @@ public class Read implements Initializable{
 	}
 	public void reply_show() {
 		
-		ObservableList<DTO_Reply> replyList =  DAO_Reply.rdao.list(board.board.getB_number());
+		ObservableList<Reply> replyList =  DAO_Reply.rdao.list(board.board.getB_number());
 		
 		String writer = null;
 		
-		for(DTO_Reply reply : replyList) {
+		for(Reply reply : replyList) {
 			
 			writer = DAO_Member.mdao.get_id(reply.getM_number());
 			
