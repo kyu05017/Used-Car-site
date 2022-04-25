@@ -1,4 +1,3 @@
-
 package control;
 
 import java.net.URL;
@@ -26,7 +25,7 @@ public class Total_menu implements Initializable{
 			total_board.setCenter(parent);
 		}
 		catch( Exception e ) {
-			System.out.println("Total_menu 컨트롤 페이지 열기 실패 "+ e); 
+			System.out.println("Total_menu 컨트롤 페이지 열기 실패"+ e); 
 		}
 	}
 }
