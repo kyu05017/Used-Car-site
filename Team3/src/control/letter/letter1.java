@@ -32,12 +32,13 @@ public class letter1 implements Initializable{
 
 		int m_number = Login.member.getM_number();
 		
-    	ObservableList<DTO_Letter> letters = DAO_Letter.dao_Letter.letters(m_number);
-    	
+	
+		ObservableList<DTO_Letter> letters = DAO_Letter.dao_Letter.letters(m_number);
+ 
 		TableColumn tc = letter1board.getColumns().get(0);
 		tc = letter1board.getColumns().get(0);
 		tc.setCellValueFactory(new PropertyValueFactory<>("m_id"));
-		
+
 		tc= letter1board.getColumns().get(1);
 		tc.setCellValueFactory(new PropertyValueFactory<>("c_number"));
 
@@ -48,6 +49,9 @@ public class letter1 implements Initializable{
 		tc.setCellValueFactory(new PropertyValueFactory<>("l_date"));
 
 		letter1board.setItems(letters);
+	
+		
+    	
 		
     	
 	}

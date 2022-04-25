@@ -1,15 +1,21 @@
 package control.car;
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
 import control.Home;
+import control.login.Login;
+import dao.DAO_Car;
 import dto.DTO_Car;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -18,6 +24,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
@@ -26,32 +33,32 @@ import javafx.scene.control.ToggleGroup;
 public class Carview implements Initializable {
 	
 	
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		//선택된 객체 호출
-		DTO_Car car = Carlist.select;
+		
 		
 		//각 컨트롤에 값 넣기
-		img.setImage(new Image(car.getC_img())); //자동차 이미지 가져와서 넣기
-		txttitle.setText(car.getC_title()); //등록한 제목 가져오기
-		txtcontent.setText(car.getC_content()); //등록한 내용 가져오기
+		img.setImage(new Image(Carlist.select.getC_img())); //자동차 이미지 가져와서 넣기
+		txttitle.setText(Carlist.select.getC_title()); //등록한 제목 가져오기
+		txtcontent.setText(Carlist.select.getC_content()); //등록한 내용 가져오기
 		
 		//입력값 불러오기
 		DecimalFormat df = new DecimalFormat("#,##0원");
-		String new_price = df.format(car.getC_price());
+		String new_price = df.format(Carlist.select.getC_price());
 		
 		DecimalFormat df2 = new DecimalFormat("#,##0KM");
-		String new_km = df2.format(car.getC_km());
+		String new_km = df2.format(Carlist.select.getC_km());
 		
 		txtprice.setText(new_price);
 		txtkm.setText(new_km);
 
-		txtcnumber.setText(car.getC_cnumber());
-		txtcompany.setText(car.getC_com());
-		txtcaryear.setText(car.getC_year());
+		txtcnumber.setText(Carlist.select.getC_cnumber());
+		txtcompany.setText(Carlist.select.getC_com());
+		txtcaryear.setText(Carlist.select.getC_year());
 		
-		int CC = car.getC_category();
+		int CC = Carlist.select.getC_category();
 		
 		if(CC == 1) {
 			optcarcate1.setSelected(true);
@@ -79,7 +86,7 @@ public class Carview implements Initializable {
 		}	
 		
 		
-		int fuel = car.getC_fuel();
+		int fuel = Carlist.select.getC_fuel();
 		
 		if(fuel == 1) {
 			optfuel1.setSelected(true);
@@ -97,7 +104,7 @@ public class Carview implements Initializable {
 			optfuel5.setSelected(true);
 		}
 		
-		int mission = car.getC_mission();
+		int mission = Carlist.select.getC_mission();
 
 		if(mission == 1) {
 			optmission1.setSelected(true);
@@ -106,7 +113,7 @@ public class Carview implements Initializable {
 			optmission2.setSelected(true);
 		}	
 		
-		int act = car.getC_condition();
+		int act = Carlist.select.getC_condition();
 		
 		if(act == 1) {
 			optcondition1.setSelected(true);
@@ -114,6 +121,47 @@ public class Carview implements Initializable {
 		else if(act == 2) {
 			optcondition2.setSelected(true);
 		}	
+		
+		txttitle.setDisable(true);
+		txtcnumber.setDisable(true);
+		txtcompany.setDisable(true);
+		optcarcate1.setDisable(true);
+		optcarcate2.setDisable(true);
+		optcarcate3.setDisable(true);
+		optcarcate4.setDisable(true);
+		optcarcate5.setDisable(true);
+		optcarcate6.setDisable(true);
+		optcarcate7.setDisable(true);
+		optcarcate8.setDisable(true);
+		txtcaryear.setDisable(true);
+		txtkm.setDisable(true);
+		optfuel1.setSelected(true);
+		optfuel2.setSelected(true);
+		optfuel3.setSelected(true);
+		optfuel4.setSelected(true);
+		optfuel5.setSelected(true);
+		optmission1.setSelected(true);
+		optmission2.setSelected(true);
+		optcondition1.setSelected(true);
+		optcondition2.setSelected(true);
+		txtprice.setDisable(true);
+		txtcontent.setDisable(true);
+		
+		btnupdate.setVisible(false);
+		btndelete.setVisible(false);
+		
+		int a = 0;
+		if(Login.member != null) {
+			a = Login.member.getM_number();
+		}
+		int b = Carlist.select.getM_number();
+
+		if(a == b){
+			btnupdate.setVisible(true);
+			btndelete.setVisible(true);
+		}
+
+		
 		
 	} 
 	
@@ -221,7 +269,24 @@ public class Carview implements Initializable {
 
 	@FXML
 	void accsend(ActionEvent event) { //문의
-
+		if(Login.member != null){
+    		try {
+    			Stage stage = new Stage();
+    			Parent parent = FXMLLoader.load(getClass().getResource("/view/letter/lettersend.fxml"));
+    			Scene scene = new Scene(parent);
+    			stage.setScene(scene);
+    			stage.show();
+    		} catch (IOException e) {
+    			System.out.println("Main 문의창 열기 "+ e); 
+    		}
+    	}
+    	else {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("알림창");
+    		alert2.setHeaderText(" 로그인 후 이용 가능합니다. ");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    	}
 	}
 
 
@@ -233,11 +298,20 @@ public class Carview implements Initializable {
     
     @FXML
     void accdelete(ActionEvent event) { //삭제
+    	
     	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	Alert alert2 = new Alert(AlertType.INFORMATION);
     		alert.setHeaderText("제품을 삭제하시겠습니까?");
     	Optional<ButtonType> optional = alert.showAndWait();
     	
     	if(optional.get() == ButtonType.OK) { //만일 ok를 누르면
+    		boolean result =  DAO_Car.dao_Car.delete(Carlist.select.getC_number());
+    		if(result == true) {
+    			alert2.setTitle("알림창");
+        		alert2.setHeaderText(" 삭제가 완료 되었습니다.");
+        		alert2.setContentText("확인");
+        		alert2.showAndWait();
+    		}
     	}
     	
     }
