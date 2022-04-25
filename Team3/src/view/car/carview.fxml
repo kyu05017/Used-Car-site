@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.car.Carview">
    <children>
       <Button fx:id="btnback" layoutX="829.0" layoutY="37.0" mnemonicParsing="false" onAction="#accback" prefHeight="30.0" prefWidth="89.0" style="-fx-background-color: #66cdaa;" text="뒤로가기" textFill="WHITE">
