@@ -8,115 +8,209 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.car.Carview">
    <children>
-      <Button fx:id="btnback" layoutX="829.0" layoutY="37.0" mnemonicParsing="false" onAction="#accback" prefHeight="30.0" prefWidth="89.0" text="뒤로가기" />
-      <Button fx:id="btnupdate" layoutX="44.0" layoutY="37.0" mnemonicParsing="false" onAction="#accupdate" prefHeight="30.0" prefWidth="57.0" text="수정" />
-      <Button fx:id="btndelete" layoutX="112.0" layoutY="37.0" mnemonicParsing="false" onAction="#accdelete" prefHeight="30.0" prefWidth="57.0" text="삭제" />
+      <Button fx:id="btnback" layoutX="829.0" layoutY="37.0" mnemonicParsing="false" onAction="#accback" prefHeight="30.0" prefWidth="89.0" style="-fx-background-color: #66cdaa;" text="뒤로가기" textFill="WHITE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="btnupdate" layoutX="44.0" layoutY="37.0" mnemonicParsing="false" onAction="#accupdate" prefHeight="30.0" prefWidth="57.0" style="-fx-background-color: #66cdaa;" text="수정" textFill="WHITE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="btndelete" layoutX="112.0" layoutY="37.0" mnemonicParsing="false" onAction="#accdelete" prefHeight="30.0" prefWidth="57.0" style="-fx-background-color: #66cdaa;" text="삭제" textFill="WHITE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="14.0" />
+         </font></Button>
       <TextField fx:id="txttitle" layoutX="195.0" layoutY="37.0" prefHeight="30.0" prefWidth="623.0" promptText="제목" />
       <TextField fx:id="txtcnumber" layoutX="133.0" layoutY="94.0" prefHeight="30.0" prefWidth="200.0" promptText="차량번호" />
       <ImageView fx:id="img" fitHeight="219.0" fitWidth="476.0" layoutX="489.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="63.0" layoutY="96.0" text="차량번호" />
-      <Label layoutX="63.0" layoutY="204.0" text="차종" />
-      <Label layoutX="63.0" layoutY="259.0" text="연식" />
-      <Label layoutX="63.0" layoutY="349.0" text="연료" />
-      <Label layoutX="63.0" layoutY="388.0" text="사고여부" />
-      <Label layoutX="63.0" layoutY="465.0" text="희망가격" />
-      <Label layoutX="63.0" layoutY="303.0" text="주행거리" />
-      <RadioButton fx:id="optcarcate1" layoutX="133.0" layoutY="190.0" mnemonicParsing="false" text="경차">
-         <toggleGroup>
-            <ToggleGroup fx:id="category" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="optcarcate2" layoutX="193.0" layoutY="190.0" mnemonicParsing="false" text="소형">
-         <toggleGroup>
-            <ToggleGroup fx:id="category" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="optcarcate3" layoutX="243.0" layoutY="190.0" mnemonicParsing="false" text="준중형">
-         <toggleGroup>
-            <ToggleGroup fx:id="category" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="optcarcate4" layoutX="303.0" layoutY="190.0" mnemonicParsing="false" text="중형">
-         <toggleGroup>
-            <ToggleGroup fx:id="category" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="optcarcate5" layoutX="133.0" layoutY="218.0" mnemonicParsing="false" text="대형">
-         <toggleGroup>
-            <ToggleGroup fx:id="category" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="optcarcate6" layoutX="193.0" layoutY="218.0" mnemonicParsing="false" text="SUV">
-         <toggleGroup>
-            <ToggleGroup fx:id="category" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="optcarcate7" layoutX="243.0" layoutY="218.0" mnemonicParsing="false" text="상용">
-         <toggleGroup>
-            <ToggleGroup fx:id="category" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="optcarcate8" layoutX="303.0" layoutY="218.0" mnemonicParsing="false" text="스포츠카">
-         <toggleGroup>
-            <ToggleGroup fx:id="category" />
-         </toggleGroup>
-      </RadioButton>
-      <Label layoutX="63.0" layoutY="425.0" text="변속기" />
-      <Label layoutX="63.0" layoutY="148.0" text="제조사" />
+      <Label layoutX="63.0" layoutY="96.0" text="차량번호" textFill="MEDIUMAQUAMARINE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="63.0" layoutY="204.0" text="차종" textFill="MEDIUMAQUAMARINE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="63.0" layoutY="259.0" text="연식" textFill="MEDIUMAQUAMARINE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="63.0" layoutY="349.0" text="연료" textFill="MEDIUMAQUAMARINE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="63.0" layoutY="388.0" text="사고여부" textFill="MEDIUMAQUAMARINE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="63.0" layoutY="465.0" text="희망가격" textFill="MEDIUMAQUAMARINE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="63.0" layoutY="303.0" text="주행거리" textFill="MEDIUMAQUAMARINE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="63.0" layoutY="425.0" text="변속기" textFill="MEDIUMAQUAMARINE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="13.0" />
+         </font></Label>
+      <Label layoutX="63.0" layoutY="148.0" text="제조사" textFill="MEDIUMAQUAMARINE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="13.0" />
+         </font></Label>
       <TextField fx:id="txtcompany" layoutX="133.0" layoutY="141.0" prefHeight="30.0" prefWidth="200.0" promptText="제조사" />
       <TextField fx:id="txtcaryear" layoutX="133.0" layoutY="252.0" prefHeight="30.0" prefWidth="200.0" promptText="연식" />
       <TextField fx:id="txtkm" layoutX="133.0" layoutY="296.0" prefHeight="30.0" prefWidth="200.0" promptText="주행거리" />
-      <Label layoutX="344.0" layoutY="304.0" text="km" />
-      <RadioButton fx:id="optcondition1" layoutX="133.0" layoutY="388.0" mnemonicParsing="false" text="무사고">
+      <Label layoutX="344.0" layoutY="304.0" text="km" textFill="MEDIUMAQUAMARINE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="14.0" />
+         </font></Label>
+      <RadioButton fx:id="optcarcate1" layoutX="133.0" layoutY="190.0" mnemonicParsing="false" text="경차" textFill="#20966d">
+         <toggleGroup>
+            <ToggleGroup fx:id="category" />
+         </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="optcarcate2" layoutX="193.0" layoutY="190.0" mnemonicParsing="false" text="소형" textFill="#20966d">
+         <toggleGroup>
+            <ToggleGroup fx:id="category" />
+         </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="optcarcate3" layoutX="243.0" layoutY="190.0" mnemonicParsing="false" text="준중형" textFill="#20966d">
+         <toggleGroup>
+            <ToggleGroup fx:id="category" />
+         </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="optcarcate4" layoutX="303.0" layoutY="190.0" mnemonicParsing="false" text="중형" textFill="#20966d">
+         <toggleGroup>
+            <ToggleGroup fx:id="category" />
+         </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="optcarcate5" layoutX="133.0" layoutY="218.0" mnemonicParsing="false" text="대형" textFill="#20966d">
+         <toggleGroup>
+            <ToggleGroup fx:id="category" />
+         </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="optcarcate6" layoutX="193.0" layoutY="218.0" mnemonicParsing="false" text="SUV" textFill="#20966d">
+         <toggleGroup>
+            <ToggleGroup fx:id="category" />
+         </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="optcarcate7" layoutX="243.0" layoutY="218.0" mnemonicParsing="false" text="상용" textFill="#20966d">
+         <toggleGroup>
+            <ToggleGroup fx:id="category" />
+         </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="optcarcate8" layoutX="303.0" layoutY="218.0" mnemonicParsing="false" text="스포츠카" textFill="#20966d">
+         <toggleGroup>
+            <ToggleGroup fx:id="category" />
+         </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="optcondition1" layoutX="133.0" layoutY="388.0" mnemonicParsing="false" text="무사고" textFill="#20966d">
          <toggleGroup>
             <ToggleGroup fx:id="condition" />
          </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
       </RadioButton>
-      <RadioButton fx:id="optcondition2" layoutX="243.0" layoutY="388.0" mnemonicParsing="false" text="사고">
+      <RadioButton fx:id="optcondition2" layoutX="243.0" layoutY="388.0" mnemonicParsing="false" text="사고" textFill="#20966d">
          <toggleGroup>
             <ToggleGroup fx:id="condition" />
          </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
       </RadioButton>
-      <RadioButton fx:id="optmission1" layoutX="133.0" layoutY="424.0" mnemonicParsing="false" text="오토 A/T">
+      <RadioButton fx:id="optmission1" layoutX="133.0" layoutY="424.0" mnemonicParsing="false" text="오토 A/T" textFill="#20966d">
          <toggleGroup>
             <ToggleGroup fx:id="mission" />
          </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
       </RadioButton>
-      <RadioButton fx:id="optmission2" layoutX="243.0" layoutY="424.0" mnemonicParsing="false" text="수동 M/T">
+      <RadioButton fx:id="optmission2" layoutX="243.0" layoutY="424.0" mnemonicParsing="false" text="수동 M/T" textFill="#20966d">
          <toggleGroup>
             <ToggleGroup fx:id="mission" />
          </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="optfuel1" layoutX="133.0" layoutY="349.0" mnemonicParsing="false" text="휘발유" textFill="#20966d">
+         <toggleGroup>
+            <ToggleGroup fx:id="fuel" />
+         </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="optfuel2" layoutX="193.0" layoutY="349.0" mnemonicParsing="false" text="경유" textFill="#20966d">
+         <toggleGroup>
+            <ToggleGroup fx:id="fuel" />
+         </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="optfuel3" layoutX="243.0" layoutY="349.0" mnemonicParsing="false" text="LPG" textFill="#20966d">
+         <toggleGroup>
+            <ToggleGroup fx:id="fuel" />
+         </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="optfuel4" layoutX="303.0" layoutY="349.0" mnemonicParsing="false" text="전기" textFill="#20966d">
+         <toggleGroup>
+            <ToggleGroup fx:id="fuel" />
+         </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="optfuel5" layoutX="363.0" layoutY="349.0" mnemonicParsing="false" text="하이브리드" textFill="#20966d">
+         <toggleGroup>
+            <ToggleGroup fx:id="fuel" />
+         </toggleGroup>
+         <font>
+            <Font name="Malgun Gothic Bold" size="12.0" />
+         </font>
       </RadioButton>
       <TextField fx:id="txtprice" layoutX="133.0" layoutY="457.0" prefHeight="30.0" prefWidth="200.0" promptText="희망가" />
-      <RadioButton fx:id="optfuel1" layoutX="133.0" layoutY="349.0" mnemonicParsing="false" text="휘발유">
-         <toggleGroup>
-            <ToggleGroup fx:id="fuel" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="optfuel2" layoutX="193.0" layoutY="349.0" mnemonicParsing="false" text="경유">
-         <toggleGroup>
-            <ToggleGroup fx:id="fuel" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="optfuel3" layoutX="243.0" layoutY="349.0" mnemonicParsing="false" text="LPG">
-         <toggleGroup>
-            <ToggleGroup fx:id="fuel" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="optfuel4" layoutX="303.0" layoutY="349.0" mnemonicParsing="false" text="전기">
-         <toggleGroup>
-            <ToggleGroup fx:id="fuel" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="optfuel5" layoutX="363.0" layoutY="349.0" mnemonicParsing="false" text="하이브리드">
-         <toggleGroup>
-            <ToggleGroup fx:id="fuel" />
-         </toggleGroup>
-      </RadioButton>
       <TextArea fx:id="txtcontent" layoutX="481.0" layoutY="319.0" prefHeight="168.0" prefWidth="476.0" />
-      <Button fx:id="btnsend" layoutX="354.0" layoutY="457.0" mnemonicParsing="false" onAction="#accsend" prefHeight="30.0" prefWidth="57.0" text="문의" />
+      <Button fx:id="btnsend" layoutX="354.0" layoutY="457.0" mnemonicParsing="false" onAction="#accsend" prefHeight="30.0" prefWidth="57.0" style="-fx-background-color: #66cdaa;" text="문의" textFill="WHITE">
+         <font>
+            <Font name="Malgun Gothic Bold" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>
