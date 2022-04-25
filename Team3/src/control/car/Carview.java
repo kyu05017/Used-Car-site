@@ -135,18 +135,8 @@ public class Carview implements Initializable {
 		optcarcate8.setDisable(true);
 		txtcaryear.setDisable(true);
 		txtkm.setDisable(true);
-		optfuel1.setSelected(true);
-		optfuel2.setSelected(true);
-		optfuel3.setSelected(true);
-		optfuel4.setSelected(true);
-		optfuel5.setSelected(true);
-		optmission1.setSelected(true);
-		optmission2.setSelected(true);
-		optcondition1.setSelected(true);
-		optcondition2.setSelected(true);
-		txtprice.setDisable(true);
-		txtcontent.setDisable(true);
 		
+		txtprice.setDisable(true);
 		btnupdate.setVisible(false);
 		btndelete.setVisible(false);
 		
