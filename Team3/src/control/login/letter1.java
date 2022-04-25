@@ -47,6 +47,11 @@ public class letter1 implements Initializable{
 
 		letter1board.setItems(letters);
 		
-    	
+    	letter1board.setOnMouseClicked( e ->  {
+    		
+    		letter = letter1board.getSelectionModel().getSelectedItem();
+    		
+    		control.Home.home.loadpage("/view/login/letterview");
+    	});
 	}
 }
