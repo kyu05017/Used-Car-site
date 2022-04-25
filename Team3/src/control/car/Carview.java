@@ -32,8 +32,7 @@ import javafx.scene.control.ToggleGroup;
 
 public class Carview implements Initializable {
 	
-	//선택된 객체 호출
-	DTO_Car car = Carlist.select;
+	
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -41,25 +40,25 @@ public class Carview implements Initializable {
 		
 		
 		//각 컨트롤에 값 넣기
-		img.setImage(new Image(car.getC_img())); //자동차 이미지 가져와서 넣기
-		txttitle.setText(car.getC_title()); //등록한 제목 가져오기
-		txtcontent.setText(car.getC_content()); //등록한 내용 가져오기
+		img.setImage(new Image(Carlist.select.getC_img())); //자동차 이미지 가져와서 넣기
+		txttitle.setText(Carlist.select.getC_title()); //등록한 제목 가져오기
+		txtcontent.setText(Carlist.select.getC_content()); //등록한 내용 가져오기
 		
 		//입력값 불러오기
 		DecimalFormat df = new DecimalFormat("#,##0원");
-		String new_price = df.format(car.getC_price());
+		String new_price = df.format(Carlist.select.getC_price());
 		
 		DecimalFormat df2 = new DecimalFormat("#,##0KM");
-		String new_km = df2.format(car.getC_km());
+		String new_km = df2.format(Carlist.select.getC_km());
 		
 		txtprice.setText(new_price);
 		txtkm.setText(new_km);
 
-		txtcnumber.setText(car.getC_cnumber());
-		txtcompany.setText(car.getC_com());
-		txtcaryear.setText(car.getC_year());
+		txtcnumber.setText(Carlist.select.getC_cnumber());
+		txtcompany.setText(Carlist.select.getC_com());
+		txtcaryear.setText(Carlist.select.getC_year());
 		
-		int CC = car.getC_category();
+		int CC = Carlist.select.getC_category();
 		
 		if(CC == 1) {
 			optcarcate1.setSelected(true);
@@ -87,7 +86,7 @@ public class Carview implements Initializable {
 		}	
 		
 		
-		int fuel = car.getC_fuel();
+		int fuel = Carlist.select.getC_fuel();
 		
 		if(fuel == 1) {
 			optfuel1.setSelected(true);
@@ -105,7 +104,7 @@ public class Carview implements Initializable {
 			optfuel5.setSelected(true);
 		}
 		
-		int mission = car.getC_mission();
+		int mission = Carlist.select.getC_mission();
 
 		if(mission == 1) {
 			optmission1.setSelected(true);
@@ -114,7 +113,7 @@ public class Carview implements Initializable {
 			optmission2.setSelected(true);
 		}	
 		
-		int act = car.getC_condition();
+		int act = Carlist.select.getC_condition();
 		
 		if(act == 1) {
 			optcondition1.setSelected(true);
@@ -155,7 +154,7 @@ public class Carview implements Initializable {
 		if(Login.member != null) {
 			a = Login.member.getM_number();
 		}
-		int b = car.getM_number();
+		int b = Carlist.select.getM_number();
 
 		if(a == b){
 			btnupdate.setVisible(true);
@@ -306,7 +305,7 @@ public class Carview implements Initializable {
     	Optional<ButtonType> optional = alert.showAndWait();
     	
     	if(optional.get() == ButtonType.OK) { //만일 ok를 누르면
-    		boolean result =  DAO_Car.dao_Car.delete(car.getC_number());
+    		boolean result =  DAO_Car.dao_Car.delete(Carlist.select.getC_number());
     		if(result == true) {
     			alert2.setTitle("알림창");
         		alert2.setHeaderText(" 삭제가 완료 되었습니다.");
