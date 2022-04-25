@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="board_main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.Home">
+   <top>
+      <AnchorPane prefHeight="211.0" prefWidth="1281.0" style="-fx-background-color: ffffff;" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="MEDIUMAQUAMARINE" height="61.0" layoutX="1.0" layoutY="150.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1280.0" />
+            <ImageView fx:id="bt_home" fitHeight="73.0" fitWidth="222.0" layoutX="89.0" layoutY="72.0" onMouseClicked="#to_home" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/carlogo.png" />
+               </image>
+            </ImageView>
+            <TextField layoutX="409.0" layoutY="69.0" prefHeight="38.0" prefWidth="336.0" promptText="모델명을 입력해주세요">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </TextField>
+            <Label fx:id="lbl_alert" layoutX="961.0" layoutY="4.0" onMouseClicked="#act_alert" text="알림창" textFill="MEDIUMAQUAMARINE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_login" layoutX="1025.0" layoutY="3.0" onMouseClicked="#act_login" text="로그인" textFill="MEDIUMAQUAMARINE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_logout" layoutX="1019.0" layoutY="3.0" onMouseClicked="#act_logout" text="로그아웃" textFill="MEDIUMAQUAMARINE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_myinfo" layoutX="1099.0" layoutY="3.0" onMouseClicked="#info" text="내정보" textFill="MEDIUMAQUAMARINE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbl_reg" layoutX="1090.0" layoutY="3.0" onMouseClicked="#reg" text="회원가입" textFill="MEDIUMAQUAMARINE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="notice" layoutX="1165.0" layoutY="4.0" onMouseClicked="#act_notice" text="고객센터" textFill="MEDIUMAQUAMARINE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="popular" layoutX="363.0" layoutY="166.0" onMouseClicked="#act_popular" prefHeight="32.0" prefWidth="84.0" text="인기 매물" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="129.0" layoutY="166.0" prefHeight="32.0" prefWidth="98.0" text="판매 후기" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="total_menu" layoutX="1091.0" layoutY="166.0" onMouseClicked="#act_totalmenu" prefHeight="32.0" prefWidth="98.0" text="메뉴" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="new_car" layoutX="602.0" layoutY="165.0" onMouseClicked="#new_car" prefHeight="32.0" prefWidth="77.0" text="신규 매물" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="free_board" layoutX="855.0" layoutY="166.0" onMouseClicked="#act_freeboard" prefHeight="32.0" prefWidth="98.0" text="자유게시판" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="add_car" layoutX="602.0" layoutY="166.0" onMouseClicked="#act_addcar" prefHeight="32.0" prefWidth="77.0" text="매물 등록" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="16.0" />
+               </font>
+            </Label>
+            <Line endX="779.0" layoutX="500.0" layoutY="28.0" startX="-497.0" stroke="MEDIUMAQUAMARINE" strokeWidth="2.0" />
+            <Label fx:id="bt_home2" layoutX="109.0" layoutY="36.0" onMouseClicked="#to_home" prefHeight="40.0" prefWidth="173.0" text="EZEN 중고차" textFill="MEDIUMAQUAMARINE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="27.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="bt_home1" fitHeight="76.0" fitWidth="87.0" layoutX="885.0" layoutY="56.0" onMouseClicked="#to_home" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/searchicon.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="748.0" layoutY="69.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="125.0" style="-fx-background-color: #66cdaa;" text="중고차 찾기" textFill="WHITE">
+               <font>
+                  <Font name="Malgun Gothic Bold" size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+        </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

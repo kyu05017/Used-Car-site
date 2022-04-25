@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.login.Duplicat">
+   <center>
+      <AnchorPane prefHeight="400.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="230.0" layoutX="56.0" layoutY="36.0" stroke="MEDIUMAQUAMARINE" strokeType="INSIDE" strokeWidth="5.0" width="294.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="MEDIUMAQUAMARINE" height="41.0" layoutX="107.0" layoutY="23.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="186.0" />
+            <Button fx:id="bt_newid" layoutX="162.0" layoutY="237.0" mnemonicParsing="false" onAction="#use_id" prefHeight="49.0" prefWidth="76.0" style="-fx-background-color: #66cdaa;" text="확인" textFill="WHITE">
+               <font>
+                  <Font name="HCR Dotum" size="15.0" />
+               </font></Button>
+            <Text fill="WHITE" layoutX="165.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="중복체크">
+               <font>
+                  <Font name="HCR Dotum" size="18.0" />
+               </font></Text>
+            <TextField fx:id="txt_newid" layoutX="106.0" layoutY="121.0" prefHeight="58.0" prefWidth="195.0" promptText="입력 후 확인 버튼을 눌러주세요" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
