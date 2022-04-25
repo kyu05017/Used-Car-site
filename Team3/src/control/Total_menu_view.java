@@ -43,6 +43,8 @@ public class Total_menu_view implements Initializable {
     
     @FXML
     void act_addcar(MouseEvent event) {
+    	
+    	System.out.println(Login.member.getM_gr());
     	if(Login.member != null) {
     		if(Login.member.getM_gr() == 1) {
     			Home.home.loadpage("/view/car/Caradd");
@@ -96,8 +98,6 @@ public class Total_menu_view implements Initializable {
 				Main.main.loadpage("/view/login/login");
 	    	}
     	}
-    	
-
     }
 
     @FXML

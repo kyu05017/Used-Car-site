@@ -36,16 +36,12 @@ public class letter1 implements Initializable{
 		ObservableList<DTO_Letter> letters = DAO_Letter.dao_Letter.letters(m_number);
  
 		TableColumn tc = letter1board.getColumns().get(0);
-		tc = letter1board.getColumns().get(0);
-		tc.setCellValueFactory(new PropertyValueFactory<>("m_id"));
-
-		tc= letter1board.getColumns().get(1);
 		tc.setCellValueFactory(new PropertyValueFactory<>("c_number"));
 
-		tc= letter1board.getColumns().get(2);
+		tc= letter1board.getColumns().get(1);
 		tc.setCellValueFactory(new PropertyValueFactory<>("l_content"));
 		
-		tc= letter1board.getColumns().get(3);
+		tc= letter1board.getColumns().get(2);
 		tc.setCellValueFactory(new PropertyValueFactory<>("l_date"));
 
 		letter1board.setItems(letters);
