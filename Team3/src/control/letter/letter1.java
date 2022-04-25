@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import control.login.Login;
+import control.login.Mypage;
 import dao.DAO_Letter;
 import dto.DTO_Letter;
 import javafx.collections.ObservableList;
@@ -45,9 +46,14 @@ public class letter1 implements Initializable{
 		tc.setCellValueFactory(new PropertyValueFactory<>("l_date"));
 
 		letter1board.setItems(letters);
-	
 		
-    	
+
+    	letter1board.setOnMouseClicked( e ->  {
+
+    		letter = letter1board.getSelectionModel().getSelectedItem();
+
+    		Mypage.mypage.loadpage("/view/letter/letterview");
+    	});
 		
     	
 	}
