@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -117,7 +118,7 @@ public class DAO_Car extends Dao {
 		}
 		
 	}
-	//통계 날짜별 등록한 매물의 총 개수
+	//통계 //날짜별 등록한 매물의 총 개수 //막대
 	public Map<String, Integer> datetotal( String 테이블명 , String 날짜필드명 ){
 		Map<String, Integer> map  = new TreeMap<>();
 		
@@ -132,8 +133,45 @@ public class DAO_Car extends Dao {
 				// 결과의 해당 레코드의 첫번째필드[날짜]   , 두번째 필드[가입자수] 
 			}
 			return map;
-		}catch( Exception e ) {} return null;
+		}catch( Exception e ) {
+			System.out.println("통계 오류(총매물막대)" + e);
+		}
+		return null;
 	}
-	
+	//통계 //카테고리별 조회수 //막대
+	public Map<String, Integer > datetotal2(){
+		Map<String , Integer > map2 = new HashMap<String, Integer>();
+		String sql = "select c.c_category, avg(c.c_view) from car as c group by c.c_category";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while( rs.next() ) {
+				map2.put( rs.getString( 1 ) , rs.getInt( 2 ) );
+			}
+			return map2;
+		}catch( Exception e ) {
+			System.out.println("통계 오류(카테고리별조회수막대)" +e);
+		}  return null;
+	}
+	//통계 //카테고리별 조회수 //원형
+	public Map<String, Integer > category_view_piechart(){
+		Map<String, Integer> map = new HashMap<>();
+		String sql = "select c_category , c_view from car group by c_category";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				map.put(rs.getString(1),
+				rs.getInt(2)		);
+				
+			}
+			return map;
+		}catch(Exception e) {
+			System.out.println("통계 오류(카테고리별조회수원형)" +e);
+		}
+		return null;
+		
+	}
 	
 }

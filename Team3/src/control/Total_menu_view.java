@@ -46,7 +46,7 @@ public class Total_menu_view implements Initializable {
     
     @FXML
     void act_record(MouseEvent event) {
-    	Main.main.loadpage("/view/record");
+    	Home.home.loadpage("/view/record");
     }
 
     
