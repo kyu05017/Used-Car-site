@@ -94,7 +94,7 @@ public class board implements Initializable{
 			board = table.getSelectionModel().getSelectedItem();
 			DAO_Board.bdao.view(board.getB_number(), board.getB_view());
 			if(board_check == 1) {
-				Admin_board.admin_board.loadpage("/view/board/board_read");
+				Main_board.main_board.loadpage("/view/board/board_read");
 			}
 			else if(board_check == 2) {
 				Main_board.main_board.loadpage("/view/board/board_read");
