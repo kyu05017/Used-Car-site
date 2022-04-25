@@ -20,9 +20,6 @@ public class DTO_Letter {
 		C_number = c_number;
 	}
 
-	public DTO_Letter(int m_number, String l_content, String l_date) {
-		// TODO Auto-generated constructor stub
-	}
 
 	public int getL_number() {
 		return l_number;

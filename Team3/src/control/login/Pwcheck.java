@@ -64,6 +64,9 @@ public class Pwcheck implements Initializable{
     		else if(check == 2){
     			Mypage.mypage.loadpage("/view/login/change");
     		}
+    		else if(check == 3){
+    			Mypage.mypage.loadpage("/view/login/pw_change");
+    		}
     	
     	}
     	else {

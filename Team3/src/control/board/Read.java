@@ -8,9 +8,8 @@ import control.login.Login;
 import dao.DAO_Board;
 import dao.DAO_Member;
 import dao.DAO_Reply;
-import dao.Dao;
-import dto.DTO_Board;
 import dto.DTO_Reply;
+import dto.Reply;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -62,7 +61,7 @@ public class Read implements Initializable{
     private TextArea txt_recontents;
 
     @FXML
-    private TableView<DTO_Reply> re_talbe;
+    private TableView<Reply> re_talbe;
 
     @FXML
     private Button bt_redelete;
@@ -70,7 +69,7 @@ public class Read implements Initializable{
     @FXML
     private Button btreupdate;
 
-    public static DTO_Reply reply;
+    public static Reply reply;
     
     @FXML
     void back(ActionEvent event) {
@@ -98,9 +97,18 @@ public class Read implements Initializable{
 
     @FXML
     void re_del(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.CONFIRMATION);
+    	alert.setHeaderText("댓글을 삭제하시겠습니까?");
+    	Optional<ButtonType> optional = alert.showAndWait();
     	
+    	if(optional.get() == ButtonType.OK) {
+    		DAO_Reply.rdao.re_delete(reply.getR_number());
+    		reply_show();
+    		bt_delete.setVisible(false);//버튼숨기기
+			bt_update.setVisible(false);
+			bt_rewrite1.setVisible(true);
+    	}
     }
-
     @FXML
     void re_update(ActionEvent event) {
 		reply_show();
@@ -162,6 +170,7 @@ public class Read implements Initializable{
 	        		alert.setHeaderText("댓글 작성이 완료 되었습니다.");
 	        		alert.showAndWait();
 	        		txt_recontents.setText("");	
+	        		reply_show();
 	        	}
     		}
     	}
@@ -261,22 +270,15 @@ public class Read implements Initializable{
 	}
 	public void reply_show() {
 		
-		ObservableList<DTO_Reply> replyList =  DAO_Reply.rdao.list(board.board.getB_number());
+		ObservableList<Reply> replyList =  DAO_Reply.rdao.list(board.board.getB_number());
 		
-		String writer = null;
-		
-		for(DTO_Reply reply : replyList) {
-			
-			writer = DAO_Member.mdao.get_id(reply.getM_number());
-			
-		}
-		
+
 		
 		TableColumn<?, ?> tc = re_talbe.getColumns().get(0);
 		tc.setCellValueFactory(new PropertyValueFactory<>("r_number"));
 		
 		tc= re_talbe.getColumns().get(1);
-		tc.setCellValueFactory(new PropertyValueFactory<>("b_number"));
+		tc.setCellValueFactory(new PropertyValueFactory<>("m_id"));
 		
 		tc= re_talbe.getColumns().get(2);
 		tc.setCellValueFactory(new PropertyValueFactory<>("r_content"));

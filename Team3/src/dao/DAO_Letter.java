@@ -1,6 +1,8 @@
 package dao;
 
+import dto.DTO_Car;
 import dto.DTO_Letter;
+import dto.DTO_Member;
 import dto.DTO_Reply;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,7 +23,7 @@ public class DAO_Letter extends Dao{
 			return true;
 		}
 		catch (Exception e) {
-			System.out.println("오류 " + e);
+			System.out.println("댓글 저장 실패 " + e);
 		}
 		return false;
 	}
@@ -47,11 +49,25 @@ public class DAO_Letter extends Dao{
 			}		
 			return letterlist;
 		}catch(Exception e) {
-			System.out.println( "오류"+ e  );
+			System.out.println( "쪽지 오류 "+ e  );
 		}
 		return null;
 		
 	}
-
 	
+	//답장
+	public void write(DTO_Letter dto_Letter, DTO_Member dto_Member, DTO_Car dto_Car) {
+		try {
+			String sql = "insert into letter( m_number, m_id, l_content, l_date, c_number)values(?,?,?,?,?)";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, dto_Member.getM_number());
+			ps.setString(2, dto_Member.getM_id());
+			ps.setString(3, dto_Letter.getL_content());
+			ps.setString(4, dto_Letter.getL_date());
+			ps.setInt(5, dto_Car.getC_number());
+			ps.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
 }

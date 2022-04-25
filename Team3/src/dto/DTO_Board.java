@@ -78,4 +78,6 @@ public class DTO_Board {
 	public void setB_view(int b_view) {
 		this.b_view = b_view;
 	}
+	
+	
 }

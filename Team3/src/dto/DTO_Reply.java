@@ -1,5 +1,6 @@
 package dto;
 
+
 public class DTO_Reply {
 	
 	private int r_number;
@@ -57,4 +58,6 @@ public class DTO_Reply {
 	public void setR_date(String r_date) {
 		this.r_date = r_date;
 	}
+	
+	
 }

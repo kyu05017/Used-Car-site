@@ -1,7 +1,8 @@
 package dto;
 
-public class DTO_Member {
-
+public class DTO_Member { 
+	
+	
 	private int m_number;
 	private String m_id;
 	private String m_pw;
@@ -108,4 +109,6 @@ public class DTO_Member {
 	public void setM_gr(int m_gr) {
 		this.m_gr = m_gr;
 	}
+	
+	
 }

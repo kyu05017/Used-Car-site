@@ -27,13 +27,31 @@ public class Mypage implements Initializable{
 
     @FXML
     private Label bt_change;
-
+    
     @FXML
     private Label bt_letter;
 
     @FXML
     private Label bt_signout;
-
+    
+    @FXML
+    private Label bt_chpw;
+    
+    public static int check;
+    
+    @FXML
+    void change_pw(MouseEvent event) {
+    	try {
+			Stage stage = new Stage();
+			Parent parent = FXMLLoader.load(getClass().getResource("/view/login/pwcheck.fxml"));
+			Scene scene = new Scene(parent);
+			stage.setScene(scene);
+			stage.show();
+			Pwcheck.check = 3;
+		} catch (IOException e) {
+			System.out.println("Main 알림창 열기 실패"+ e); 
+		}
+    }
     @FXML
     void bt_signout(MouseEvent event) {
     	try {
@@ -69,12 +87,17 @@ public class Mypage implements Initializable{
 
     @FXML
     void letter(MouseEvent event) {
-    	loadpage("/view/login/letter1");
+    	loadpage("/view/letter/letter1");
     }
 	
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-    	loadpage("/view/login/info");
+    	if(check ==1) {
+    		loadpage("/view/login/info");
+    	}
+    	else if(check ==2) {
+    		loadpage("/view/letter/letter1");
+    	}
     }
     public void loadpage( String page ) {
 		try {

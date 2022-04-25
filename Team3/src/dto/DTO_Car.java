@@ -20,6 +20,8 @@ public class DTO_Car {
 	private int m_number;
 	
 	public DTO_Car() {}
+	
+	
 
 	public DTO_Car(int c_number, String c_title, String c_content, String c_date, String c_img, int c_category,
 			int c_price, String c_cnumber, int c_view, int c_condition, int c_km, int c_fuel, int c_mission,
@@ -169,4 +171,7 @@ public class DTO_Car {
 	public void setC_com(String c_com) {
 		this.c_com = c_com;
 	}
+	
+	
+	
 }
