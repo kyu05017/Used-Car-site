@@ -59,8 +59,7 @@ public class board implements Initializable{
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-    	System.out.println(Login.member.getM_number());
-    	System.out.println(board_check);
+
     	bt_write.setVisible(false);
     	
     	if(board_check == 1) {
