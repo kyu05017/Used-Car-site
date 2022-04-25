@@ -1,8 +1,8 @@
-package dao;
+package DAO;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import dto.DTO_Member;
+import DTO.DTO_Member;
 
 public class DAO_Member extends Dao{
 	

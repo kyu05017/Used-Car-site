@@ -1,7 +1,7 @@
-package dao;
+package DAO;
 
 import control.board.board;
-import dto.DTO_Board;
+import DTO.DTO_Board;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

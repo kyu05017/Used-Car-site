@@ -1,14 +1,11 @@
 package control.board;
 
 import java.net.URL;
-
 import java.util.ResourceBundle;
-
 import control.Home;
 import control.login.Login;
-
-import dao.DAO_Board;
-import dto.DTO_Board;
+import DAO.DAO_Board;
+import DTO.DTO_Board;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -75,7 +72,7 @@ public class board implements Initializable{
     	}
     	ObservableList<DTO_Board> boardlist = DAO_Board.bdao.list(board_check);
 
-		TableColumn<?, ?> 
+		TableColumn<?, ?>
 		tc = table.getColumns().get(0);
 		tc.setCellValueFactory(new PropertyValueFactory<>("b_number"));
 		

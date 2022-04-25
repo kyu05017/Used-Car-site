@@ -8,8 +8,8 @@ import java.util.ResourceBundle;
 
 import control.Home;
 import control.login.Login;
-import dao.DAO_Car;
-import dto.DTO_Car;
+import DAO.DAO_Car;
+import DTO.DTO_Car;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

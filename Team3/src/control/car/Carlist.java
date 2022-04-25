@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import control.Home;
-import dao.DAO_Car;
-import dto.DTO_Car;
+import DAO.DAO_Car;
+import DTO.DTO_Car;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.fxml.FXML;

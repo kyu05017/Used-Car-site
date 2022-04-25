@@ -5,11 +5,11 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import control.login.Login;
-import dao.DAO_Board;
-import dao.DAO_Member;
-import dao.DAO_Reply;
-import dto.DTO_Reply;
-import dto.Reply;
+import DAO.DAO_Board;
+import DAO.DAO_Member;
+import DAO.DAO_Reply;
+import DTO.DTO_Reply;
+import DTO.Reply;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

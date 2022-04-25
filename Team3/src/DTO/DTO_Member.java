@@ -1,4 +1,4 @@
-package dto;
+package DTO;
 
 public class DTO_Member { 
 	

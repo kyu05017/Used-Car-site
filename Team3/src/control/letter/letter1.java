@@ -5,8 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import control.login.Login;
-import dao.DAO_Letter;
-import dto.DTO_Letter;
+import DAO.DAO_Letter;
+import DTO.DTO_Letter;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

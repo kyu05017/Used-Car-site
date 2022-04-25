@@ -1,7 +1,7 @@
-package dao;
+package DAO;
 
-import dto.DTO_Letter;
-import dto.DTO_Reply;
+import DTO.DTO_Letter;
+import DTO.DTO_Reply;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
