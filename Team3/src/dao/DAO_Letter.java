@@ -29,7 +29,7 @@ public class DAO_Letter extends Dao{
 	public ObservableList<DTO_Letter> letters(int m_number){
 		ObservableList<DTO_Letter> letterlist = FXCollections.observableArrayList();
 		try {
-			String sql = "select * from letter where m_number= ? order by l_number desc";
+			String sql = "SELECT * FROM TEAM3.letter where m_number=? group by C_number";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, m_number);
 			rs = ps.executeQuery();
