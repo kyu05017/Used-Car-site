@@ -9,6 +9,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 import control.board.Admin_board;
+import control.board.board;
 import control.car.Carlist;
 import control.login.Login;
 import control.login.Mypage;
@@ -100,11 +101,13 @@ public class Home implements Initializable{
     }
     @FXML
     void act_freeboard(MouseEvent event) {
+    	board.board_check = 2;
     	loadpage("/view/board/main_board");
     }
     
     @FXML
     void act_notice(MouseEvent event) {
+    	board.board_check = 1;
     	loadpage("/view/board/admin_board");
     }
     

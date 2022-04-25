@@ -3,6 +3,7 @@ package control.board;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import control.Home;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -44,7 +45,7 @@ public class Main_board implements Initializable{
     @FXML
     void act_notice(MouseEvent event) {
     	board.board_check = 1;
-    	loadpage("/view/board/board_view");
+    	Home.home.loadpage("/view/board/admin_board");
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
