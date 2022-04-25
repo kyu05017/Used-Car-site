@@ -59,6 +59,8 @@ public class board implements Initializable{
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+    	System.out.println(Login.member.getM_number());
+    	System.out.println(board_check);
     	bt_write.setVisible(false);
     	
     	if(board_check == 1) {
@@ -73,8 +75,20 @@ public class board implements Initializable{
     		board_name.setText("자유 게시판");
     		bt_write.setVisible(true);
     	}
-    	ObservableList<DTO_Board> boardlist = DAO_Board.bdao.list(board_check);
-
+    	else if(board_check == 2){
+    		board_name.setText("문의사항");
+    		bt_write.setVisible(true);
+    	}
+    	
+    	ObservableList<DTO_Board> boardlist = null;
+    	
+    	if(board_check == 3) {
+    		boardlist = DAO_Board.bdao.list2(board_check,Login.member.getM_number());
+    	}
+    	else {
+    		boardlist = DAO_Board.bdao.list(board_check);
+    	}
+    	
 		TableColumn<?, ?> 
 		tc = table.getColumns().get(0);
 		tc.setCellValueFactory(new PropertyValueFactory<>("b_number"));
@@ -94,7 +108,7 @@ public class board implements Initializable{
 			board = table.getSelectionModel().getSelectedItem();
 			DAO_Board.bdao.view(board.getB_number(), board.getB_view());
 			System.out.println(board_check);
-			if(board_check == 1) {
+			if(board_check == 1 || board_check == 3) {
 				Admin_board.admin_board.loadpage("/view/board/board_read");
 			}
 			else if(board_check == 2) {

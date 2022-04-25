@@ -73,7 +73,7 @@ public class Read implements Initializable{
     
     @FXML
     void back(ActionEvent event) {
-    	if(board.board_check == 1) {
+    	if(board.board_check == 1 || board.board_check == 3) {
     		Admin_board.admin_board.loadpage("/view/board/board_view");
 		}
 		else if(board.board_check == 2){
@@ -222,6 +222,9 @@ public class Read implements Initializable{
 		}
 		else if(board.board_check == 2){
 			lbl_board_title.setText("자유게시판");
+		}
+		else if(board.board_check == 2){
+			lbl_board_title.setText("내 문의 사항");
 		}
 		String writer = DAO_Member.mdao.get_id(board.board.getM_number());
 		if(writer == null) {

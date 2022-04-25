@@ -52,6 +52,32 @@ public class DAO_Board extends Dao {
 		}
 		return null;
 	}
+	//자유게시판 글 호출 메소드
+		public ObservableList<DTO_Board> list2(int b_number,int m_number){
+			ObservableList<DTO_Board> boardlist = FXCollections.observableArrayList();
+			try {
+				String sql = "select * from board where b_gr=? and m_number =? order by b_number desc";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, b_number);
+				ps.setInt(2, m_number);
+				rs=ps.executeQuery();
+				while(rs.next()) {
+					DTO_Board board = new DTO_Board(rs.getInt(1),
+							rs.getString(2),
+							rs.getString(3),
+							rs.getString(4),
+							rs.getInt(5),
+							rs.getInt(6),
+							rs.getInt(7)
+							);
+					boardlist.add(board);
+				}		
+				return boardlist;
+			}catch(Exception e) {
+				System.out.println( "DAO_Board 글호출 오류 "+e  );
+			}
+			return null;
+		}
 	//자유게시판 글 삭제 메소드
 	public boolean delete(int b_number) {
 		try {

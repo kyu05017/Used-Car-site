@@ -44,10 +44,12 @@ public class Write implements Initializable{
     	
     	DTO_Board dto_Board = new DTO_Board(0, b_title, b_content, null, Login.member.getM_number(), board.board_check,0);
     	
+    	
     	boolean result = DAO_Board.bdao.write(dto_Board);
+    	
     	if(result) {
     		Alert alert = new Alert(AlertType.INFORMATION);
-    		alert.setHeaderText("글작성되었습니다");
+    		alert.setHeaderText("작성되었습니다");
     		alert.showAndWait();
     		Main_board.main_board.loadpage("/view/board/board_view");
     	}else {
@@ -67,6 +69,10 @@ public class Write implements Initializable{
     	}
     	else if(board.board_check == 2){
     		lbl_title.setText("자유 게시판");
+
+    	}
+    	else if(board.board_check == 3){
+    		lbl_title.setText("문의사항");
 
     	}
     }

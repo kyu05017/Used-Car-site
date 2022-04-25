@@ -4,12 +4,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import control.Home;
+import control.login.Login;
 import control.login.Mypage;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
@@ -37,17 +40,32 @@ public class Admin_board implements Initializable{
     
     @FXML
     void act_QnA(MouseEvent event) {
-    	
-    }
-
-    @FXML
-    void act_car_qna(MouseEvent event) {
-    	
+		if(Login.member != null) {
+			board.board_check = 3;
+			Admin_board.admin_board.loadpage("/view/board/write");
+    	}
+    	else {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("알림창");
+    		alert2.setHeaderText(" 로그인 후 이용 가능합니다. ");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    	}
     }
 
     @FXML
     void act_myQna(MouseEvent event) {
-    	
+    	if(Login.member != null) {
+    		board.board_check = 3;
+        	Admin_board.admin_board.loadpage("/view/board/board_view");
+    	}
+    	else {
+    		Alert alert2 = new Alert(AlertType.INFORMATION);
+    		alert2.setTitle("알림창");
+    		alert2.setHeaderText(" 로그인 후 이용 가능합니다. ");
+    		alert2.setContentText("확인");
+    		alert2.showAndWait();
+    	}
     }	
 
     @FXML
