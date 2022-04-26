@@ -55,17 +55,18 @@ public class DAO_Letter extends Dao{
 		}
 		return null;
 	}
-	public ArrayList<DTO_Letter> get(int c_number,int m_number) {
+	public ArrayList<DTO_Letter> get(int c_number,int m_number,String id) {
 		
 		try {
 
 			ArrayList<DTO_Letter> datelsit = new ArrayList<>();
 
-			String sql = "SELECT * FROM letter  where C_number = ? and m_number = ?";
+			String sql = "SELECT * FROM letter  where C_number = ? and ( m_number = ? or m_id = ? )";
 
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, c_number);
 			ps.setInt(2, m_number);
+			ps.setString(3, id);
 			rs =  ps.executeQuery();
 
 			while(rs.next()) {

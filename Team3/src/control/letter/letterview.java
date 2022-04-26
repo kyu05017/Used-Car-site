@@ -45,7 +45,7 @@ import javafx.scene.text.Text;
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
 			
-			ArrayList<DTO_Letter> letters = DAO_Letter.dao_Letter.get(letter1.letter.getC_number(),letter1.letter.getM_number());
+			ArrayList<DTO_Letter> letters = DAO_Letter.dao_Letter.get(letter1.letter.getC_number(),letter1.letter.getM_number(),Login.member.getM_id());
 			
 			for(DTO_Letter temp : letters) {
 				if(temp.getM_number() == Login.member.getM_number()) {
