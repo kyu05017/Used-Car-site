@@ -44,15 +44,14 @@ import javafx.scene.text.Text;
 
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
-			System.out.println(letter1.letter.getM_number());
-			System.out.println(letter1.letter.getC_number());
+			
 			ArrayList<DTO_Letter> letters = DAO_Letter.dao_Letter.get(letter1.letter.getC_number(),letter1.letter.getM_number());
 			
 			for(DTO_Letter temp : letters) {
 				if(temp.getM_number() == Login.member.getM_number()) {
 					txtcontentlist.appendText(Login.member.getM_id()+" : "+ temp.getL_content() + "\n");
 				}
-				else {
+				else if(temp.getM_id().equals(Login.member.getM_id())){
 					txtcontentlist.appendText("µô·¯ : "+ temp.getL_content() + "\n");
 				}
 				System.out.println(temp.getL_content());
