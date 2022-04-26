@@ -6,7 +6,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane fx:id="info_board" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.board.Admin_board">
    <left>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -15,15 +14,11 @@
                <font>
                   <Font name="Malgun Gothic Bold" size="18.0" />
                </font></Label>
-            <Label fx:id="QnA" layoutX="44.0" layoutY="258.0" onMouseClicked="#act_QnA" prefHeight="29.0" prefWidth="79.0" text="문의" textFill="MEDIUMAQUAMARINE">
+            <Label fx:id="QnA" layoutX="44.0" layoutY="278.0" onMouseClicked="#act_QnA" prefHeight="29.0" prefWidth="79.0" text="문의" textFill="MEDIUMAQUAMARINE">
                <font>
                   <Font name="Malgun Gothic Bold" size="18.0" />
                </font></Label>
-            <Label fx:id="car_qna" layoutX="44.0" layoutY="317.0" onMouseClicked="#act_car_qna" prefHeight="27.0" prefWidth="113.0" text="딜러 상담" textFill="MEDIUMAQUAMARINE">
-               <font>
-                  <Font name="Malgun Gothic Bold" size="18.0" />
-               </font></Label>
-            <Label fx:id="myQna" layoutX="44.0" layoutY="369.0" onMouseClicked="#act_myQna" prefHeight="29.0" prefWidth="68.0" text="내 문의" textFill="MEDIUMAQUAMARINE">
+            <Label fx:id="myQna" layoutX="44.0" layoutY="349.0" onMouseClicked="#act_myQna" prefHeight="29.0" prefWidth="68.0" text="내 문의" textFill="MEDIUMAQUAMARINE">
                <font>
                   <Font name="Malgun Gothic Bold" size="18.0" />
                </font></Label>

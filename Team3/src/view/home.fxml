@@ -22,7 +22,7 @@
                   <Image url="@../img/carlogo.png" />
                </image>
             </ImageView>
-            <TextField layoutX="409.0" layoutY="69.0" prefHeight="38.0" prefWidth="336.0" promptText="모델명을 입력해주세요">
+            <TextField fx:id="txt_search" layoutX="409.0" layoutY="69.0" onAction="#act_search2" prefHeight="38.0" prefWidth="336.0" promptText="모델명을 입력해주세요">
                <font>
                   <Font name="HCR Dotum" size="14.0" />
                </font>
@@ -98,7 +98,7 @@
                   <Image url="@../img/searchicon.png" />
                </image>
             </ImageView>
-            <Button layoutX="748.0" layoutY="69.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="125.0" style="-fx-background-color: #66cdaa;" text="중고차 찾기" textFill="WHITE">
+            <Button fx:id="searching" layoutX="748.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#act_search" prefHeight="34.0" prefWidth="125.0" style="-fx-background-color: #66cdaa;" text="중고차 찾기" textFill="WHITE">
                <font>
                   <Font name="Malgun Gothic Bold" size="18.0" />
                </font>

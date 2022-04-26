@@ -1,9 +1,10 @@
 package dao;
 
-import dto.DTO_Car;
+import java.util.ArrayList;
+
 import dto.DTO_Letter;
-import dto.DTO_Member;
 import dto.DTO_Reply;
+import dto.Letter;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -28,21 +29,23 @@ public class DAO_Letter extends Dao{
 		return false;
 	}
 	
-	public ObservableList<DTO_Letter> letters(int m_number){
-		ObservableList<DTO_Letter> letterlist = FXCollections.observableArrayList();
+	public ObservableList<Letter> letters(int m_number,String id){
+		ObservableList<Letter> letterlist = FXCollections.observableArrayList();
 		try {
-			String sql = "select * from letter where m_number= ? order by l_number desc";
+			String sql = "SELECT a.*,b.c_title FROM TEAM3.letter a left join TEAM3.car b on a.c_number = b.c_number where a.m_number = ? or m_id=? group by c_cnumber";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, m_number);
+			ps.setString(2, id);
 			rs = ps.executeQuery();
 			while(rs.next()) {
-				DTO_Letter letter = new DTO_Letter(
+				Letter letter = new Letter(
 						rs.getInt(1),
 						rs.getInt(2),
 						rs.getString(3),
 						rs.getString(4),
 						rs.getString(5),
-						rs.getInt(6)
+						rs.getInt(6),
+						rs.getString(7)
 						);
 				letterlist.add(letter);
 				
@@ -52,22 +55,40 @@ public class DAO_Letter extends Dao{
 			System.out.println( "쪽지 오류 "+ e  );
 		}
 		return null;
+	}
+	public ArrayList<DTO_Letter> get(int c_number,int m_number,String id) {
 		
+		try {
+
+			ArrayList<DTO_Letter> datelsit = new ArrayList<>();
+
+			String sql = "SELECT * FROM letter  where C_number = ? and ( m_number = ? or m_id = ? )";
+
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, c_number);
+			ps.setInt(2, m_number);
+			ps.setString(3, id);
+			rs =  ps.executeQuery();
+
+			while(rs.next()) {
+				
+				DTO_Letter temp = new DTO_Letter(
+						rs.getInt(1),
+						rs.getInt(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getString(5),
+						rs.getInt(6)
+						);
+				datelsit.add(temp);
+			}
+
+			return datelsit;
+		}
+		catch (Exception e) {
+			System.out.println("[sql 연결 실패] : 사유 " + e);
+		}
+		return null;
 	}
 	
-	//답장
-	public void write(DTO_Letter dto_Letter, DTO_Member dto_Member, DTO_Car dto_Car) {
-		try {
-			String sql = "insert into letter( m_number, m_id, l_content, l_date, c_number)values(?,?,?,?,?)";
-			ps = con.prepareStatement(sql);
-			ps.setInt(1, dto_Member.getM_number());
-			ps.setString(2, dto_Member.getM_id());
-			ps.setString(3, dto_Letter.getL_content());
-			ps.setString(4, dto_Letter.getL_date());
-			ps.setInt(5, dto_Car.getC_number());
-			ps.executeUpdate();
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-	}
 }

@@ -8,8 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane fx:controller="control.letter.letterview" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.letter.letterview">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="MEDIUMAQUAMARINE" height="41.0" layoutX="112.0" layoutY="56.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="186.0" />
       <Text fx:id="txtletter" fill="WHITE" layoutX="160.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="쪽지 읽기" wrappingWidth="90.6513671875">
@@ -17,9 +16,8 @@
             <Font name="HCR Dotum" size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="txtcontent" layoutX="540.0" layoutY="180.0" prefHeight="172.0" prefWidth="350.0" promptText="내용" />
-      <Button fx:id="btnget" layoutX="150.0" layoutY="127.0" mnemonicParsing="false" onAction="#get" prefHeight="40.0" prefWidth="350.0" text="DB 호출" />
-      <Button fx:id="btnwrite" layoutX="540.0" layoutY="369.0" mnemonicParsing="false" onAction="#write" prefHeight="40.0" prefWidth="350.0" text="등록" />
-      <TextArea fx:id="txtcontentlist" layoutX="161.0" layoutY="180.0" prefHeight="254.0" prefWidth="339.0" />
+      <TextField fx:id="txtcontent" layoutX="161.0" layoutY="442.0" prefHeight="41.0" prefWidth="615.0" promptText="내용" />
+      <Button fx:id="btnwrite" layoutX="800.0" layoutY="443.0" mnemonicParsing="false" onAction="#write" prefHeight="40.0" prefWidth="91.0" text="전송" />
+      <TextArea fx:id="txtcontentlist" layoutX="161.0" layoutY="126.0" prefHeight="308.0" prefWidth="730.0" />
    </children>
 </AnchorPane>
