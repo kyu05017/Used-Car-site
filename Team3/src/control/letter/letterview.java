@@ -49,7 +49,7 @@ import javafx.scene.text.Text;
 
 		@Override
 		public void initialize(URL arg0, ResourceBundle arg1) {
-			dto.DTO_Letter letter = control.letter.letter1.letter;
+			dto.Letter letter = control.letter.letter1.letter;
 
 			txtcontentlist.setText(letter.getL_content());
 
