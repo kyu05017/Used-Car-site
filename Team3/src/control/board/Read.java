@@ -8,7 +8,6 @@ import control.login.Login;
 import dao.DAO_Board;
 import dao.DAO_Member;
 import dao.DAO_Reply;
-
 import dto.DTO_Reply;
 import dto.Reply;
 import javafx.collections.ObservableList;
@@ -74,7 +73,7 @@ public class Read implements Initializable{
     
     @FXML
     void back(ActionEvent event) {
-    	if(board.board_check == 1) {
+    	if(board.board_check == 1 || board.board_check == 3) {
     		Admin_board.admin_board.loadpage("/view/board/board_view");
 		}
 		else if(board.board_check == 2){
@@ -104,11 +103,12 @@ public class Read implements Initializable{
     	
     	if(optional.get() == ButtonType.OK) {
     		DAO_Reply.rdao.re_delete(reply.getR_number());
-//    		DAO_Board.bdao.delete(board.board.getB_number());
-    		Main_board.main_board.loadpage("/view/board/board_read");
+    		reply_show();
+    		bt_delete.setVisible(false);//버튼숨기기
+			bt_update.setVisible(false);
+			bt_rewrite1.setVisible(true);
     	}
     }
-
     @FXML
     void re_update(ActionEvent event) {
 		reply_show();
@@ -170,6 +170,7 @@ public class Read implements Initializable{
 	        		alert.setHeaderText("댓글 작성이 완료 되었습니다.");
 	        		alert.showAndWait();
 	        		txt_recontents.setText("");	
+	        		reply_show();
 	        	}
     		}
     	}
@@ -222,6 +223,9 @@ public class Read implements Initializable{
 		else if(board.board_check == 2){
 			lbl_board_title.setText("자유게시판");
 		}
+		else if(board.board_check == 2){
+			lbl_board_title.setText("내 문의 사항");
+		}
 		String writer = DAO_Member.mdao.get_id(board.board.getM_number());
 		if(writer == null) {
 			writer = "탈퇴한 회원";
@@ -271,20 +275,13 @@ public class Read implements Initializable{
 		
 		ObservableList<Reply> replyList =  DAO_Reply.rdao.list(board.board.getB_number());
 		
-		String writer = null;
-		
-		for(Reply reply : replyList) {
-			
-			writer = DAO_Member.mdao.get_id(reply.getM_number());
-			
-		}
-		
+
 		
 		TableColumn<?, ?> tc = re_talbe.getColumns().get(0);
 		tc.setCellValueFactory(new PropertyValueFactory<>("r_number"));
 		
 		tc= re_talbe.getColumns().get(1);
-		tc.setCellValueFactory(new PropertyValueFactory<>("b_number"));
+		tc.setCellValueFactory(new PropertyValueFactory<>("m_id"));
 		
 		tc= re_talbe.getColumns().get(2);
 		tc.setCellValueFactory(new PropertyValueFactory<>("r_content"));
