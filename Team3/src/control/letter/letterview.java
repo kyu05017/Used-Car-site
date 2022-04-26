@@ -85,7 +85,7 @@ import javafx.stage.Stage;
 					txtcontentlist.appendText(Login.member.getM_id()+" : "+ temp.getL_content() + "\n");
 				}
 				else if(temp.getM_id().equals(Login.member.getM_id())){
-					txtcontentlist.appendText("µô·¯ : "+ temp.getL_content() + "\n");
+					txtcontentlist.appendText(letter1.letter.getM_id()+" : "+ temp.getL_content() + "\n");
 				}
 			}
 		}
