@@ -4,6 +4,7 @@ package control.letter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import control.Home;
 import control.car.Carlist;
 import control.login.Login;
 import control.login.Mypage;
@@ -26,7 +27,11 @@ public class letter1 implements Initializable{
 
     @FXML
     private Text txtletter;
+    
+    public static letter1 letter1;
 
+	public letter1(){letter1 = this;}
+    
 	public static Letter letter;
 	
 	public static int m_gr = 0;

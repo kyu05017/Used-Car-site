@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.ArrayList;
+
 import dto.DTO_Letter;
 import dto.DTO_Reply;
 import dto.Letter;
@@ -53,6 +55,38 @@ public class DAO_Letter extends Dao{
 		}
 		return null;
 	}
-	
+	public ArrayList<DTO_Letter> get(int c_number,int m_number) {
+		
+		try {
+
+			ArrayList<DTO_Letter> datelsit = new ArrayList<>();
+
+			String sql = "SELECT * FROM letter  where C_number = ? and m_number = ?";
+
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, c_number);
+			ps.setInt(2, m_number);
+			rs =  ps.executeQuery();
+
+			while(rs.next()) {
+				
+				DTO_Letter temp = new DTO_Letter(
+						rs.getInt(1),
+						rs.getInt(2),
+						rs.getString(3),
+						rs.getString(4),
+						rs.getString(5),
+						rs.getInt(6)
+						);
+				datelsit.add(temp);
+			}
+
+			return datelsit;
+		}
+		catch (Exception e) {
+			System.out.println("[sql 연결 실패] : 사유 " + e);
+		}
+		return null;
+	}
 	
 }
