@@ -41,8 +41,9 @@ public class letter1 implements Initializable{
 
 		int m_number = Login.member.getM_number();
 		int grade = Login.member.getM_gr();
-	
-		ObservableList<Letter> letters = DAO_Letter.dao_Letter.letters(m_number);
+		String id = Login.member.getM_id();
+		
+		ObservableList<Letter> letters = DAO_Letter.dao_Letter.letters(m_number,id);
  
 		TableColumn tc = letter1board.getColumns().get(0);
 		tc.setCellValueFactory(new PropertyValueFactory<>("title"));

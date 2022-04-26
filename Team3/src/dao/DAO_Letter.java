@@ -29,12 +29,13 @@ public class DAO_Letter extends Dao{
 		return false;
 	}
 	
-	public ObservableList<Letter> letters(int m_number){
+	public ObservableList<Letter> letters(int m_number,String id){
 		ObservableList<Letter> letterlist = FXCollections.observableArrayList();
 		try {
-			String sql = "SELECT a.*,b.c_title FROM TEAM3.letter a left join TEAM3.car b on a.c_number = b.c_number where a.m_number = ? group by c_cnumber";
+			String sql = "SELECT a.*,b.c_title FROM TEAM3.letter a left join TEAM3.car b on a.c_number = b.c_number where a.m_number = ? or m_id=? group by c_cnumber";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, m_number);
+			ps.setString(2, id);
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				Letter letter = new Letter(

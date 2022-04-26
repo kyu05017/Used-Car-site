@@ -194,6 +194,10 @@ public class Home implements Initializable{
 				add_car.setVisible(true);
 				new_car.setVisible(false);
 			}
+			else {
+				add_car.setVisible(false);
+				new_car.setVisible(true);
+			}
 			lbl_logout.setVisible(true);
 			lbl_myinfo.setVisible(true);
 			lbl_login.setVisible(false);
