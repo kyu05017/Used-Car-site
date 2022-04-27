@@ -63,7 +63,7 @@ public class Carlist implements Initializable{
 			imageView.setFitHeight(100); 
 			DecimalFormat df = new DecimalFormat("#,##0원");
 			String new_price = df.format(carlist.get(i).getC_price());
-			Button button = new Button("차량명 : "+ carlist.get(i).getC_title() + "                                                                              가격 : "+ new_price + " | 주행거리 : " + carlist.get(i).getC_km() + "km |  연식 : "+ carlist.get(i).getC_year()+"년", imageView );
+			Button button = new Button("차량명 : "+ carlist.get(i).getC_title() + "               가격 : "+ new_price + " | 주행거리 : " + carlist.get(i).getC_km() + "km |  연식 : "+ carlist.get(i).getC_year()+"년", imageView );
 			button.setStyle("-fx-background-color:transparent");
 			button.setId( i+"");
 			button.setOnAction( e -> { 
