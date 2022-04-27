@@ -206,7 +206,7 @@ public class Caradd implements Initializable{
 
     		FileInputStream inputStream = new FileInputStream(file);
     		//C:\Users\504\git\Team3_04-13\Team3\src
-    		File copyfile = new File("C:/Users/504/git/Team3_04-13/Team3/src/img/" +file.getName() );
+    		File copyfile = new File("C:/a/" +file.getName() );
     		FileOutputStream outputStream = new FileOutputStream(copyfile);
     		
     		byte[] bytes = new byte[1024*1024*1024];
