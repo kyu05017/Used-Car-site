@@ -70,6 +70,7 @@ public class board implements Initializable{
     		board_name.setText("자유 게시판");
     		bt_write.setVisible(true);
     	}
+    	
     	ObservableList<DTO_Board> boardlist = DAO_Board.bdao.list(board_check);
 
 		TableColumn<?, ?>

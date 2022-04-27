@@ -9,6 +9,17 @@ public class DAO_Board extends Dao {
 	
 	public static DAO_Board bdao = new DAO_Board();
 	
+	
+//	//후기 게시판 글
+//	public boolean review(DTO_Board dto_Board) {
+//		try {String sql = "insert into board()"	
+//		}catch(Exception e){System.out.println("DAO_Board 글작성 오류 " + e); }
+//		return false; }
+	
+	
+	
+	
+	
 	//글작성
 	public boolean write(DTO_Board dto_Board) {
 		try {
@@ -26,6 +37,9 @@ public class DAO_Board extends Dao {
 		}
 		return false;
 	}
+	
+	
+	
 	//자유게시판 글 호출 메소드
 	public ObservableList<DTO_Board> list(int b_number){
 		ObservableList<DTO_Board> boardlist = FXCollections.observableArrayList();
