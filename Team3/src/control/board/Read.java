@@ -76,7 +76,7 @@ public class Read implements Initializable{
     	if(board.board_check == 1 || board.board_check == 3) {
     		Admin_board.admin_board.loadpage("/view/board/board_view");
 		}
-		else if(board.board_check == 2){
+		else if(board.board_check == 2 || board.board_check == 2){
 			Main_board.main_board.loadpage("/view/board/board_view");
 		}
     }
@@ -223,8 +223,11 @@ public class Read implements Initializable{
 		else if(board.board_check == 2){
 			lbl_board_title.setText("자유게시판");
 		}
-		else if(board.board_check == 2){
+		else if(board.board_check == 3){
 			lbl_board_title.setText("내 문의 사항");
+		}
+		else if(board.board_check == 4){
+			lbl_board_title.setText("후기게시판");
 		}
 		String writer = DAO_Member.mdao.get_id(board.board.getM_number());
 		if(writer == null) {

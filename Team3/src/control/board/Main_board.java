@@ -33,7 +33,8 @@ public class Main_board implements Initializable{
     
     @FXML
     void act_afterbuy(MouseEvent event) {
-    	
+    	board.board_check = 4;
+    	loadpage("/view/board/board_view");
     }
 
     @FXML

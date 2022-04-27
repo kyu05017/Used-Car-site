@@ -84,6 +84,15 @@ public class Home implements Initializable{
     private Button searching;
     
     @FXML
+    private Label buyreview;
+    
+    @FXML
+    void act_buyreview(MouseEvent event) {
+    	board.board_check = 4;
+    	loadpage("/view/board/main_board");
+    }
+    
+    @FXML
     void act_search(MouseEvent event) {
     	String search = txt_search.getText();
     	Carlist.carlist.show(search);

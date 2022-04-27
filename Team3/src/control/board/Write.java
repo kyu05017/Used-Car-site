@@ -51,10 +51,10 @@ public class Write implements Initializable{
     		Alert alert = new Alert(AlertType.INFORMATION);
     		alert.setHeaderText("작성되었습니다");
     		alert.showAndWait();
-    		if(board.board_check == 1) {
+    		if(board.board_check == 2 || board.board_check == 4) {
     			Main_board.main_board.loadpage("/view/board/board_view");
     		}
-    		else if(board.board_check == 3) {
+    		else if(board.board_check == 3 || board.board_check == 1) {
     			Admin_board.admin_board.loadpage("/view/board/board_view");
     		}
     		
@@ -79,6 +79,10 @@ public class Write implements Initializable{
     	}
     	else if(board.board_check == 3){
     		lbl_title.setText("문의사항");
+
+    	}
+    	else if(board.board_check == 4){
+    		lbl_title.setText("후기 게시판");
 
     	}
     }

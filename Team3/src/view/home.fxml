@@ -62,7 +62,7 @@
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="129.0" layoutY="166.0" prefHeight="32.0" prefWidth="98.0" text="판매 후기" textFill="WHITE">
+            <Label fx:id="buyreview" layoutX="129.0" layoutY="166.0" onMouseClicked="#act_buyreview" prefHeight="32.0" prefWidth="98.0" text="판매 후기" textFill="WHITE">
                <font>
                   <Font name="Malgun Gothic Bold" size="16.0" />
                </font>

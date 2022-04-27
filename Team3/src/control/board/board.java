@@ -46,10 +46,10 @@ public class board implements Initializable{
     		alert2.showAndWait();
     	}
     	else {
-    		if(board_check == 1) {
+    		if(board_check == 1 || board_check == 3) {
     			Admin_board.admin_board.loadpage("/view/board/write");
     		}
-    		else if(board_check == 2){
+    		else if(board_check == 2 || board_check == 4){
     			Main_board.main_board.loadpage("/view/board/write");
     		}
     		
@@ -76,6 +76,10 @@ public class board implements Initializable{
     	}
     	else if(board_check == 3){
     		board_name.setText("문의사항");
+    		bt_write.setVisible(true);
+    	}
+    	else if(board_check == 4){
+    		board_name.setText("후기 게시판");
     		bt_write.setVisible(true);
     	}
     	
@@ -110,7 +114,7 @@ public class board implements Initializable{
 			if(board_check == 1 || board_check == 3) {
 				Admin_board.admin_board.loadpage("/view/board/board_read");
 			}
-			else if(board_check == 2) {
+			else if(board_check == 2 || board_check == 4) {
 				Main_board.main_board.loadpage("/view/board/board_read");
 			}
 			
