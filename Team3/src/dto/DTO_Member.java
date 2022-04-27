@@ -1,5 +1,14 @@
 package dto;
 
+import java.util.Properties;
+
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 public class DTO_Member { 
 	
 	
@@ -13,6 +22,44 @@ public class DTO_Member {
 	private String m_address;
 	private String m_today;
 	private int m_gr;
+	
+	public static void sendmail(String email, String content) {
+		//보내는 사람 정보
+		String sendemail = "jin-bobae@naver.com";
+		String sendpw = "비밀번호";
+		// 호스트 설정
+		Properties properties = new Properties(); //컬렉션 프레임워크 [map컬렉션]
+		properties.put("mail.smtp.host", "smtp.naver.com"); // 호스트 주소
+		properties.put("mail.smtp.port", 587); //호스트(네이버) 포트번호
+		properties.put("mail.smtp.auth", "true"); //보내는사람이메일 인증
+		properties.put("mail.smtp.ssl.protocols", "TLSv1.2" ); // 보안 연결 버전
+		
+		//인증
+		Session session = Session.getDefaultInstance(properties, new Authenticator() {
+			
+			@Override
+			protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
+				return new javax.mail.PasswordAuthentication(sendemail, sendpw);
+			}
+		});
+	
+		//메일보내기
+		try {
+			MimeMessage message = new MimeMessage(session);
+			message.setFrom(new InternetAddress(sendemail));
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+			
+			message.setSubject("회원님의 비밀번호를 안내드립니다.");
+			message.setText("회원님의 비밀번호 : " + content);
+			
+			Transport.send(message);
+		} catch (Exception e) {
+			System.out.println("메일전송 실패 " + e);
+		}
+	
+	
+	}
+	
 	
 	public DTO_Member() {}
 
