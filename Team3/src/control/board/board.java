@@ -74,7 +74,7 @@ public class board implements Initializable{
     		board_name.setText("자유 게시판");
     		bt_write.setVisible(true);
     	}
-    	else if(board_check == 2){
+    	else if(board_check == 3){
     		board_name.setText("문의사항");
     		bt_write.setVisible(true);
     	}

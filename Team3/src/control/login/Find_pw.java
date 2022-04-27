@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import control.Main;
 import dao.DAO_Member;
+import dto.DTO_Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -43,8 +44,12 @@ public class Find_pw implements Initializable{
 		String email = txtemail.getText();
 		String pw = DAO_Member.mdao.find_pw(id, email);
 		if(pw != null) {
+			
+			//이메일 전송
+			DTO_Member.sendmail(email, pw);
+			
 			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setHeaderText("회원님의 비밀번호는 : "+ pw);
+			alert.setHeaderText("회원님의 이메일로 비밀번호를 전송했습니다.");
 			alert.showAndWait();
 		} else { 
 			Alert alert = new Alert(AlertType.INFORMATION);
