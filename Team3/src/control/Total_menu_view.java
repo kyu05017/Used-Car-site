@@ -1,6 +1,5 @@
 package control;
 
-
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -41,6 +40,11 @@ public class Total_menu_view implements Initializable {
     @FXML
     private Label add_car;
     
+    @FXML
+    void act_carlist(MouseEvent event) {
+    	Home.home.loadpage("/view/car/carlist");
+    }
+
     @FXML
     void act_addcar(MouseEvent event) {
     	
@@ -130,7 +134,6 @@ public class Total_menu_view implements Initializable {
     	else {
     		Main.main.loadpage("/view/login/findid");
     	}
-    	
     }
     
     @FXML
@@ -151,7 +154,5 @@ public class Total_menu_view implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
     	
-    	
     }
-    
 }
