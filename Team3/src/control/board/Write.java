@@ -51,7 +51,13 @@ public class Write implements Initializable{
     		Alert alert = new Alert(AlertType.INFORMATION);
     		alert.setHeaderText("작성되었습니다");
     		alert.showAndWait();
-    		Main_board.main_board.loadpage("/view/board/board_view");
+    		if(board.board_check == 1) {
+    			Main_board.main_board.loadpage("/view/board/board_view");
+    		}
+    		else if(board.board_check == 3) {
+    			Admin_board.admin_board.loadpage("/view/board/board_view");
+    		}
+    		
     	}else {
     		Alert alert = new Alert(AlertType.INFORMATION);
     		alert.setHeaderText("게시글작성실패");
