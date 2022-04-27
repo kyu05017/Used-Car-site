@@ -25,7 +25,7 @@ public class Total_menu implements Initializable{
 			total_board.setCenter(parent);
 		}
 		catch( Exception e ) {
-			System.out.println("토탈메뉴 열기 실해 "+ e); 
+			System.out.println("토탈메뉴 열기 실행 "+ e); 
 		}
 	}
 }

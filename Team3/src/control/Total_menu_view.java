@@ -41,6 +41,11 @@ public class Total_menu_view implements Initializable {
     private Label add_car;
     
     @FXML
+    void act_carlist(MouseEvent event) {
+    	Home.home.loadpage("/view/car/carlist");
+    }
+
+    @FXML
     void act_addcar(MouseEvent event) {
     	
     	System.out.println(Login.member.getM_gr());
