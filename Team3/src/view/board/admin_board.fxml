@@ -22,7 +22,7 @@
                <font>
                   <Font name="Malgun Gothic Bold" size="18.0" />
                </font></Label>
-            <Label fx:id="notice1" layoutX="60.0" layoutY="75.0" onMouseClicked="#act_notice" prefHeight="36.0" prefWidth="82.0" text="관리자" textFill="MEDIUMAQUAMARINE">
+            <Label fx:id="notice1" layoutX="49.0" layoutY="72.0" onMouseClicked="#act_notice" prefHeight="36.0" prefWidth="103.0" text="고객센터" textFill="MEDIUMAQUAMARINE">
                <font>
                   <Font name="Malgun Gothic Bold" size="24.0" />
                </font>
