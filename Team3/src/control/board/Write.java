@@ -44,7 +44,6 @@ public class Write implements Initializable{
     	
     	DTO_Board dto_Board = new DTO_Board(0, b_title, b_content, null, Login.member.getM_number(), board.board_check,0);
     	
-    	
     	boolean result = DAO_Board.bdao.write(dto_Board);
     	
     	if(result) {
@@ -57,9 +56,7 @@ public class Write implements Initializable{
     		alert.setHeaderText("게시글작성실패");
     		alert.showAndWait();
     	}
-    	
     }
-
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {

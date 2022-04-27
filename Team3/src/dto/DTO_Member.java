@@ -27,6 +27,7 @@ public class DTO_Member {
 		//보내는 사람 정보
 		String sendemail = "jin-bobae@naver.com";
 		String sendpw = "비밀번호";
+		
 		// 호스트 설정
 		Properties properties = new Properties(); //컬렉션 프레임워크 [map컬렉션]
 		properties.put("mail.smtp.host", "smtp.naver.com"); // 호스트 주소

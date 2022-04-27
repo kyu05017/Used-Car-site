@@ -32,12 +32,8 @@ import javafx.scene.control.ToggleGroup;
 
 public class Carview implements Initializable {
 	
-	
-	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-
-		
 		
 		//각 컨트롤에 값 넣기
 		img.setImage(new Image(Carlist.select.getC_img())); //자동차 이미지 가져와서 넣기
@@ -84,7 +80,6 @@ public class Carview implements Initializable {
 		else if(CC == 8) {
 			optcarcate8.setSelected(true);
 		}	
-		
 		
 		int fuel = Carlist.select.getC_fuel();
 		
@@ -140,6 +135,8 @@ public class Carview implements Initializable {
 		btnupdate.setVisible(false);
 		btndelete.setVisible(false);
 		
+		txtcontent.setEditable(false);
+		
 		int a = 0;
 		if(Login.member != null) {
 			a = Login.member.getM_number();
@@ -150,11 +147,7 @@ public class Carview implements Initializable {
 			btnupdate.setVisible(true);
 			btndelete.setVisible(true);
 		}
-
-		
-		
 	} 
-	
 
     @FXML
     private TextField txtcnumber;
