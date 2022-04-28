@@ -14,11 +14,11 @@ public class Dao {
 	public Dao() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://database-1.cslkca43ufc7.ap-northeast-2.rds.amazonaws.com:3306/TEAM3?serverTimezone=UTC","admin","43397275");
-			System.out.println("Main Dao DB ¿¬°á ¿Ï·á");
+			con = DriverManager.getConnection("ì£¼ì†Œ","ì•„ì´ë””","ë¹„ë°€ë²ˆí˜¸");
+			System.out.println("Main Dao DB Â¿Â¬Â°Ã¡ Â¿ÃÂ·Ã¡");
 		} 
 		catch (Exception e) {
-			System.out.println("Main Dao DB ¿¬°á ½ÇÆĞ "+ e);
+			System.out.println("Main Dao DB Â¿Â¬Â°Ã¡ Â½Ã‡Ã†Ã "+ e);
 		}
 	}	
 }
