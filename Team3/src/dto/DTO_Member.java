@@ -24,17 +24,17 @@ public class DTO_Member {
 	private int m_gr;
 	
 	public static void sendmail(String email, String content) {
-		//º¸³»´Â »ç¶÷ Á¤º¸
-		String sendemail = "kyu0501@naver.com";
-		String sendpw = "rlarla4595";
-		// È£½ºÆ® ¼³Á¤
-		Properties properties = new Properties(); //ÄÃ·º¼Ç ÇÁ·¹ÀÓ¿öÅ© [mapÄÃ·º¼Ç]
-		properties.put("mail.smtp.host", "smtp.naver.com"); // È£½ºÆ® ÁÖ¼Ò
-		properties.put("mail.smtp.port", 587); //È£½ºÆ®(³×ÀÌ¹ö) Æ÷Æ®¹øÈ£
-		properties.put("mail.smtp.auth", "true"); //º¸³»´Â»ç¶÷ÀÌ¸ŞÀÏ ÀÎÁõ
-		properties.put("mail.smtp.ssl.protocols", "TLSv1.2" ); // º¸¾È ¿¬°á ¹öÀü
+		//ë³´ë‚´ëŠ” ì‚¬ëŒ ì •ë³´
+		String sendemail = "ì´ë©”ì¼";
+		String sendpw = "ë¹„ë°€ë²ˆí˜¸";
+		// í˜¸ìŠ¤íŠ¸ ì„¤ì •
+		Properties properties = new Properties(); //ì»¬ë ‰ì…˜ í”„ë ˆì„ì›Œí¬ [mapì»¬ë ‰ì…˜]
+		properties.put("mail.smtp.host", "smtp.naver.com"); // í˜¸ìŠ¤íŠ¸ ì£¼ì†Œ
+		properties.put("mail.smtp.port", 587); //í˜¸ìŠ¤íŠ¸(ë„¤ì´ë²„) í¬íŠ¸ë²ˆí˜¸
+		properties.put("mail.smtp.auth", "true"); //ë³´ë‚´ëŠ”ì‚¬ëŒì´ë©”ì¼ ì¸ì¦
+		properties.put("mail.smtp.ssl.protocols", "TLSv1.2" ); // ë³´ì•ˆ ì—°ê²° ë²„ì „
 		
-		//ÀÎÁõ
+		//ì¸ì¦
 		Session session = Session.getDefaultInstance(properties, new Authenticator() {
 			
 			@Override
@@ -43,18 +43,18 @@ public class DTO_Member {
 			}
 		});
 	
-		//¸ŞÀÏº¸³»±â
+		//ë©”ì¼ë³´ë‚´ê¸°
 		try {
 			MimeMessage message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(sendemail));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
 			
-			message.setSubject("È¸¿ø´ÔÀÇ ºñ¹Ğ¹øÈ£¸¦ ¾È³»µå¸³´Ï´Ù.");
-			message.setText("È¸¿ø´ÔÀÇ ºñ¹Ğ¹øÈ£ : " + content);
+			message.setSubject("íšŒì›ë‹˜ì˜ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì•ˆë‚´ë“œë¦½ë‹ˆë‹¤.");
+			message.setText("íšŒì›ë‹˜ì˜ ë¹„ë°€ë²ˆí˜¸ : " + content);
 			
 			Transport.send(message);
 		} catch (Exception e) {
-			System.out.println("¸ŞÀÏÀü¼Û ½ÇÆĞ " + e);
+			System.out.println("ë©”ì¼ì „ì†¡ ì‹¤íŒ¨ " + e);
 		}
 	
 	
